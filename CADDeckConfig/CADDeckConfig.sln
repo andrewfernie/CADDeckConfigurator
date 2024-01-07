@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CADDeckConfig", "CADDeckConfig.csproj", "{A2C2B927-EEBD-4DF8-9F83-3641B9BC07C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiFiUserControl", "..\WiFiUserControl\WiFiUserControl.csproj", "{11F68FE8-C2FF-4A3D-9883-6EDF6A1376D8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7B3EB060-A7B8-441E-AAD9-DEB49AC47602} = {7B3EB060-A7B8-441E-AAD9-DEB49AC47602}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButtonMenuUserControl", "..\ucButtonMenu\ButtonMenuUserControl.csproj", "{142D7A38-13B4-471B-B4C6-F024394DE6DA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7B3EB060-A7B8-441E-AAD9-DEB49AC47602} = {7B3EB060-A7B8-441E-AAD9-DEB49AC47602}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CADProgramConfigUserControl", "..\ucCADProgramConfig\CADProgramConfigUserControl.csproj", "{378F4C09-856D-4CE0-B200-5913655C5BE5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7B3EB060-A7B8-441E-AAD9-DEB49AC47602} = {7B3EB060-A7B8-441E-AAD9-DEB49AC47602}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralUserControl", "..\GeneralUserControl\GeneralUserControl.csproj", "{57211637-09C7-4C51-89AC-20A2D9D91567}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7B3EB060-A7B8-441E-AAD9-DEB49AC47602} = {7B3EB060-A7B8-441E-AAD9-DEB49AC47602}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "..\Helpers\Helpers.csproj", "{7B3EB060-A7B8-441E-AAD9-DEB49AC47602}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CADDeckConfiguratorSetup", "..\CADDeckConfiguratorSetup\CADDeckConfiguratorSetup.vdproj", "{5C15ED55-351E-481A-9371-C603FB3C0015}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2C2B927-EEBD-4DF8-9F83-3641B9BC07C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C2B927-EEBD-4DF8-9F83-3641B9BC07C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C2B927-EEBD-4DF8-9F83-3641B9BC07C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C2B927-EEBD-4DF8-9F83-3641B9BC07C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F68FE8-C2FF-4A3D-9883-6EDF6A1376D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F68FE8-C2FF-4A3D-9883-6EDF6A1376D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F68FE8-C2FF-4A3D-9883-6EDF6A1376D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F68FE8-C2FF-4A3D-9883-6EDF6A1376D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{142D7A38-13B4-471B-B4C6-F024394DE6DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{142D7A38-13B4-471B-B4C6-F024394DE6DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{142D7A38-13B4-471B-B4C6-F024394DE6DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{142D7A38-13B4-471B-B4C6-F024394DE6DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{378F4C09-856D-4CE0-B200-5913655C5BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{378F4C09-856D-4CE0-B200-5913655C5BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{378F4C09-856D-4CE0-B200-5913655C5BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{378F4C09-856D-4CE0-B200-5913655C5BE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57211637-09C7-4C51-89AC-20A2D9D91567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57211637-09C7-4C51-89AC-20A2D9D91567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57211637-09C7-4C51-89AC-20A2D9D91567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57211637-09C7-4C51-89AC-20A2D9D91567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B3EB060-A7B8-441E-AAD9-DEB49AC47602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B3EB060-A7B8-441E-AAD9-DEB49AC47602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B3EB060-A7B8-441E-AAD9-DEB49AC47602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B3EB060-A7B8-441E-AAD9-DEB49AC47602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C15ED55-351E-481A-9371-C603FB3C0015}.Debug|Any CPU.ActiveCfg = Debug
+		{5C15ED55-351E-481A-9371-C603FB3C0015}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3B7BBC5-4DC7-44F8-B26E-F990B8C5A4A8}
+	EndGlobalSection
+EndGlobal
