@@ -72,11 +72,6 @@ namespace CADDeckConfig
             return folder_ok;
         }
 
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonOpenFileDialog cofd = new CommonOpenFileDialog();
