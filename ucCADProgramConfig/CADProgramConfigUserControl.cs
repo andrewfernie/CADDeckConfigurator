@@ -42,7 +42,7 @@ namespace CADProgramConfigUserControl
 
             string json_string = File.ReadAllText(project_folder + file_name);
             json_structure = JsonSerializer.Deserialize<CJSONCADParams>(json_string);
-            
+
             data_changed = false;
 
             number_of_programs = json_structure.programs.Length;
@@ -53,8 +53,53 @@ namespace CADProgramConfigUserControl
             }
 
             current_program = json_structure.current_program;
-            
+
             cbCADProgram.SelectedIndex = current_program;
+
+            // Check for missing buttons and create them as needed.
+            const int num_buttons =11;
+            for (int i = 0; i < number_of_programs; i++)
+            {
+                if (json_structure.programs[i].buttons == null)
+                {
+                    var btns = new Button[num_buttons];
+                    for (int j = 0; j < num_buttons; j++)
+                    {
+                        var btn = new Button();
+                        btn.name = "B" + j.ToString();
+                        btn.description = "B" + j.ToString();
+                        btn.actionarray = new string[3] { "0", "0", "0" };
+                        btn.valuearray = new string[3] { "0", "0", "0" }; ;
+
+                        btns[j] = btn;
+
+                    }
+                    json_structure.programs[i].buttons = btns;
+                }
+
+            }
+            // Check for missing LCDKnob buttons and create them as needed.
+            const int num_lcd_buttons = 7;
+            for (int i = 0; i < number_of_programs; i++)
+            {
+                if (json_structure.programs[i].lcdknob_buttons == null)
+                {
+                    var lcdbtns = new Lcdknob_Buttons[num_lcd_buttons];
+                    for (int j = 0; j < num_lcd_buttons; j++)
+                    {
+                        var lcdbtn = new Lcdknob_Buttons();
+                        lcdbtn.name = "B" + j.ToString();
+                        lcdbtn.description = "B" + j.ToString();
+                        lcdbtn.actionarray = new string[3] { "0", "0", "0" };
+                        lcdbtn.valuearray = new string[3] { "0", "0", "0" }; ;
+
+                        lcdbtns[j] = lcdbtn;
+
+                    }
+                    json_structure.programs[i].lcdknob_buttons = lcdbtns;
+                }
+
+            }
 
             rbHW_0to3.Select();
             SetLabels(0, 0);
@@ -63,7 +108,7 @@ namespace CADProgramConfigUserControl
             InitializeActions();
             InitializeValues();
             InitializeMiscControls();
-           
+
         }
         public void InitializeText()
         {
@@ -660,7 +705,7 @@ namespace CADProgramConfigUserControl
 
         private void tbScaleX_Leave(object sender, EventArgs e)
         {
-            json_structure.joy_scale_x = (float) Convert.ToDouble(tbScaleX.Text);
+            json_structure.joy_scale_x = (float)Convert.ToDouble(tbScaleX.Text);
             data_changed = true;
 
         }
@@ -702,7 +747,7 @@ namespace CADProgramConfigUserControl
 
         private void tbXYSensitivity_Leave(object sender, EventArgs e)
         {
-            json_structure.joy_sensitivity = Int32.Parse(tbXYSensitivity.Text); 
+            json_structure.joy_sensitivity = Int32.Parse(tbXYSensitivity.Text);
             data_changed = true;
 
         }
@@ -716,7 +761,7 @@ namespace CADProgramConfigUserControl
 
         private void tbRotateSensitivity_Leave(object sender, EventArgs e)
         {
-            json_structure.rotate_sensitivity = Int32.Parse(tbRotateSensitivity.Text); 
+            json_structure.rotate_sensitivity = Int32.Parse(tbRotateSensitivity.Text);
             data_changed = true;
         }
 

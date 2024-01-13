@@ -16,18 +16,27 @@ namespace CADDeckConfig
             InitializeComponent();
         }
 
-        
+   
         private void Form1_Load(object sender, EventArgs e)
         {
+            string message = "";
             project_folder = Properties.Settings.Default.project_folder;
-            if (CheckFolderStructure(project_folder))
+            message = CheckFolderStructure(project_folder);
+            if (message == "")
             {
+     
                 LoadData();
             }
-         }
+            else
+            {
+                MessageBox.Show("Invalid project folder structure\n" + message);
+            }
+        }
 
         private void LoadData()
         {
+            this.Text = "CADDeck Configurator - " + project_folder;
+            
             string wifi_fileName = "\\config\\wificonfig.json";
             this.wiFiConfigUserControl.LoadJsonFile(project_folder, wifi_fileName);
 
@@ -41,45 +50,62 @@ namespace CADDeckConfig
             string cadparams_fileName = "\\config\\cadparams.json";
             this.cadProgramConfigUserControl.LoadJsonFile(project_folder, cadparams_fileName);
         }
-        private bool CheckFolderStructure(string folder)
+        private string CheckFolderStructure(string folder)
         {
-            bool folder_ok = true;
+
+            string message = "";
 
             if (!Directory.Exists(folder))
-                folder_ok = false;
+            {
+                message += "\nFolder " + folder + " missing.";
+            }
             else
             {
                 if (!Directory.Exists(folder + "\\config"))
-                    folder_ok = false;
-                else if (!Directory.Exists(folder + "\\logos"))
-                    folder_ok = false;
-                else if (!File.Exists(folder + "\\config\\wificonfig.json"))
-                    folder_ok = false;
-                else if (!File.Exists(folder + "\\config\\general.json"))
-                    folder_ok = false;
-                else if (!File.Exists(folder + "\\config\\cadparams.json"))
-                    folder_ok = false;
-                else
                 {
-                    for (int i = 0; i < NUM_MENU_FILES; i++)
+                    message += "\nFolder " + folder + "\\config missing.";
+                }
+
+                if (!Directory.Exists(folder + "\\logos"))
+                {
+                    message += "\nFolder " + folder + "\\logos missing.";
+                }
+                if (!File.Exists(folder + "\\config\\wificonfig.json"))
+                {
+                    message += "\nFile \\config\\wificonfig.json missing.";
+                }
+                if (!File.Exists(folder + "\\config\\general.json"))
+                {
+                    message += "\nFile \\config\\general.json missing.";
+                }
+                if (!File.Exists(folder + "\\config\\cadparams.json"))
+                {
+                    message += "\nFile \\config\\cadparams.json missing.";
+                }
+
+                for (int i = 0; i < NUM_MENU_FILES; i++)
+                {
+                    if (!File.Exists(folder + "\\config\\menu" + i.ToString() + ".json"))
                     {
-                        if (!File.Exists(folder + "\\config\\menu" + i.ToString() + ".json"))
-                            folder_ok = false;
+                        message += "\nFile \\config\\menu" + i.ToString() + ".json missing.";
                     }
+
                 }
             }
 
-            return folder_ok;
+            return message;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CommonOpenFileDialog cofd = new CommonOpenFileDialog();
             cofd.IsFolderPicker = true;
-            if(cofd.ShowDialog()== CommonFileDialogResult.Ok)
+            if (cofd.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 string folder = cofd.FileName;
-                if (CheckFolderStructure(folder))
+                string message = "";
+                message = CheckFolderStructure(folder);
+                if ( message == "")
                 {
                     project_folder = folder;
                     Properties.Settings.Default.project_folder = project_folder;
@@ -88,11 +114,11 @@ namespace CADDeckConfig
                 }
                 else
                 {
-                    MessageBox.Show("Invalid project folder structure");
+                    MessageBox.Show("Invalid project folder structure\n" + message);
                 }
             }
         }
-  
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -100,7 +126,7 @@ namespace CADDeckConfig
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to close?", "Infomate", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (MessageBox.Show("Are you sure you want to close?", "CADDeckConfig", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 e.Cancel = true;
             }
