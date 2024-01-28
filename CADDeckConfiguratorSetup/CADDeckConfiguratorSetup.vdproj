@@ -39,6 +39,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_082079DCD90CC891EEB66BC4028FB3B4"
+        "OwnerKey" = "8:_C1653CD3A9AA4BABAB0944520DA7C241"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_08E0BF2D50996A816841B2E0790E07DC"
+        "OwnerKey" = "8:_C1653CD3A9AA4BABAB0944520DA7C241"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_09FD26BFDDC95EB89EB2EE157CE5388B"
         "OwnerKey" = "8:_E228413A292893BDE1B9E21DF7155806"
         "MsmSig" = "8:_UNDEFINED"
@@ -70,30 +82,6 @@
         "Entry"
         {
         "MsmKey" = "8:_0C9B92112BFED74C60F7D1FFD78BE241"
-        "OwnerKey" = "8:_C1653CD3A9AA4BABAB0944520DA7C241"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1C1C94C9EFF5793CE494701DD74DBB2F"
-        "OwnerKey" = "8:_580337D100CF918CDC52204A0B50D4B5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1C1C94C9EFF5793CE494701DD74DBB2F"
-        "OwnerKey" = "8:_7E837BF46CE5A13C65A2D7DCC3999EBC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1C1C94C9EFF5793CE494701DD74DBB2F"
-        "OwnerKey" = "8:_AE9B7552A4A9840685C6736985F50AE7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1C1C94C9EFF5793CE494701DD74DBB2F"
         "OwnerKey" = "8:_C1653CD3A9AA4BABAB0944520DA7C241"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -141,7 +129,25 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_580337D100CF918CDC52204A0B50D4B5"
+        "MsmKey" = "8:_763F32F8CFA1A103072756BE6B71773C"
+        "OwnerKey" = "8:_08E0BF2D50996A816841B2E0790E07DC"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_763F32F8CFA1A103072756BE6B71773C"
+        "OwnerKey" = "8:_BD15FA411605F9B293D554E7D1C00715"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_763F32F8CFA1A103072756BE6B71773C"
+        "OwnerKey" = "8:_082079DCD90CC891EEB66BC4028FB3B4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_763F32F8CFA1A103072756BE6B71773C"
         "OwnerKey" = "8:_C1653CD3A9AA4BABAB0944520DA7C241"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -159,13 +165,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_7E837BF46CE5A13C65A2D7DCC3999EBC"
-        "OwnerKey" = "8:_C1653CD3A9AA4BABAB0944520DA7C241"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_AE9B7552A4A9840685C6736985F50AE7"
+        "MsmKey" = "8:_BD15FA411605F9B293D554E7D1C00715"
         "OwnerKey" = "8:_C1653CD3A9AA4BABAB0944520DA7C241"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -238,19 +238,19 @@
         "Entry"
         {
         "MsmKey" = "8:_EDDF80E1F3573F269E25A25A8DB46915"
-        "OwnerKey" = "8:_7E837BF46CE5A13C65A2D7DCC3999EBC"
+        "OwnerKey" = "8:_BD15FA411605F9B293D554E7D1C00715"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_EDDF80E1F3573F269E25A25A8DB46915"
-        "OwnerKey" = "8:_AE9B7552A4A9840685C6736985F50AE7"
+        "OwnerKey" = "8:_082079DCD90CC891EEB66BC4028FB3B4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_EDDF80E1F3573F269E25A25A8DB46915"
-        "OwnerKey" = "8:_580337D100CF918CDC52204A0B50D4B5"
+        "OwnerKey" = "8:_08E0BF2D50996A816841B2E0790E07DC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -286,25 +286,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7E837BF46CE5A13C65A2D7DCC3999EBC"
+        "OwnerKey" = "8:_BD15FA411605F9B293D554E7D1C00715"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AE9B7552A4A9840685C6736985F50AE7"
+        "OwnerKey" = "8:_082079DCD90CC891EEB66BC4028FB3B4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_580337D100CF918CDC52204A0B50D4B5"
+        "OwnerKey" = "8:_08E0BF2D50996A816841B2E0790E07DC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_1C1C94C9EFF5793CE494701DD74DBB2F"
+        "OwnerKey" = "8:_763F32F8CFA1A103072756BE6B71773C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -505,6 +505,68 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_082079DCD90CC891EEB66BC4028FB3B4"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:ButtonMenuUserControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_082079DCD90CC891EEB66BC4028FB3B4"
+                    {
+                    "Name" = "8:ButtonMenuUserControl.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:ButtonMenuUserControl.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_A2AF60F7962B4ADA9ABAE508FF478048"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_08E0BF2D50996A816841B2E0790E07DC"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:GeneralUserControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_08E0BF2D50996A816841B2E0790E07DC"
+                    {
+                    "Name" = "8:GeneralUserControl.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:GeneralUserControl.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_A2AF60F7962B4ADA9ABAE508FF478048"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_09FD26BFDDC95EB89EB2EE157CE5388B"
             {
             "AssemblyRegister" = "3:1"
@@ -550,37 +612,6 @@
                     }
                 }
             "SourcePath" = "8:Microsoft.WindowsAPICodePack.Shell.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_A2AF60F7962B4ADA9ABAE508FF478048"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1C1C94C9EFF5793CE494701DD74DBB2F"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_1C1C94C9EFF5793CE494701DD74DBB2F"
-                    {
-                    "Name" = "8:Helpers.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Helpers.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A2AF60F7962B4ADA9ABAE508FF478048"
@@ -722,20 +753,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_580337D100CF918CDC52204A0B50D4B5"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_763F32F8CFA1A103072756BE6B71773C"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:GeneralUserControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Helpers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_580337D100CF918CDC52204A0B50D4B5"
+                    "_763F32F8CFA1A103072756BE6B71773C"
                     {
-                    "Name" = "8:GeneralUserControl.dll"
+                    "Name" = "8:Helpers.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:GeneralUserControl.dll"
+            "SourcePath" = "8:Helpers.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A2AF60F7962B4ADA9ABAE508FF478048"
@@ -784,51 +815,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7E837BF46CE5A13C65A2D7DCC3999EBC"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BD15FA411605F9B293D554E7D1C00715"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:CADProgramConfigUserControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_7E837BF46CE5A13C65A2D7DCC3999EBC"
+                    "_BD15FA411605F9B293D554E7D1C00715"
                     {
                     "Name" = "8:CADProgramConfigUserControl.dll"
                     "Attributes" = "3:512"
                     }
                 }
             "SourcePath" = "8:CADProgramConfigUserControl.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_A2AF60F7962B4ADA9ABAE508FF478048"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AE9B7552A4A9840685C6736985F50AE7"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ButtonMenuUserControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_AE9B7552A4A9840685C6736985F50AE7"
-                    {
-                    "Name" = "8:ButtonMenuUserControl.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:ButtonMenuUserControl.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A2AF60F7962B4ADA9ABAE508FF478048"
@@ -1077,15 +1077,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CADDeckConfiguratorSetup"
-        "ProductCode" = "8:{001EEAB0-BDBA-4EA1-AB16-AFA4D0FBCC80}"
-        "PackageCode" = "8:{6DD05BF9-6B2C-4E93-B0C1-14503C58BACF}"
+        "ProductCode" = "8:{97607642-6F8D-4E4B-A8A8-7E10BD64AD76}"
+        "PackageCode" = "8:{66ED644A-7EE9-47C8-933E-8846061996B4}"
         "UpgradeCode" = "8:{441D36C8-D7FC-4F10-95AE-71993D3BF3FC}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.0"
+        "ProductVersion" = "8:1.0.1"
         "Manufacturer" = "8:Default Company Name"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -1613,7 +1613,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_C1653CD3A9AA4BABAB0944520DA7C241"
             {
-            "SourcePath" = "8:..\\CADDeckConfig\\obj\\Release\\CADDeckConfig.exe"
+            "SourcePath" = "8:..\\CADDeckConfig\\obj\\Debug\\CADDeckConfig.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A2AF60F7962B4ADA9ABAE508FF478048"

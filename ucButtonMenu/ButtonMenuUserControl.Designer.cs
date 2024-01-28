@@ -322,6 +322,7 @@ namespace ButtonMenuUserControl
             this.lButton11Logo.Size = new System.Drawing.Size(31, 13);
             this.lButton11Logo.TabIndex = 6;
             this.lButton11Logo.Text = "Logo";
+            //////////////////
             // 
             // tbButton11Logo
             // 
@@ -329,7 +330,7 @@ namespace ButtonMenuUserControl
             this.tbButton11Logo.Name = "tbButton11Logo";
             this.tbButton11Logo.Size = new System.Drawing.Size(100, 20);
             this.tbButton11Logo.TabIndex = 7;
-            this.tbButton11Logo.DoubleClick += new System.EventHandler(this.tbButton11Logo_DoubleClick);
+            this.tbButton11Logo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // tbButton11LatchLogo
             // 
@@ -337,7 +338,7 @@ namespace ButtonMenuUserControl
             this.tbButton11LatchLogo.Name = "tbButton11LatchLogo";
             this.tbButton11LatchLogo.Size = new System.Drawing.Size(100, 20);
             this.tbButton11LatchLogo.TabIndex = 9;
-            this.tbButton11LatchLogo.DoubleClick += new System.EventHandler(this.tbButton11LatchLogo_DoubleClick);
+            this.tbButton11LatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             // 
             // lButton11LatchLogo
             // 
@@ -522,13 +523,14 @@ namespace ButtonMenuUserControl
             this.tbButton12Logo.Location = new System.Drawing.Point(79, 17);
             this.tbButton12Logo.Name = "tbButton12Logo";
             this.tbButton12Logo.Size = new System.Drawing.Size(100, 20);
-            this.tbButton12Logo.TabIndex = 7;
+            this.tbButton12Logo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // tbButton12LatchLogo
             // 
             this.tbButton12LatchLogo.Location = new System.Drawing.Point(79, 53);
             this.tbButton12LatchLogo.Name = "tbButton12LatchLogo";
             this.tbButton12LatchLogo.Size = new System.Drawing.Size(100, 20);
+            this.tbButton12LatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             this.tbButton12LatchLogo.TabIndex = 9;
             // 
             // lButton12LatchLogo
@@ -712,13 +714,16 @@ namespace ButtonMenuUserControl
             this.tbButton13Logo.Location = new System.Drawing.Point(79, 17);
             this.tbButton13Logo.Name = "tbButton13Logo";
             this.tbButton13Logo.Size = new System.Drawing.Size(100, 20);
+
             this.tbButton13Logo.TabIndex = 7;
+            this.tbButton13Logo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // tbButton13LatchLogo
             // 
             this.tbButton13LatchLogo.Location = new System.Drawing.Point(79, 53);
             this.tbButton13LatchLogo.Name = "tbButton13LatchLogo";
             this.tbButton13LatchLogo.Size = new System.Drawing.Size(100, 20);
+            this.tbButton13LatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             this.tbButton13LatchLogo.TabIndex = 9;
             // 
             // lButton13LatchLogo
@@ -903,6 +908,7 @@ namespace ButtonMenuUserControl
             this.tbButton14Logo.Name = "tbButton14Logo";
             this.tbButton14Logo.Size = new System.Drawing.Size(100, 20);
             this.tbButton14Logo.TabIndex = 7;
+            this.tbButton14Logo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // tbButton14LatchLogo
             // 
@@ -910,6 +916,7 @@ namespace ButtonMenuUserControl
             this.tbButton14LatchLogo.Name = "tbButton14LatchLogo";
             this.tbButton14LatchLogo.Size = new System.Drawing.Size(100, 20);
             this.tbButton14LatchLogo.TabIndex = 9;
+            this.tbButton14LatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             // 
             // lButton14LatchLogo
             // 
@@ -1093,6 +1100,7 @@ namespace ButtonMenuUserControl
             this.tbButton21Logo.Name = "tbButton21Logo";
             this.tbButton21Logo.Size = new System.Drawing.Size(100, 20);
             this.tbButton21Logo.TabIndex = 7;
+            this.tbButton21Logo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // tbButton21LatchLogo
             // 
@@ -1100,6 +1108,7 @@ namespace ButtonMenuUserControl
             this.tbButton21LatchLogo.Name = "tbButton21LatchLogo";
             this.tbButton21LatchLogo.Size = new System.Drawing.Size(100, 20);
             this.tbButton21LatchLogo.TabIndex = 9;
+            this.tbButton21LatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             // 
             // lButton21LatchLogo
             // 
@@ -1283,6 +1292,7 @@ namespace ButtonMenuUserControl
             this.tbButton22Logo.Name = "tbButton22Logo";
             this.tbButton22Logo.Size = new System.Drawing.Size(100, 20);
             this.tbButton22Logo.TabIndex = 7;
+            this.tbButton22Logo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // tbButton22LatchLogo
             // 
@@ -1290,6 +1300,7 @@ namespace ButtonMenuUserControl
             this.tbButton22LatchLogo.Name = "tbButton22LatchLogo";
             this.tbButton22LatchLogo.Size = new System.Drawing.Size(100, 20);
             this.tbButton22LatchLogo.TabIndex = 9;
+            this.tbButton22LatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             // 
             // lButton22LatchLogo
             // 
@@ -1473,6 +1484,7 @@ namespace ButtonMenuUserControl
             this.tbButton23Logo.Name = "tbButton23Logo";
             this.tbButton23Logo.Size = new System.Drawing.Size(100, 20);
             this.tbButton23Logo.TabIndex = 7;
+            this.tbButton23Logo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // tbButton23LatchLogo
             // 
@@ -1480,6 +1492,7 @@ namespace ButtonMenuUserControl
             this.tbButton23LatchLogo.Name = "tbButton23LatchLogo";
             this.tbButton23LatchLogo.Size = new System.Drawing.Size(100, 20);
             this.tbButton23LatchLogo.TabIndex = 9;
+            this.tbButton23LatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             // 
             // lButton23LatchLogo
             // 
@@ -1663,6 +1676,7 @@ namespace ButtonMenuUserControl
             this.tbButton24Logo.Name = "tbButton24Logo";
             this.tbButton24Logo.Size = new System.Drawing.Size(100, 20);
             this.tbButton24Logo.TabIndex = 7;
+            this.tbButton24Logo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // tbButton24LatchLogo
             // 
@@ -1670,6 +1684,7 @@ namespace ButtonMenuUserControl
             this.tbButton24LatchLogo.Name = "tbButton24LatchLogo";
             this.tbButton24LatchLogo.Size = new System.Drawing.Size(100, 20);
             this.tbButton24LatchLogo.TabIndex = 9;
+            this.tbButton24LatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             // 
             // lButton24LatchLogo
             // 
@@ -1853,6 +1868,7 @@ namespace ButtonMenuUserControl
             this.tbButton31Logo.Name = "tbButton31Logo";
             this.tbButton31Logo.Size = new System.Drawing.Size(100, 20);
             this.tbButton31Logo.TabIndex = 7;
+            this.tbButton31Logo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // tbButton31LatchLogo
             // 
@@ -1860,6 +1876,7 @@ namespace ButtonMenuUserControl
             this.tbButton31LatchLogo.Name = "tbButton31LatchLogo";
             this.tbButton31LatchLogo.Size = new System.Drawing.Size(100, 20);
             this.tbButton31LatchLogo.TabIndex = 9;
+            this.tbButton31LatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             // 
             // lButton31LatchLogo
             // 
@@ -2043,6 +2060,7 @@ namespace ButtonMenuUserControl
             this.tbButton32Logo.Name = "tbButton32Logo";
             this.tbButton32Logo.Size = new System.Drawing.Size(100, 20);
             this.tbButton32Logo.TabIndex = 7;
+            this.tbButton32Logo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // tbButton32LatchLogo
             // 
@@ -2050,6 +2068,7 @@ namespace ButtonMenuUserControl
             this.tbButton32LatchLogo.Name = "tbButton32LatchLogo";
             this.tbButton32LatchLogo.Size = new System.Drawing.Size(100, 20);
             this.tbButton32LatchLogo.TabIndex = 9;
+            this.tbButton32LatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             // 
             // lButton32LatchLogo
             // 
@@ -2233,6 +2252,7 @@ namespace ButtonMenuUserControl
             this.tbButton33Logo.Name = "tbButton33Logo";
             this.tbButton33Logo.Size = new System.Drawing.Size(100, 20);
             this.tbButton33Logo.TabIndex = 7;
+            this.tbButton33Logo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // tbButton33LatchLogo
             // 
@@ -2240,6 +2260,7 @@ namespace ButtonMenuUserControl
             this.tbButton33LatchLogo.Name = "tbButton33LatchLogo";
             this.tbButton33LatchLogo.Size = new System.Drawing.Size(100, 20);
             this.tbButton33LatchLogo.TabIndex = 9;
+            this.tbButton33LatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             // 
             // lButton33LatchLogo
             // 
@@ -2423,6 +2444,7 @@ namespace ButtonMenuUserControl
             this.tbButton34Logo.Name = "tbButton34Logo";
             this.tbButton34Logo.Size = new System.Drawing.Size(100, 20);
             this.tbButton34Logo.TabIndex = 7;
+            this.tbButton34Logo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // tbButton34LatchLogo
             // 
@@ -2430,6 +2452,7 @@ namespace ButtonMenuUserControl
             this.tbButton34LatchLogo.Name = "tbButton34LatchLogo";
             this.tbButton34LatchLogo.Size = new System.Drawing.Size(100, 20);
             this.tbButton34LatchLogo.TabIndex = 9;
+            this.tbButton34LatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             // 
             // lButton34LatchLogo
             // 
@@ -2597,6 +2620,8 @@ namespace ButtonMenuUserControl
             this.lButton34Action.Size = new System.Drawing.Size(37, 13);
             this.lButton34Action.TabIndex = 15;
             this.lButton34Action.Text = "Action";
+
+            ////////////
             // 
             // bCancel
             // 
