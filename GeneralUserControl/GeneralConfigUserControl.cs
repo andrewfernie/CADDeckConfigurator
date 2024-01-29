@@ -60,7 +60,31 @@ namespace GeneralUserControl
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
             string json_structure_string = JsonSerializer.Serialize(json_structure, options);
-            File.WriteAllText(project_folder + file_name + "_new", json_structure_string);
+
+            string file_name_with_path = project_folder + file_name;
+            string saved_file_name = file_name_with_path;
+
+            int n = 0;
+            while (File.Exists(saved_file_name))
+            {
+                string file_extension = Path.GetExtension(saved_file_name);
+                saved_file_name = saved_file_name.Remove(saved_file_name.Length - file_extension.Length);
+                if (saved_file_name.Contains('('))
+                {
+                    int underscoreIndex = saved_file_name.LastIndexOf("(");
+                    saved_file_name = saved_file_name.Substring(0, underscoreIndex);
+                }
+                n += 1;
+                saved_file_name = string.Format("{0}({1}){2}", saved_file_name, n, ".json");
+            }
+
+            if (File.Exists(file_name_with_path))
+            {
+                System.IO.File.Copy(file_name_with_path, saved_file_name);
+            }
+
+            File.WriteAllText(file_name_with_path, json_structure_string);
+
             data_changed = false;
         }
 
