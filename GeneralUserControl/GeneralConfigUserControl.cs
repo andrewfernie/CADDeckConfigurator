@@ -92,7 +92,7 @@ namespace GeneralUserControl
         {
             if (data_changed)
             {
-                if (MessageBox.Show("Data has been modified. Are you sure you want to cancel?", "Infomate",
+                if (MessageBox.Show("Data has been modified. Are you sure you want to cancel?", "",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     LoadJsonFile(project_folder, file_name);

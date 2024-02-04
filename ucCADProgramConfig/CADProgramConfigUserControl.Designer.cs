@@ -113,8 +113,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.cbSpacemouseEnable = new System.Windows.Forms.CheckBox();
             this.gbButtonSelection = new System.Windows.Forms.GroupBox();
-            this.rbLCDKnob_4to6 = new System.Windows.Forms.RadioButton();
-            this.rbLCDKnob_0to3 = new System.Windows.Forms.RadioButton();
             this.rbHW_8to10 = new System.Windows.Forms.RadioButton();
             this.rbHW_4to7 = new System.Windows.Forms.RadioButton();
             this.rbHW_0to3 = new System.Windows.Forms.RadioButton();
@@ -122,7 +120,6 @@
             this.bLocalSave = new System.Windows.Forms.Button();
             this.cbStartupProgram = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.gbButton0.SuspendLayout();
             this.gbButton1.SuspendLayout();
             this.gbButton2.SuspendLayout();
@@ -130,13 +127,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbButtonSelection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // cbCADProgram
             // 
             this.cbCADProgram.FormattingEnabled = true;
-            this.cbCADProgram.Location = new System.Drawing.Point(91, 20);
+            this.cbCADProgram.Location = new System.Drawing.Point(90, 30);
             this.cbCADProgram.Name = "cbCADProgram";
             this.cbCADProgram.Size = new System.Drawing.Size(121, 21);
             this.cbCADProgram.TabIndex = 5;
@@ -145,7 +141,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 23);
+            this.label2.Location = new System.Drawing.Point(12, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 6;
@@ -243,7 +239,7 @@
             this.gbButton0.Controls.Add(this.cbButton0Action2);
             this.gbButton0.Controls.Add(this.lButton0Text);
             this.gbButton0.Controls.Add(this.tbButton0Text);
-            this.gbButton0.Location = new System.Drawing.Point(231, 83);
+            this.gbButton0.Location = new System.Drawing.Point(217, 158);
             this.gbButton0.Name = "gbButton0";
             this.gbButton0.Size = new System.Drawing.Size(185, 151);
             this.gbButton0.TabIndex = 15;
@@ -387,7 +383,7 @@
             this.gbButton1.Controls.Add(this.cbButton1Action2);
             this.gbButton1.Controls.Add(this.lButton1Text);
             this.gbButton1.Controls.Add(this.tbButton1Text);
-            this.gbButton1.Location = new System.Drawing.Point(422, 83);
+            this.gbButton1.Location = new System.Drawing.Point(408, 158);
             this.gbButton1.Name = "gbButton1";
             this.gbButton1.Size = new System.Drawing.Size(185, 151);
             this.gbButton1.TabIndex = 15;
@@ -531,7 +527,7 @@
             this.gbButton2.Controls.Add(this.cbButton2Action2);
             this.gbButton2.Controls.Add(this.lButton2Text);
             this.gbButton2.Controls.Add(this.tbButton2Text);
-            this.gbButton2.Location = new System.Drawing.Point(231, 249);
+            this.gbButton2.Location = new System.Drawing.Point(217, 324);
             this.gbButton2.Name = "gbButton2";
             this.gbButton2.Size = new System.Drawing.Size(185, 151);
             this.gbButton2.TabIndex = 15;
@@ -675,7 +671,7 @@
             this.gbButton3.Controls.Add(this.cbButton3Action2);
             this.gbButton3.Controls.Add(this.lButton3Text);
             this.gbButton3.Controls.Add(this.tbButton3Text);
-            this.gbButton3.Location = new System.Drawing.Point(422, 249);
+            this.gbButton3.Location = new System.Drawing.Point(408, 324);
             this.gbButton3.Name = "gbButton3";
             this.gbButton3.Size = new System.Drawing.Size(185, 151);
             this.gbButton3.TabIndex = 15;
@@ -731,16 +727,17 @@
             // 
             this.pictureBox1.BackgroundImage = global::CADProgramConfigUserControl.Properties.Resources.ButtonLayout10;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(625, 68);
+            this.pictureBox1.Location = new System.Drawing.Point(625, 71);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(320, 243);
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 80);
+            this.label1.Location = new System.Drawing.Point(3, 145);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 17;
@@ -748,7 +745,7 @@
             // 
             // tbScaleX
             // 
-            this.tbScaleX.Location = new System.Drawing.Point(91, 74);
+            this.tbScaleX.Location = new System.Drawing.Point(90, 139);
             this.tbScaleX.Name = "tbScaleX";
             this.tbScaleX.Size = new System.Drawing.Size(100, 20);
             this.tbScaleX.TabIndex = 18;
@@ -756,7 +753,7 @@
             // 
             // tbScaleY
             // 
-            this.tbScaleY.Location = new System.Drawing.Point(90, 99);
+            this.tbScaleY.Location = new System.Drawing.Point(89, 164);
             this.tbScaleY.Name = "tbScaleY";
             this.tbScaleY.Size = new System.Drawing.Size(100, 20);
             this.tbScaleY.TabIndex = 20;
@@ -765,7 +762,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 105);
+            this.label3.Location = new System.Drawing.Point(2, 170);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 19;
@@ -773,7 +770,7 @@
             // 
             // tbScaleRotate
             // 
-            this.tbScaleRotate.Location = new System.Drawing.Point(91, 174);
+            this.tbScaleRotate.Location = new System.Drawing.Point(90, 239);
             this.tbScaleRotate.Name = "tbScaleRotate";
             this.tbScaleRotate.Size = new System.Drawing.Size(100, 20);
             this.tbScaleRotate.TabIndex = 22;
@@ -782,7 +779,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 180);
+            this.label4.Location = new System.Drawing.Point(3, 245);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 21;
@@ -790,7 +787,7 @@
             // 
             // tbScaleZoom
             // 
-            this.tbScaleZoom.Location = new System.Drawing.Point(91, 249);
+            this.tbScaleZoom.Location = new System.Drawing.Point(90, 314);
             this.tbScaleZoom.Name = "tbScaleZoom";
             this.tbScaleZoom.Size = new System.Drawing.Size(100, 20);
             this.tbScaleZoom.TabIndex = 24;
@@ -799,7 +796,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 255);
+            this.label5.Location = new System.Drawing.Point(3, 320);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 23;
@@ -807,7 +804,7 @@
             // 
             // tbXYDeadzone
             // 
-            this.tbXYDeadzone.Location = new System.Drawing.Point(91, 124);
+            this.tbXYDeadzone.Location = new System.Drawing.Point(90, 189);
             this.tbXYDeadzone.Name = "tbXYDeadzone";
             this.tbXYDeadzone.Size = new System.Drawing.Size(100, 20);
             this.tbXYDeadzone.TabIndex = 26;
@@ -816,7 +813,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 130);
+            this.label6.Location = new System.Drawing.Point(3, 195);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 13);
             this.label6.TabIndex = 25;
@@ -824,7 +821,7 @@
             // 
             // tbRotateDeadzone
             // 
-            this.tbRotateDeadzone.Location = new System.Drawing.Point(91, 199);
+            this.tbRotateDeadzone.Location = new System.Drawing.Point(90, 264);
             this.tbRotateDeadzone.Name = "tbRotateDeadzone";
             this.tbRotateDeadzone.Size = new System.Drawing.Size(100, 20);
             this.tbRotateDeadzone.TabIndex = 28;
@@ -833,7 +830,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 205);
+            this.label7.Location = new System.Drawing.Point(3, 270);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(91, 13);
             this.label7.TabIndex = 27;
@@ -841,7 +838,7 @@
             // 
             // tbZoomDeadzone
             // 
-            this.tbZoomDeadzone.Location = new System.Drawing.Point(91, 274);
+            this.tbZoomDeadzone.Location = new System.Drawing.Point(90, 339);
             this.tbZoomDeadzone.Name = "tbZoomDeadzone";
             this.tbZoomDeadzone.Size = new System.Drawing.Size(100, 20);
             this.tbZoomDeadzone.TabIndex = 30;
@@ -850,7 +847,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(4, 280);
+            this.label8.Location = new System.Drawing.Point(3, 345);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(86, 13);
             this.label8.TabIndex = 29;
@@ -858,7 +855,7 @@
             // 
             // tbXYSensitivity
             // 
-            this.tbXYSensitivity.Location = new System.Drawing.Point(91, 149);
+            this.tbXYSensitivity.Location = new System.Drawing.Point(90, 214);
             this.tbXYSensitivity.Name = "tbXYSensitivity";
             this.tbXYSensitivity.Size = new System.Drawing.Size(100, 20);
             this.tbXYSensitivity.TabIndex = 32;
@@ -867,7 +864,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(4, 155);
+            this.label9.Location = new System.Drawing.Point(3, 220);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(74, 13);
             this.label9.TabIndex = 31;
@@ -875,7 +872,7 @@
             // 
             // tbRotateSensitivity
             // 
-            this.tbRotateSensitivity.Location = new System.Drawing.Point(91, 224);
+            this.tbRotateSensitivity.Location = new System.Drawing.Point(90, 289);
             this.tbRotateSensitivity.Name = "tbRotateSensitivity";
             this.tbRotateSensitivity.Size = new System.Drawing.Size(100, 20);
             this.tbRotateSensitivity.TabIndex = 34;
@@ -884,7 +881,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(4, 230);
+            this.label10.Location = new System.Drawing.Point(3, 295);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(89, 13);
             this.label10.TabIndex = 33;
@@ -892,7 +889,7 @@
             // 
             // tbZoomSensitivity
             // 
-            this.tbZoomSensitivity.Location = new System.Drawing.Point(90, 299);
+            this.tbZoomSensitivity.Location = new System.Drawing.Point(89, 364);
             this.tbZoomSensitivity.Name = "tbZoomSensitivity";
             this.tbZoomSensitivity.Size = new System.Drawing.Size(100, 20);
             this.tbZoomSensitivity.TabIndex = 36;
@@ -901,7 +898,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 305);
+            this.label11.Location = new System.Drawing.Point(2, 370);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(84, 13);
             this.label11.TabIndex = 35;
@@ -909,7 +906,7 @@
             // 
             // tbMouseSensitivity
             // 
-            this.tbMouseSensitivity.Location = new System.Drawing.Point(90, 324);
+            this.tbMouseSensitivity.Location = new System.Drawing.Point(89, 389);
             this.tbMouseSensitivity.Name = "tbMouseSensitivity";
             this.tbMouseSensitivity.Size = new System.Drawing.Size(100, 20);
             this.tbMouseSensitivity.TabIndex = 38;
@@ -918,7 +915,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(3, 330);
+            this.label12.Location = new System.Drawing.Point(2, 395);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(89, 13);
             this.label12.TabIndex = 37;
@@ -927,7 +924,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 355);
+            this.label13.Location = new System.Drawing.Point(0, 120);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(83, 13);
             this.label13.TabIndex = 39;
@@ -936,7 +933,7 @@
             // cbSpacemouseEnable
             // 
             this.cbSpacemouseEnable.AutoSize = true;
-            this.cbSpacemouseEnable.Location = new System.Drawing.Point(7, 380);
+            this.cbSpacemouseEnable.Location = new System.Drawing.Point(6, 445);
             this.cbSpacemouseEnable.Name = "cbSpacemouseEnable";
             this.cbSpacemouseEnable.Size = new System.Drawing.Size(124, 17);
             this.cbSpacemouseEnable.TabIndex = 41;
@@ -946,41 +943,15 @@
             // 
             // gbButtonSelection
             // 
-            this.gbButtonSelection.Controls.Add(this.rbLCDKnob_4to6);
-            this.gbButtonSelection.Controls.Add(this.rbLCDKnob_0to3);
             this.gbButtonSelection.Controls.Add(this.rbHW_8to10);
             this.gbButtonSelection.Controls.Add(this.rbHW_4to7);
             this.gbButtonSelection.Controls.Add(this.rbHW_0to3);
-            this.gbButtonSelection.Location = new System.Drawing.Point(255, 4);
+            this.gbButtonSelection.Location = new System.Drawing.Point(254, 14);
             this.gbButtonSelection.Name = "gbButtonSelection";
-            this.gbButtonSelection.Size = new System.Drawing.Size(307, 60);
+            this.gbButtonSelection.Size = new System.Drawing.Size(307, 48);
             this.gbButtonSelection.TabIndex = 42;
             this.gbButtonSelection.TabStop = false;
             this.gbButtonSelection.Text = "Button Selection";
-            // 
-            // rbLCDKnob_4to6
-            // 
-            this.rbLCDKnob_4to6.AutoSize = true;
-            this.rbLCDKnob_4to6.Location = new System.Drawing.Point(128, 33);
-            this.rbLCDKnob_4to6.Name = "rbLCDKnob_4to6";
-            this.rbLCDKnob_4to6.Size = new System.Drawing.Size(89, 17);
-            this.rbLCDKnob_4to6.TabIndex = 4;
-            this.rbLCDKnob_4to6.TabStop = true;
-            this.rbLCDKnob_4to6.Text = "LCDKnob 4-6";
-            this.rbLCDKnob_4to6.UseVisualStyleBackColor = true;
-            this.rbLCDKnob_4to6.CheckedChanged += new System.EventHandler(this.rbButtonSelect_CheckedChanged);
-            // 
-            // rbLCDKnob_0to3
-            // 
-            this.rbLCDKnob_0to3.AutoSize = true;
-            this.rbLCDKnob_0to3.Location = new System.Drawing.Point(16, 33);
-            this.rbLCDKnob_0to3.Name = "rbLCDKnob_0to3";
-            this.rbLCDKnob_0to3.Size = new System.Drawing.Size(89, 17);
-            this.rbLCDKnob_0to3.TabIndex = 3;
-            this.rbLCDKnob_0to3.TabStop = true;
-            this.rbLCDKnob_0to3.Text = "LCDKnob 0-3";
-            this.rbLCDKnob_0to3.UseVisualStyleBackColor = true;
-            this.rbLCDKnob_0to3.CheckedChanged += new System.EventHandler(this.rbButtonSelect_CheckedChanged);
             // 
             // rbHW_8to10
             // 
@@ -1020,7 +991,7 @@
             // 
             // bCancel
             // 
-            this.bCancel.Location = new System.Drawing.Point(811, 15);
+            this.bCancel.Location = new System.Drawing.Point(711, 22);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(75, 23);
             this.bCancel.TabIndex = 44;
@@ -1030,7 +1001,7 @@
             // 
             // bLocalSave
             // 
-            this.bLocalSave.Location = new System.Drawing.Point(725, 15);
+            this.bLocalSave.Location = new System.Drawing.Point(625, 22);
             this.bLocalSave.Name = "bLocalSave";
             this.bLocalSave.Size = new System.Drawing.Size(75, 23);
             this.bLocalSave.TabIndex = 43;
@@ -1041,7 +1012,7 @@
             // cbStartupProgram
             // 
             this.cbStartupProgram.FormattingEnabled = true;
-            this.cbStartupProgram.Location = new System.Drawing.Point(91, 351);
+            this.cbStartupProgram.Location = new System.Drawing.Point(88, 114);
             this.cbStartupProgram.Name = "cbStartupProgram";
             this.cbStartupProgram.Size = new System.Drawing.Size(121, 21);
             this.cbStartupProgram.TabIndex = 45;
@@ -1052,27 +1023,16 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(114, 406);
+            this.pictureBox2.Location = new System.Drawing.Point(625, 324);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(380, 239);
+            this.pictureBox2.Size = new System.Drawing.Size(320, 173);
             this.pictureBox2.TabIndex = 46;
             this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(625, 341);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(320, 280);
-            this.pictureBox3.TabIndex = 47;
-            this.pictureBox3.TabStop = false;
             // 
             // CADProgramConfigUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.cbStartupProgram);
             this.Controls.Add(this.bCancel);
@@ -1111,7 +1071,7 @@
             this.Controls.Add(this.gbButton3);
             this.DoubleBuffered = true;
             this.Name = "CADProgramConfigUserControl";
-            this.Size = new System.Drawing.Size(1010, 662);
+            this.Size = new System.Drawing.Size(990, 567);
             this.gbButton0.ResumeLayout(false);
             this.gbButton0.PerformLayout();
             this.gbButton1.ResumeLayout(false);
@@ -1124,7 +1084,6 @@
             this.gbButtonSelection.ResumeLayout(false);
             this.gbButtonSelection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1215,8 +1174,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckBox cbSpacemouseEnable;
         private System.Windows.Forms.GroupBox gbButtonSelection;
-        private System.Windows.Forms.RadioButton rbLCDKnob_4to6;
-        private System.Windows.Forms.RadioButton rbLCDKnob_0to3;
         private System.Windows.Forms.RadioButton rbHW_8to10;
         private System.Windows.Forms.RadioButton rbHW_4to7;
         private System.Windows.Forms.RadioButton rbHW_0to3;
@@ -1224,6 +1181,5 @@
         private System.Windows.Forms.Button bLocalSave;
         private System.Windows.Forms.ComboBox cbStartupProgram;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

@@ -91,7 +91,7 @@ namespace ButtonMenuUserControl
         {
             if (data_changed)
             {
-                if (MessageBox.Show("Data has been modified. Are you sure you want to cancel?", "Infomate", 
+                if (MessageBox.Show("Data has been modified. Are you sure you want to cancel?", "", 
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     DisplayMenu(this_file);

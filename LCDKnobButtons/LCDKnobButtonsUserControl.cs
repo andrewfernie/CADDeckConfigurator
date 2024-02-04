@@ -7,15 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Helpers;
 using System.IO;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using Helpers;
-using System.Collections;
 
-namespace CADProgramConfigUserControl
+namespace LCDKnobButtons
 {
-    public partial class CADProgramConfigUserControl : UserControl
+    public partial class LCDKnobButtonsUserControl : UserControl
     {
         String project_folder;
         String file_name = "\\config\\cadparams.json";
@@ -24,12 +22,12 @@ namespace CADProgramConfigUserControl
         int number_of_programs = 0;
         bool data_changed = false;
 
-        int button_type = 0;
         int button_offset = 0;
 
         const int HWBUTTON_MAX = 10;
+        const int LCDKNOBBUTTON_MAX = 6;
 
-        public CADProgramConfigUserControl()
+        public LCDKnobButtonsUserControl()
         {
             InitializeComponent();
 
@@ -56,7 +54,7 @@ namespace CADProgramConfigUserControl
             cbCADProgram.SelectedIndex = current_program;
 
             // Check for missing buttons and create them as needed.
-            const int num_buttons =11;
+            const int num_buttons = 11;
             for (int i = 0; i < number_of_programs; i++)
             {
                 if (json_structure.programs[i].buttons == null)
@@ -77,7 +75,6 @@ namespace CADProgramConfigUserControl
                 }
 
             }
-
             // Check for missing LCDKnob buttons and create them as needed.
             const int num_lcd_buttons = 7;
             for (int i = 0; i < number_of_programs; i++)
@@ -100,122 +97,98 @@ namespace CADProgramConfigUserControl
                 }
             }
 
-            rbHW_0to3.Checked = true;
+            rbLCDKnob_0to3.Checked = true;
             SetLabels(0);
 
             InitializeText();
             InitializeActions();
             InitializeValues();
-            InitializeMiscControls();
-
         }
         public void InitializeText()
         {
 
-                if ((button_offset + 0) <= HWBUTTON_MAX)
-                {
-                    tbButton0Text.Text = json_structure.programs[current_program].buttons[button_offset + 0].description;
-                }
-                if ((button_offset + 1) <= HWBUTTON_MAX)
-                {
-                    tbButton1Text.Text = json_structure.programs[current_program].buttons[button_offset + 1].description;
-                }
-                if ((button_offset + 2) <= HWBUTTON_MAX)
-                {
-                    tbButton2Text.Text = json_structure.programs[current_program].buttons[button_offset + 2].description;
-                }
-                if ((button_offset + 3) <= HWBUTTON_MAX)
-                {
-                    tbButton3Text.Text = json_structure.programs[current_program].buttons[button_offset + 3].description;
-                }
-   
-        }
-
-        private void InitializeMiscControls()
-        {
-            tbScaleX.Text = json_structure.joy_scale_x.ToString();
-            tbScaleY.Text = json_structure.joy_scale_y.ToString();
-            tbScaleRotate.Text = json_structure.rotate_scale.ToString();
-            tbScaleZoom.Text = json_structure.zoom_scale.ToString();
-            tbXYDeadzone.Text = json_structure.joy_deadzone.ToString();
-            tbRotateDeadzone.Text = json_structure.rotate_deadzone.ToString();
-            tbZoomDeadzone.Text = json_structure.zoom_deadzone.ToString();
-            tbXYSensitivity.Text = json_structure.joy_sensitivity.ToString();
-            tbRotateSensitivity.Text = json_structure.rotate_sensitivity.ToString();
-            tbZoomSensitivity.Text = json_structure.zoom_sensitivity.ToString();
-            tbMouseSensitivity.Text = json_structure.mouse_sensitivity.ToString();
-            cbSpacemouseEnable.Checked = json_structure.spacemouse_enable;
-
-            for (int i = 0; i < number_of_programs; i++)
+            if ((button_offset + 0) <= LCDKNOBBUTTON_MAX)
             {
-                cbStartupProgram.Items.Add(json_structure.programs[i].name);
+                tbButton0Text.Text = json_structure.programs[current_program].lcdknob_buttons[button_offset + 0].description;
             }
-            cbStartupProgram.SelectedIndex = current_program;
+            if ((button_offset + 1) <= LCDKNOBBUTTON_MAX)
+            {
+                tbButton1Text.Text = json_structure.programs[current_program].lcdknob_buttons[button_offset + 1].description;
+            }
+            if ((button_offset + 2) <= LCDKNOBBUTTON_MAX)
+            {
+                tbButton2Text.Text = json_structure.programs[current_program].lcdknob_buttons[button_offset + 2].description;
+            }
+            if ((button_offset + 3) <= LCDKNOBBUTTON_MAX)
+            {
+                tbButton3Text.Text = json_structure.programs[current_program].lcdknob_buttons[button_offset + 3].description;
+            }
+
         }
 
         public void InitializeActions()
         {
-                if ((button_offset + 0) <= HWBUTTON_MAX)
-                {
-                    InitializeAction(cbButton0Action0, json_structure.programs[current_program].buttons[0 + button_offset].actionarray[0]);
-                    InitializeAction(cbButton0Action1, json_structure.programs[current_program].buttons[0 + button_offset].actionarray[1]);
-                    InitializeAction(cbButton0Action2, json_structure.programs[current_program].buttons[0 + button_offset].actionarray[2]);
-                }
 
-                if ((button_offset + 1) <= HWBUTTON_MAX)
-                {
-                    InitializeAction(cbButton1Action0, json_structure.programs[current_program].buttons[1 + button_offset].actionarray[0]);
-                    InitializeAction(cbButton1Action1, json_structure.programs[current_program].buttons[1 + button_offset].actionarray[1]);
-                    InitializeAction(cbButton1Action2, json_structure.programs[current_program].buttons[1 + button_offset].actionarray[2]);
-                }
+            if ((button_offset + 0) <= LCDKNOBBUTTON_MAX)
+            {
+                InitializeAction(cbButton0Action0, json_structure.programs[current_program].lcdknob_buttons[0 + button_offset].actionarray[0]);
+                InitializeAction(cbButton0Action1, json_structure.programs[current_program].lcdknob_buttons[0 + button_offset].actionarray[1]);
+                InitializeAction(cbButton0Action2, json_structure.programs[current_program].lcdknob_buttons[0 + button_offset].actionarray[2]);
+            }
 
-                if ((button_offset + 2) <= HWBUTTON_MAX)
-                {
-                    InitializeAction(cbButton2Action0, json_structure.programs[current_program].buttons[2 + button_offset].actionarray[0]);
-                    InitializeAction(cbButton2Action1, json_structure.programs[current_program].buttons[2 + button_offset].actionarray[1]);
-                    InitializeAction(cbButton2Action2, json_structure.programs[current_program].buttons[2 + button_offset].actionarray[2]);
-                }
+            if ((button_offset + 1) <= LCDKNOBBUTTON_MAX)
+            {
+                InitializeAction(cbButton1Action0, json_structure.programs[current_program].lcdknob_buttons[1 + button_offset].actionarray[0]);
+                InitializeAction(cbButton1Action1, json_structure.programs[current_program].lcdknob_buttons[1 + button_offset].actionarray[1]);
+                InitializeAction(cbButton1Action2, json_structure.programs[current_program].lcdknob_buttons[1 + button_offset].actionarray[2]);
+            }
 
-                if ((button_offset + 3) <= HWBUTTON_MAX)
-                {
-                    InitializeAction(cbButton3Action0, json_structure.programs[current_program].buttons[3 + button_offset].actionarray[0]);
-                    InitializeAction(cbButton3Action1, json_structure.programs[current_program].buttons[3 + button_offset].actionarray[1]);
-                    InitializeAction(cbButton3Action2, json_structure.programs[current_program].buttons[3 + button_offset].actionarray[2]);
-                }
-           
+            if ((button_offset + 2) <= LCDKNOBBUTTON_MAX)
+            {
+                InitializeAction(cbButton2Action0, json_structure.programs[current_program].lcdknob_buttons[2 + button_offset].actionarray[0]);
+                InitializeAction(cbButton2Action1, json_structure.programs[current_program].lcdknob_buttons[2 + button_offset].actionarray[1]);
+                InitializeAction(cbButton2Action2, json_structure.programs[current_program].lcdknob_buttons[2 + button_offset].actionarray[2]);
+            }
+
+            if ((button_offset + 3) <= LCDKNOBBUTTON_MAX)
+            {
+                InitializeAction(cbButton3Action0, json_structure.programs[current_program].lcdknob_buttons[3 + button_offset].actionarray[0]);
+                InitializeAction(cbButton3Action1, json_structure.programs[current_program].lcdknob_buttons[3 + button_offset].actionarray[1]);
+                InitializeAction(cbButton3Action2, json_structure.programs[current_program].lcdknob_buttons[3 + button_offset].actionarray[2]);
+            }
+
         }
-            
         public void InitializeValues()
         {
 
-                if ((button_offset + 0) <= HWBUTTON_MAX)
-                {
-                    InitializeValue(cbButton0Action0, cbButton0Value0, json_structure.programs[current_program].buttons[button_offset + 0].valuearray[0]);
-                    InitializeValue(cbButton0Action1, cbButton0Value1, json_structure.programs[current_program].buttons[button_offset + 0].valuearray[1]);
-                    InitializeValue(cbButton0Action2, cbButton0Value2, json_structure.programs[current_program].buttons[button_offset + 0].valuearray[2]);
-                }
+            if ((button_offset + 0) <= LCDKNOBBUTTON_MAX)
+            {
+                InitializeValue(cbButton0Action0, cbButton0Value0, json_structure.programs[current_program].lcdknob_buttons[button_offset + 0].valuearray[0]);
+                InitializeValue(cbButton0Action1, cbButton0Value1, json_structure.programs[current_program].lcdknob_buttons[button_offset + 0].valuearray[1]);
+                InitializeValue(cbButton0Action2, cbButton0Value2, json_structure.programs[current_program].lcdknob_buttons[button_offset + 0].valuearray[2]);
+            }
 
-                if ((button_offset + 1) <= HWBUTTON_MAX)
-                {
-                    InitializeValue(cbButton1Action0, cbButton1Value0, json_structure.programs[current_program].buttons[button_offset + 1].valuearray[0]);
-                    InitializeValue(cbButton1Action1, cbButton1Value1, json_structure.programs[current_program].buttons[button_offset + 1].valuearray[1]);
-                    InitializeValue(cbButton1Action2, cbButton1Value2, json_structure.programs[current_program].buttons[button_offset + 1].valuearray[2]);
-                }
+            if ((button_offset + 1) <= LCDKNOBBUTTON_MAX)
+            {
+                InitializeValue(cbButton1Action0, cbButton1Value0, json_structure.programs[current_program].lcdknob_buttons[button_offset + 1].valuearray[0]);
+                InitializeValue(cbButton1Action1, cbButton1Value1, json_structure.programs[current_program].lcdknob_buttons[button_offset + 1].valuearray[1]);
+                InitializeValue(cbButton1Action2, cbButton1Value2, json_structure.programs[current_program].lcdknob_buttons[button_offset + 1].valuearray[2]);
+            }
 
-                if ((button_offset + 2) <= HWBUTTON_MAX)
-                {
-                    InitializeValue(cbButton2Action0, cbButton2Value0, json_structure.programs[current_program].buttons[button_offset + 2].valuearray[0]);
-                    InitializeValue(cbButton2Action1, cbButton2Value1, json_structure.programs[current_program].buttons[button_offset + 2].valuearray[1]);
-                    InitializeValue(cbButton2Action2, cbButton2Value2, json_structure.programs[current_program].buttons[button_offset + 2].valuearray[2]);
-                }
+            if ((button_offset + 2) <= LCDKNOBBUTTON_MAX)
+            {
+                InitializeValue(cbButton2Action0, cbButton2Value0, json_structure.programs[current_program].lcdknob_buttons[button_offset + 2].valuearray[0]);
+                InitializeValue(cbButton2Action1, cbButton2Value1, json_structure.programs[current_program].lcdknob_buttons[button_offset + 2].valuearray[1]);
+                InitializeValue(cbButton2Action2, cbButton2Value2, json_structure.programs[current_program].lcdknob_buttons[button_offset + 2].valuearray[2]);
+            }
 
-                if ((button_offset + 3) <= HWBUTTON_MAX)
-                {
-                    InitializeValue(cbButton3Action0, cbButton3Value0, json_structure.programs[current_program].buttons[button_offset + 3].valuearray[0]);
-                    InitializeValue(cbButton3Action1, cbButton3Value1, json_structure.programs[current_program].buttons[button_offset + 3].valuearray[1]);
-                    InitializeValue(cbButton3Action2, cbButton3Value2, json_structure.programs[current_program].buttons[button_offset + 3].valuearray[2]);
-                }
-         
+            if ((button_offset + 3) <= LCDKNOBBUTTON_MAX)
+            {
+                InitializeValue(cbButton3Action0, cbButton3Value0, json_structure.programs[current_program].lcdknob_buttons[button_offset + 3].valuearray[0]);
+                InitializeValue(cbButton3Action1, cbButton3Value1, json_structure.programs[current_program].lcdknob_buttons[button_offset + 3].valuearray[1]);
+                InitializeValue(cbButton3Action2, cbButton3Value2, json_structure.programs[current_program].lcdknob_buttons[button_offset + 3].valuearray[2]);
+            }
+
         }
         public void InitializeAction(System.Windows.Forms.ComboBox cbActionCombo, string action)
         {
@@ -328,8 +301,7 @@ namespace CADProgramConfigUserControl
 
             string value = "";
 
-                value = json_structure.programs[current_program].buttons[buttonNumber].actionarray[actionIndex];
-
+            value = json_structure.programs[current_program].lcdknob_buttons[buttonNumber].actionarray[actionIndex];
 
             return value;
 
@@ -339,8 +311,8 @@ namespace CADProgramConfigUserControl
         {
 
 
-                json_structure.programs[current_program].buttons[buttonNumber].actionarray[actionIndex] = value;
-                data_changed = true;
+            json_structure.programs[current_program].lcdknob_buttons[buttonNumber].actionarray[actionIndex] = value;
+            data_changed = true;
 
 
         }
@@ -349,8 +321,8 @@ namespace CADProgramConfigUserControl
         {
 
 
-                json_structure.programs[current_program].buttons[buttonNumber].valuearray[valueIndex] = value;
-                data_changed = true;
+            json_structure.programs[current_program].lcdknob_buttons[buttonNumber].valuearray[valueIndex] = value;
+            data_changed = true;
 
 
         }
@@ -546,19 +518,18 @@ namespace CADProgramConfigUserControl
         private void SetLabels(int offset)
         {
 
-                gbButton0.Text = "HW Button " + offset;
-                gbButton1.Text = "HW Button " + (offset + 1);
-                gbButton2.Text = "HW Button " + (offset + 2);
-
-                if (offset + 3 <= 10)
-                {
-                    gbButton3.Visible = true;
-                    gbButton3.Text = "HW Button " + (offset + 3);
-                }
-                else
-                {
-                    gbButton3.Visible = false;
-                }
+            gbButton0.Text = "LCD Knob " + offset;
+            gbButton1.Text = "LCD Knob " + (offset + 1);
+            gbButton2.Text = "LCD Knob " + (offset + 2);
+            if (offset + 3 <= 6)
+            {
+                gbButton3.Visible = true;
+                gbButton3.Text = "LCD Knob " + (offset + 3);
+            }
+            else
+            {
+                gbButton3.Visible = false;
+            }
 
         }
 
@@ -573,156 +544,56 @@ namespace CADProgramConfigUserControl
             }
 
 
-            if (rbHW_0to3.Checked)
+            if (rbLCDKnob_0to3.Checked)
             {
-
                 button_offset = 0;
-                SetLabels( button_offset);
-            }
-            else if (rbHW_4to7.Checked)
-            {
-
-                button_offset = 4;
-                SetLabels( button_offset);
-            }
-            else if (rbHW_8to10.Checked)
-            {
-
-                button_offset = 8;
                 SetLabels(button_offset);
             }
-
+            else if (rbLCDKnob_4to6.Checked)
+            {
+                button_offset = 4;
+                SetLabels(button_offset);
+            }
             InitializeText();
             InitializeActions();
             InitializeValues();
         }
 
-        private void tbScaleX_Leave(object sender, EventArgs e)
-        {
-            json_structure.joy_scale_x = (float)Convert.ToDouble(tbScaleX.Text);
-            data_changed = true;
 
-        }
-
-        private void tbScaleY_Leave(object sender, EventArgs e)
-        {
-            json_structure.joy_scale_y = (float)Convert.ToDouble(tbScaleY.Text);
-            data_changed = true;
-
-        }
-
-        private void tbScaleRotate_Leave(object sender, EventArgs e)
-        {
-            json_structure.rotate_scale = (float)Convert.ToDouble(tbScaleRotate.Text);
-            data_changed = true;
-
-        }
-
-        private void tbScaleZoom_Leave(object sender, EventArgs e)
-        {
-            json_structure.zoom_scale = (float)Convert.ToDouble(tbScaleZoom.Text);
-            data_changed = true;
-
-        }
-
-        private void tbRotateDeadzone_Leave(object sender, EventArgs e)
-        {
-            json_structure.rotate_deadzone = (float)Convert.ToDouble(tbRotateDeadzone.Text);
-            data_changed = true;
-
-        }
-
-        private void tbZoomDeadzone_Leave(object sender, EventArgs e)
-        {
-            json_structure.zoom_deadzone = (float)Convert.ToDouble(tbZoomDeadzone.Text);
-            data_changed = true;
-
-        }
-
-        private void tbXYSensitivity_Leave(object sender, EventArgs e)
-        {
-            json_structure.joy_sensitivity = Int32.Parse(tbXYSensitivity.Text);
-            data_changed = true;
-
-        }
-
-        private void tbXYDeadzone_Leave(object sender, EventArgs e)
-        {
-            json_structure.joy_deadzone = (float)Convert.ToDouble(tbXYDeadzone.Text);
-            data_changed = true;
-
-        }
-
-        private void tbRotateSensitivity_Leave(object sender, EventArgs e)
-        {
-            json_structure.rotate_sensitivity = Int32.Parse(tbRotateSensitivity.Text);
-            data_changed = true;
-        }
-
-        private void tbZoomSensitivity_Leave(object sender, EventArgs e)
-        {
-            json_structure.zoom_sensitivity = Int32.Parse(tbZoomSensitivity.Text);
-            data_changed = true;
-
-        }
-
-        private void tbMouseSensitivity_Leave(object sender, EventArgs e)
-        {
-            json_structure.mouse_sensitivity = Int32.Parse(tbMouseSensitivity.Text);
-            data_changed = true;
-
-        }
-
-        private void cbSpacemouseEnable_CheckedChanged(object sender, EventArgs e)
-        {
-            json_structure.spacemouse_enable = cbSpacemouseEnable.Checked;
-            data_changed = true;
-
-        }
-
-        private void cbStartupProgram_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            json_structure.current_program = cbStartupProgram.SelectedIndex;
-            data_changed = true;
-
-        }
 
         private void tbButton0Text_Leave(object sender, EventArgs e)
         {
 
-                json_structure.programs[current_program].buttons[button_offset + 0].description = tbButton0Text.Text;
-                data_changed = true;
+            json_structure.programs[current_program].lcdknob_buttons[button_offset + 0].description = tbButton0Text.Text;
+            data_changed = true;
 
 
         }
 
-        private void tbButton1Text_TextChanged(object sender, EventArgs e)
+        private void tbButton1Text_Leave(object sender, EventArgs e)
         {
 
-                json_structure.programs[current_program].buttons[button_offset + 1].description = tbButton1Text.Text;
-                data_changed = true;
+            json_structure.programs[current_program].lcdknob_buttons[button_offset + 1].description = tbButton1Text.Text;
+            data_changed = true;
 
         }
 
-        private void tbButton2Text_TextChanged(object sender, EventArgs e)
+        private void tbButton2Text_Leave(object sender, EventArgs e)
         {
 
-                json_structure.programs[current_program].buttons[button_offset + 2].description = tbButton2Text.Text;
-                data_changed = true;
+            json_structure.programs[current_program].lcdknob_buttons[button_offset + 2].description = tbButton2Text.Text;
+            data_changed = true;
 
         }
 
-        private void tbButton3Text_TextChanged(object sender, EventArgs e)
+        private void tbButton3Text_Leave(object sender, EventArgs e)
         {
 
-                json_structure.programs[current_program].buttons[button_offset + 3].description = tbButton3Text.Text;
-                data_changed = true;
+            json_structure.programs[current_program].lcdknob_buttons[button_offset + 3].description = tbButton3Text.Text;
+            data_changed = true;
+
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
