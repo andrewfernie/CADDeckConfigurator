@@ -10,11 +10,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WiFiUserControl", "..\WiFiU
 		{7B3EB060-A7B8-441E-AAD9-DEB49AC47602} = {7B3EB060-A7B8-441E-AAD9-DEB49AC47602}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ButtonMenuUserControl", "..\ucButtonMenu\ButtonMenuUserControl.csproj", "{142D7A38-13B4-471B-B4C6-F024394DE6DA}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7B3EB060-A7B8-441E-AAD9-DEB49AC47602} = {7B3EB060-A7B8-441E-AAD9-DEB49AC47602}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CADProgramConfigUserControl", "..\ucCADProgramConfig\CADProgramConfigUserControl.csproj", "{378F4C09-856D-4CE0-B200-5913655C5BE5}"
 	ProjectSection(ProjectDependencies) = postProject
 		{7B3EB060-A7B8-441E-AAD9-DEB49AC47602} = {7B3EB060-A7B8-441E-AAD9-DEB49AC47602}
@@ -28,6 +23,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "..\Helpers\Helpers.csproj", "{7B3EB060-A7B8-441E-AAD9-DEB49AC47602}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CADDeckConfiguratorSetup", "..\CADDeckConfiguratorSetup\CADDeckConfiguratorSetup.vdproj", "{5C15ED55-351E-481A-9371-C603FB3C0015}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftButtonUserControl", "..\SoftButtonUserControl\SoftButtonUserControl.csproj", "{C4C94398-811C-4134-8FA9-6AB61F39384B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LCDKnobButtons", "..\LCDKnobButtons\LCDKnobButtons.csproj", "{ABC16CB2-D633-4775-918C-CAE9BE3EE700}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +42,6 @@ Global
 		{11F68FE8-C2FF-4A3D-9883-6EDF6A1376D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11F68FE8-C2FF-4A3D-9883-6EDF6A1376D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11F68FE8-C2FF-4A3D-9883-6EDF6A1376D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{142D7A38-13B4-471B-B4C6-F024394DE6DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{142D7A38-13B4-471B-B4C6-F024394DE6DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{142D7A38-13B4-471B-B4C6-F024394DE6DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{142D7A38-13B4-471B-B4C6-F024394DE6DA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{378F4C09-856D-4CE0-B200-5913655C5BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{378F4C09-856D-4CE0-B200-5913655C5BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{378F4C09-856D-4CE0-B200-5913655C5BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,6 +56,14 @@ Global
 		{7B3EB060-A7B8-441E-AAD9-DEB49AC47602}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5C15ED55-351E-481A-9371-C603FB3C0015}.Debug|Any CPU.ActiveCfg = Debug
 		{5C15ED55-351E-481A-9371-C603FB3C0015}.Release|Any CPU.ActiveCfg = Release
+		{C4C94398-811C-4134-8FA9-6AB61F39384B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4C94398-811C-4134-8FA9-6AB61F39384B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4C94398-811C-4134-8FA9-6AB61F39384B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4C94398-811C-4134-8FA9-6AB61F39384B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABC16CB2-D633-4775-918C-CAE9BE3EE700}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABC16CB2-D633-4775-918C-CAE9BE3EE700}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABC16CB2-D633-4775-918C-CAE9BE3EE700}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABC16CB2-D633-4775-918C-CAE9BE3EE700}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

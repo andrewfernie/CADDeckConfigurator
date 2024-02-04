@@ -44,11 +44,9 @@ namespace CADDeckConfig
             string general_fileName = "\\config\\general.json";
             this.generalConfigUserControl.LoadJsonFile(project_folder, general_fileName);
 
-            this.buttonMenuUserControl.SetProjectFolder(project_folder);
-            this.buttonMenuUserControl.DisplayMenuNumber(0);
+            this.softButtonUserControl.SetProjectFolder(project_folder);
+            this.softButtonUserControl.DisplayMenuNumber(0);
 
-            string cadparams_fileName = "\\config\\cadparams.json";
-            this.cadProgramConfigUserControl.LoadJsonFile(project_folder, cadparams_fileName);
         }
         private string CheckFolderStructure(string folder)
         {
@@ -136,6 +134,18 @@ namespace CADDeckConfig
         {
             AboutBox1 aboutBox1 = new AboutBox1();
             aboutBox1.Show();
+        }
+
+        private void LCDButtonsTab_Enter(object sender, EventArgs e)
+        {
+            string cadparams_fileName = "\\config\\cadparams.json";
+            this.lcdKnobButtonsUserControl.LoadJsonFile(project_folder, cadparams_fileName);
+        }
+
+        private void HWButtonsTab_Enter(object sender, EventArgs e)
+        {
+            string cadparams_fileName = "\\config\\cadparams.json";
+            this.cadProgramConfigUserControl.LoadJsonFile(project_folder, cadparams_fileName);
         }
     }
 }

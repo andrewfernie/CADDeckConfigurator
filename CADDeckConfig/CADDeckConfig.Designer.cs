@@ -40,10 +40,12 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.LCDButtonsTab = new System.Windows.Forms.TabPage();
+            this.lcdKnobButtonsUserControl = new LCDKnobButtons.LCDKnobButtonsUserControl();
+            this.SoftButonsTab = new System.Windows.Forms.TabPage();
+            this.softButtonUserControl = new SoftButtonUserControl.SoftButtonUserControl();
             this.HWButtonsTab = new System.Windows.Forms.TabPage();
             this.cadProgramConfigUserControl = new CADProgramConfigUserControl.CADProgramConfigUserControl();
-            this.MenuTab = new System.Windows.Forms.TabPage();
-            this.buttonMenuUserControl = new ButtonMenuUserControl.ButtonMenuUserControl();
             this.GeneralTab = new System.Windows.Forms.TabPage();
             this.generalConfigUserControl = new GeneralUserControl.GeneralConfigUserControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -51,8 +53,9 @@
             this.wiFiConfigUserControl = new WiFiUserControl.WiFiConfigUserControl();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1.SuspendLayout();
+            this.LCDButtonsTab.SuspendLayout();
+            this.SoftButonsTab.SuspendLayout();
             this.HWButtonsTab.SuspendLayout();
-            this.MenuTab.SuspendLayout();
             this.GeneralTab.SuspendLayout();
             this.WiFiTab.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -66,7 +69,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(991, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1059, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -140,41 +143,62 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // LCDButtonsTab
+            // 
+            this.LCDButtonsTab.Controls.Add(this.lcdKnobButtonsUserControl);
+            this.LCDButtonsTab.Location = new System.Drawing.Point(4, 22);
+            this.LCDButtonsTab.Name = "LCDButtonsTab";
+            this.LCDButtonsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.LCDButtonsTab.Size = new System.Drawing.Size(1019, 600);
+            this.LCDButtonsTab.TabIndex = 5;
+            this.LCDButtonsTab.Text = "LCDKnob Buttons";
+            this.LCDButtonsTab.UseVisualStyleBackColor = true;
+            this.LCDButtonsTab.Enter += new System.EventHandler(this.LCDButtonsTab_Enter);
+            // 
+            // lcdKnobButtonsUserControl
+            // 
+            this.lcdKnobButtonsUserControl.Location = new System.Drawing.Point(8, 6);
+            this.lcdKnobButtonsUserControl.Name = "lcdKnobButtonsUserControl";
+            this.lcdKnobButtonsUserControl.Size = new System.Drawing.Size(805, 617);
+            this.lcdKnobButtonsUserControl.TabIndex = 0;
+            // 
+            // SoftButonsTab
+            // 
+            this.SoftButonsTab.Controls.Add(this.softButtonUserControl);
+            this.SoftButonsTab.Location = new System.Drawing.Point(4, 22);
+            this.SoftButonsTab.Name = "SoftButonsTab";
+            this.SoftButonsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.SoftButonsTab.Size = new System.Drawing.Size(1019, 600);
+            this.SoftButonsTab.TabIndex = 4;
+            this.SoftButonsTab.Text = "SoftButtons";
+            this.SoftButonsTab.UseVisualStyleBackColor = true;
+            // 
+            // softButtonUserControl
+            // 
+            this.softButtonUserControl.Location = new System.Drawing.Point(8, 6);
+            this.softButtonUserControl.Name = "softButtonUserControl";
+            this.softButtonUserControl.Size = new System.Drawing.Size(935, 533);
+            this.softButtonUserControl.TabIndex = 0;
+            // 
             // HWButtonsTab
             // 
             this.HWButtonsTab.Controls.Add(this.cadProgramConfigUserControl);
             this.HWButtonsTab.Location = new System.Drawing.Point(4, 22);
             this.HWButtonsTab.Name = "HWButtonsTab";
-            this.HWButtonsTab.Size = new System.Drawing.Size(983, 699);
+            this.HWButtonsTab.Size = new System.Drawing.Size(1019, 600);
             this.HWButtonsTab.TabIndex = 3;
             this.HWButtonsTab.Text = "HW Buttons";
             this.HWButtonsTab.UseVisualStyleBackColor = true;
+            this.HWButtonsTab.Enter += new System.EventHandler(this.HWButtonsTab_Enter);
             // 
             // cadProgramConfigUserControl
             // 
             this.cadProgramConfigUserControl.AutoScroll = true;
             this.cadProgramConfigUserControl.Location = new System.Drawing.Point(0, 0);
             this.cadProgramConfigUserControl.Name = "cadProgramConfigUserControl";
-            this.cadProgramConfigUserControl.Size = new System.Drawing.Size(987, 657);
+            this.cadProgramConfigUserControl.Size = new System.Drawing.Size(1011, 657);
             this.cadProgramConfigUserControl.TabIndex = 0;
-            // 
-            // MenuTab
-            // 
-            this.MenuTab.Controls.Add(this.buttonMenuUserControl);
-            this.MenuTab.Location = new System.Drawing.Point(4, 22);
-            this.MenuTab.Name = "MenuTab";
-            this.MenuTab.Size = new System.Drawing.Size(983, 699);
-            this.MenuTab.TabIndex = 2;
-            this.MenuTab.Text = "Menu";
-            this.MenuTab.UseVisualStyleBackColor = true;
-            // 
-            // buttonMenuUserControl
-            // 
-            this.buttonMenuUserControl.AutoScroll = true;
-            this.buttonMenuUserControl.Location = new System.Drawing.Point(0, 0);
-            this.buttonMenuUserControl.Name = "buttonMenuUserControl";
-            this.buttonMenuUserControl.Size = new System.Drawing.Size(800, 747);
-            this.buttonMenuUserControl.TabIndex = 0;
+
             // 
             // GeneralTab
             // 
@@ -183,7 +207,7 @@
             this.GeneralTab.Location = new System.Drawing.Point(4, 22);
             this.GeneralTab.Name = "GeneralTab";
             this.GeneralTab.Padding = new System.Windows.Forms.Padding(3);
-            this.GeneralTab.Size = new System.Drawing.Size(983, 699);
+            this.GeneralTab.Size = new System.Drawing.Size(1019, 600);
             this.GeneralTab.TabIndex = 1;
             this.GeneralTab.Text = "General";
             this.GeneralTab.UseVisualStyleBackColor = true;
@@ -197,9 +221,9 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(3, 674);
+            this.statusStrip1.Location = new System.Drawing.Point(3, 575);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(977, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1013, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -210,7 +234,7 @@
             this.WiFiTab.Location = new System.Drawing.Point(4, 22);
             this.WiFiTab.Name = "WiFiTab";
             this.WiFiTab.Padding = new System.Windows.Forms.Padding(3);
-            this.WiFiTab.Size = new System.Drawing.Size(983, 699);
+            this.WiFiTab.Size = new System.Drawing.Size(1019, 600);
             this.WiFiTab.TabIndex = 0;
             this.WiFiTab.Text = "WiFi";
             this.WiFiTab.UseVisualStyleBackColor = true;
@@ -229,12 +253,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.WiFiTab);
             this.tabControl1.Controls.Add(this.GeneralTab);
-            this.tabControl1.Controls.Add(this.MenuTab);
+            this.tabControl1.Controls.Add(this.SoftButonsTab);
             this.tabControl1.Controls.Add(this.HWButtonsTab);
+            this.tabControl1.Controls.Add(this.LCDButtonsTab);
             this.tabControl1.Location = new System.Drawing.Point(0, 36);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(991, 725);
+            this.tabControl1.Size = new System.Drawing.Size(1027, 626);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabControl1.TabIndex = 1;
             // 
@@ -242,7 +267,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 765);
+            this.ClientSize = new System.Drawing.Size(1059, 674);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -253,8 +278,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.LCDButtonsTab.ResumeLayout(false);
+            this.SoftButonsTab.ResumeLayout(false);
             this.HWButtonsTab.ResumeLayout(false);
-            this.MenuTab.ResumeLayout(false);
             this.GeneralTab.ResumeLayout(false);
             this.GeneralTab.PerformLayout();
             this.WiFiTab.ResumeLayout(false);
@@ -275,18 +301,20 @@
         private System.Windows.Forms.ToolStripMenuItem disconnectToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem parametersToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.TabPage LCDButtonsTab;
+        private LCDKnobButtons.LCDKnobButtonsUserControl lcdKnobButtonsUserControl;
+        private System.Windows.Forms.TabPage SoftButonsTab;
+        private SoftButtonUserControl.SoftButtonUserControl softButtonUserControl;
         private System.Windows.Forms.TabPage HWButtonsTab;
         private CADProgramConfigUserControl.CADProgramConfigUserControl cadProgramConfigUserControl;
-        private System.Windows.Forms.TabPage MenuTab;
-        private ButtonMenuUserControl.ButtonMenuUserControl buttonMenuUserControl;
         private System.Windows.Forms.TabPage GeneralTab;
         private GeneralUserControl.GeneralConfigUserControl generalConfigUserControl;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.TabPage WiFiTab;
         private WiFiUserControl.WiFiConfigUserControl wiFiConfigUserControl;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 
