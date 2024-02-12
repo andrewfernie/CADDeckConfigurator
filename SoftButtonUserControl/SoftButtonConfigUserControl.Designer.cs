@@ -88,6 +88,7 @@
             this.cbButtonLatch = new System.Windows.Forms.CheckBox();
             this.lButtonLatchLogo = new System.Windows.Forms.Label();
             this.tbButtonLatchLogo = new System.Windows.Forms.TextBox();
+            this.pbCaptureKeystroke = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbButton11)).BeginInit();
             this.gbButton11.SuspendLayout();
             this.gbButton12.SuspendLayout();
@@ -301,7 +302,8 @@
             // gbButton21
             // 
             this.gbButton21.Controls.Add(this.pbButton21);
-            this.gbButton21.Location = new System.Drawing.Point(401, 228);
+            this.gbButton21.Controls.Add(this.tbButton21);
+            this.gbButton21.Location = new System.Drawing.Point(17, 230);
             this.gbButton21.Name = "gbButton21";
             this.gbButton21.Size = new System.Drawing.Size(117, 143);
             this.gbButton21.TabIndex = 34;
@@ -332,7 +334,7 @@
             // 
             this.gbButton22.Controls.Add(this.pbButton22);
             this.gbButton22.Controls.Add(this.tbButton22);
-            this.gbButton22.Location = new System.Drawing.Point(273, 228);
+            this.gbButton22.Location = new System.Drawing.Point(145, 230);
             this.gbButton22.Name = "gbButton22";
             this.gbButton22.Size = new System.Drawing.Size(117, 143);
             this.gbButton22.TabIndex = 33;
@@ -363,7 +365,7 @@
             // 
             this.gbButton23.Controls.Add(this.pbButton23);
             this.gbButton23.Controls.Add(this.tbButton23);
-            this.gbButton23.Location = new System.Drawing.Point(145, 228);
+            this.gbButton23.Location = new System.Drawing.Point(273, 230);
             this.gbButton23.Name = "gbButton23";
             this.gbButton23.Size = new System.Drawing.Size(117, 143);
             this.gbButton23.TabIndex = 32;
@@ -393,8 +395,8 @@
             // gbButton24
             // 
             this.gbButton24.Controls.Add(this.pbButton24);
-            this.gbButton24.Controls.Add(this.tbButton21);
-            this.gbButton24.Location = new System.Drawing.Point(17, 228);
+            this.gbButton24.Controls.Add(this.tbButton24);
+            this.gbButton24.Location = new System.Drawing.Point(401, 230);
             this.gbButton24.Name = "gbButton24";
             this.gbButton24.Size = new System.Drawing.Size(117, 143);
             this.gbButton24.TabIndex = 31;
@@ -425,7 +427,7 @@
             // 
             this.gbButton31.Controls.Add(this.pbButton31);
             this.gbButton31.Controls.Add(this.tbButton31);
-            this.gbButton31.Location = new System.Drawing.Point(401, 377);
+            this.gbButton31.Location = new System.Drawing.Point(17, 379);
             this.gbButton31.Name = "gbButton31";
             this.gbButton31.Size = new System.Drawing.Size(117, 139);
             this.gbButton31.TabIndex = 38;
@@ -456,7 +458,7 @@
             // 
             this.gbButton32.Controls.Add(this.pbButton32);
             this.gbButton32.Controls.Add(this.tbButton32);
-            this.gbButton32.Location = new System.Drawing.Point(273, 377);
+            this.gbButton32.Location = new System.Drawing.Point(145, 379);
             this.gbButton32.Name = "gbButton32";
             this.gbButton32.Size = new System.Drawing.Size(117, 139);
             this.gbButton32.TabIndex = 37;
@@ -487,7 +489,7 @@
             // 
             this.gbButton33.Controls.Add(this.pbButton33);
             this.gbButton33.Controls.Add(this.tbButton33);
-            this.gbButton33.Location = new System.Drawing.Point(145, 377);
+            this.gbButton33.Location = new System.Drawing.Point(273, 379);
             this.gbButton33.Name = "gbButton33";
             this.gbButton33.Size = new System.Drawing.Size(117, 139);
             this.gbButton33.TabIndex = 36;
@@ -518,7 +520,7 @@
             // 
             this.gbButton34.Controls.Add(this.pbButton34);
             this.gbButton34.Controls.Add(this.tbButton34);
-            this.gbButton34.Location = new System.Drawing.Point(17, 377);
+            this.gbButton34.Location = new System.Drawing.Point(401, 379);
             this.gbButton34.Name = "gbButton34";
             this.gbButton34.Size = new System.Drawing.Size(117, 139);
             this.gbButton34.TabIndex = 35;
@@ -724,10 +726,23 @@
             this.tbButtonLatchLogo.TabIndex = 56;
             this.tbButtonLatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             // 
+            // pbCaptureKeystroke
+            // 
+            this.pbCaptureKeystroke.Location = new System.Drawing.Point(587, 260);
+            this.pbCaptureKeystroke.Name = "pbCaptureKeystroke";
+            this.pbCaptureKeystroke.Size = new System.Drawing.Size(201, 41);
+            this.pbCaptureKeystroke.TabIndex = 58;
+            this.pbCaptureKeystroke.Text = "Capture Keystroke";
+            this.pbCaptureKeystroke.UseVisualStyleBackColor = true;
+            this.pbCaptureKeystroke.Click += new System.EventHandler(this.pbCaptureKeystroke_Click);
+            this.pbCaptureKeystroke.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pbCaptureKeystroke_KeyDown);
+            this.pbCaptureKeystroke.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pbCaptureKeystroke_KeyPress);
+            // 
             // SoftButtonUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pbCaptureKeystroke);
             this.Controls.Add(this.tbButtonLogo);
             this.Controls.Add(this.lButtonLogo);
             this.Controls.Add(this.cbButtonLatch);
@@ -763,7 +778,7 @@
             this.Controls.Add(this.cbMenuSelect);
             this.Controls.Add(this.tbMenuName);
             this.Name = "SoftButtonUserControl";
-            this.Size = new System.Drawing.Size(839, 530);
+            this.Size = new System.Drawing.Size(839, 556);
             ((System.ComponentModel.ISupportInitialize)(this.pbButton11)).EndInit();
             this.gbButton11.ResumeLayout(false);
             this.gbButton11.PerformLayout();
@@ -777,6 +792,7 @@
             this.gbButton14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbButton14)).EndInit();
             this.gbButton21.ResumeLayout(false);
+            this.gbButton21.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbButton21)).EndInit();
             this.gbButton22.ResumeLayout(false);
             this.gbButton22.PerformLayout();
@@ -870,5 +886,6 @@
         private System.Windows.Forms.CheckBox cbButtonLatch;
         private System.Windows.Forms.Label lButtonLatchLogo;
         private System.Windows.Forms.TextBox tbButtonLatchLogo;
+        private System.Windows.Forms.Button pbCaptureKeystroke;
     }
 }

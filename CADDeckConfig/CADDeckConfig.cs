@@ -24,7 +24,7 @@ namespace CADDeckConfig
             message = CheckFolderStructure(project_folder);
             if (message == "")
             {
-     
+                this.KeyPreview = true;
                 LoadData();
             }
             else
