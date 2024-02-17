@@ -38,7 +38,7 @@
             this.tbLatchColorSample = new System.Windows.Forms.TextBox();
             this.tbBackgroundColorSample = new System.Windows.Forms.TextBox();
             this.bCancel = new System.Windows.Forms.Button();
-            this.bLocalSave = new System.Windows.Forms.Button();
+            this.bSave = new System.Windows.Forms.Button();
             this.cbEnableSleep = new System.Windows.Forms.CheckBox();
             this.cbEnableUSBComms = new System.Windows.Forms.CheckBox();
             this.cbEnableBeep = new System.Windows.Forms.CheckBox();
@@ -150,15 +150,15 @@
             this.bCancel.UseVisualStyleBackColor = true;
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
             // 
-            // bLocalSave
+            // bSave
             // 
-            this.bLocalSave.Location = new System.Drawing.Point(319, 14);
-            this.bLocalSave.Name = "bLocalSave";
-            this.bLocalSave.Size = new System.Drawing.Size(75, 23);
-            this.bLocalSave.TabIndex = 16;
-            this.bLocalSave.Text = "Local Save";
-            this.bLocalSave.UseVisualStyleBackColor = true;
-            this.bLocalSave.Click += new System.EventHandler(this.bLocalSave_Click);
+            this.bSave.Location = new System.Drawing.Point(319, 14);
+            this.bSave.Name = "bSave";
+            this.bSave.Size = new System.Drawing.Size(75, 23);
+            this.bSave.TabIndex = 16;
+            this.bSave.Text = "Save";
+            this.bSave.UseVisualStyleBackColor = true;
+            this.bSave.Click += new System.EventHandler(this.bSave_Click);
             // 
             // cbEnableSleep
             // 
@@ -361,7 +361,7 @@
             this.Controls.Add(this.cbEnableUSBComms);
             this.Controls.Add(this.cbEnableSleep);
             this.Controls.Add(this.bCancel);
-            this.Controls.Add(this.bLocalSave);
+            this.Controls.Add(this.bSave);
             this.Controls.Add(this.tbBackgroundColorSample);
             this.Controls.Add(this.tbLatchColorSample);
             this.Controls.Add(this.tbFunctionColorSample);
@@ -388,7 +388,7 @@
         private System.Windows.Forms.TextBox tbLatchColorSample;
         private System.Windows.Forms.TextBox tbBackgroundColorSample;
         private System.Windows.Forms.Button bCancel;
-        private System.Windows.Forms.Button bLocalSave;
+        private System.Windows.Forms.Button bSave;
         private System.Windows.Forms.CheckBox cbEnableSleep;
         private System.Windows.Forms.CheckBox cbEnableUSBComms;
         private System.Windows.Forms.CheckBox cbEnableBeep;

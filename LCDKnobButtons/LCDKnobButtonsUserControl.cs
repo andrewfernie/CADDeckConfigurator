@@ -220,7 +220,7 @@ namespace LCDKnobButtons
             }
             cbValueCombo.SelectedIndex = Convert.ToInt32(value_index);
         }
-        private void bLocalSave_Click(object sender, EventArgs e)
+        private void bSave_Click(object sender, EventArgs e)
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
             string json_structure_string = JsonSerializer.Serialize(json_structure, options);

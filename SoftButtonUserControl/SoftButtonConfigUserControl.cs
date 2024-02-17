@@ -106,7 +106,6 @@ namespace SoftButtonUserControl
             rbLogoTypeLogo.Checked = true;
 
             InitializeLogos();
-            InitializeText();
 
             activePictureBoxName = "pbButton11";
             PictureBox pBox = (PictureBox)this.Controls.Find(activePictureBoxName, true).FirstOrDefault();
@@ -239,25 +238,6 @@ namespace SoftButtonUserControl
             pbButton33.Image = LoadButtonImage("button33", "blank.png", true);
             pbButton34.Image = LoadButtonImage("button34", "blank.png", true);
         }
-        public void InitializeText()
-        {
-            tbButton11.Text = GetButtonText("button11");
-            tbButton12.Text = GetButtonText("button12");
-            tbButton13.Text = GetButtonText("button13");
-            tbButton14.Text = GetButtonText("button14");
-
-            tbButton21.Text = GetButtonText("button21");
-            tbButton22.Text = GetButtonText("button22");
-            tbButton23.Text = GetButtonText("button23");
-            tbButton24.Text = GetButtonText("button24");
-
-            tbButton31.Text = GetButtonText("button31");
-            tbButton32.Text = GetButtonText("button32");
-            tbButton33.Text = GetButtonText("button33");
-            tbButton34.Text = GetButtonText("button34");
-
-        }
-
 
         private void InitializeAction(System.Windows.Forms.ComboBox cbActionCombo, string action)
         {
@@ -292,7 +272,8 @@ namespace SoftButtonUserControl
 
         private void SetButtonParameters(string button)
         {
-            bool saved_data_changed = data_changed;
+
+            tbButtonName.Text = json_document_node[button]["buttontext"].ToString();
             tbButtonLogo.Text = json_document_node[button]["logo"].ToString();
             tbButtonLatchLogo.Text = json_document_node[button]["latchlogo"].ToString();
             cbButtonLatch.Checked = ((bool)json_document_node[button]["latch"].AsValue());
@@ -304,8 +285,6 @@ namespace SoftButtonUserControl
             InitializeValue(cbButtonAction0, cbButtonValue0, json_document_node[button]["valuearray"][0].ToString());
             InitializeValue(cbButtonAction1, cbButtonValue1, json_document_node[button]["valuearray"][1].ToString());
             InitializeValue(cbButtonAction2, cbButtonValue2, json_document_node[button]["valuearray"][2].ToString());
-            data_changed = saved_data_changed;
-
         }
 
         private void tbButtonNN_Leave(object sender, EventArgs e)
@@ -384,7 +363,7 @@ namespace SoftButtonUserControl
             }
         }
 
-        private void bLocalSave_Click(object sender, EventArgs e)
+        private void bSave_Click(object sender, EventArgs e)
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
             string json_structure_string = JsonSerializer.Serialize(json_document_object, options);
@@ -1044,7 +1023,7 @@ namespace SoftButtonUserControl
                                 //    break;
 
                                 //case Keys.Oem????:
-                                // "&" only as shift 7?
+                                // "#" only as shift 7?
                                 //    valueKey = 11;
                                 //    break;
 
@@ -1221,6 +1200,78 @@ namespace SoftButtonUserControl
                             break;
                     }
 
+                    // Handle special shift cases
+                    //static string[,] special_char_valueKeys_8 ={
+                    //{ ".", "." },{ ", ", ", " },{ "!", "!" },{ "?", "?" },{ "/", "/" },{ "+", "+" },{ "-", "-" },{ "&", "&" },
+                    //{ "^", "^" },{ "%", "%" },{ "*", "*" },{ "#", "#" },{ "$", "$" },{ "[", "[" },{ "]", "]" }};
+                    if ((actionHelper == 5) && (valueHelper == 1))
+                    {
+
+                        switch (e.KeyCode)
+                        {
+                         
+                            // "!" = Shift-1
+                            case Keys.D1:
+                                actionKey = 8;
+                                valueKey = 2;
+                                actionHelper = 0;
+                                break;
+
+                            // "/" = Shift-?
+                            case Keys.OemQuestion:
+                                actionKey = 8;
+                                valueKey = 4;
+                                actionHelper = 0;
+                                break;
+
+                            // "&" = Shift-7
+                            case Keys.D7:
+                                actionKey = 8;
+                                valueKey = 7;
+                                actionHelper = 0;
+                                break;
+
+                            // "^" = Shift-6
+                            case Keys.D6:
+                                actionKey = 8;
+                                valueKey = 8;
+                                actionHelper = 0;
+                                break;
+
+                            // "%" = Shift-5
+                            case Keys.D5:
+                                actionKey = 8;
+                                valueKey = 9;
+                                actionHelper = 0;
+                                break;
+
+                            // "*" = Shift-8
+                            case Keys.D8:
+                                actionKey = 8;
+                                valueKey = 10;
+                                actionHelper = 0;
+                                break;
+
+                            // "#" = Shift-3
+                            case Keys.D3:
+                                actionKey = 8;
+                                valueKey = 11;
+                                actionHelper = 0;
+                                break;
+
+                            // "$" = Shift-4
+                            case Keys.D4:
+                                actionKey = 8;
+                                valueKey = 12;
+                                actionHelper = 0;
+                                break;
+                                
+                            default:
+                                break;
+
+                        }
+                    }
+
                     string thisButtonName = activePictureBoxName.Substring(2, 8).ToLower();
 
                     if (actionHelper == 0)
@@ -1251,9 +1302,12 @@ namespace SoftButtonUserControl
         }
 
 
-        private void pbCaptureKeystroke_KeyPress(object sender, KeyPressEventArgs e)
-        {
 
+        private void tbButtonName_Leave(object sender, EventArgs e)
+        {
+            string thisButtonName = activePictureBoxName.Substring(2, 8).ToLower();
+            json_document_node[thisButtonName]["buttontext"] = tbButtonName.Text;
+            data_changed = true;
         }
     }
 }

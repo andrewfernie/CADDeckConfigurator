@@ -32,7 +32,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.bCancel = new System.Windows.Forms.Button();
-            this.bLocalSave = new System.Windows.Forms.Button();
+            this.bSave = new System.Windows.Forms.Button();
             this.gbButtonSelection = new System.Windows.Forms.GroupBox();
             this.rbLCDKnob_4to6 = new System.Windows.Forms.RadioButton();
             this.rbLCDKnob_0to3 = new System.Windows.Forms.RadioButton();
@@ -134,15 +134,15 @@
             this.bCancel.UseVisualStyleBackColor = true;
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
             // 
-            // bLocalSave
+            // bSave
             // 
-            this.bLocalSave.Location = new System.Drawing.Point(520, 35);
-            this.bLocalSave.Name = "bLocalSave";
-            this.bLocalSave.Size = new System.Drawing.Size(75, 23);
-            this.bLocalSave.TabIndex = 80;
-            this.bLocalSave.Text = "Local Save";
-            this.bLocalSave.UseVisualStyleBackColor = true;
-            this.bLocalSave.Click += new System.EventHandler(this.bLocalSave_Click);
+            this.bSave.Location = new System.Drawing.Point(520, 35);
+            this.bSave.Name = "bSave";
+            this.bSave.Size = new System.Drawing.Size(75, 23);
+            this.bSave.TabIndex = 80;
+            this.bSave.Text = "Save";
+            this.bSave.UseVisualStyleBackColor = true;
+            this.bSave.Click += new System.EventHandler(this.bSave_Click);
             // 
             // gbButtonSelection
             // 
@@ -756,7 +756,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.bCancel);
-            this.Controls.Add(this.bLocalSave);
+            this.Controls.Add(this.bSave);
             this.Controls.Add(this.gbButtonSelection);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbCADProgram);
@@ -788,7 +788,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button bCancel;
-        private System.Windows.Forms.Button bLocalSave;
+        private System.Windows.Forms.Button bSave;
         private System.Windows.Forms.GroupBox gbButtonSelection;
         private System.Windows.Forms.RadioButton rbLCDKnob_4to6;
         private System.Windows.Forms.RadioButton rbLCDKnob_0to3;

@@ -12,6 +12,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using Helpers;
 using System.Collections;
+using System.Text.Json.Nodes;
 
 namespace CADProgramConfigUserControl
 {
@@ -20,15 +21,59 @@ namespace CADProgramConfigUserControl
         String project_folder;
         String file_name = "\\config\\cadparams.json";
         CJSONCADParams json_structure;
+        JsonNode json_document_node;
+        JsonObject json_document_object;
+        
         int current_program = 0;
         int number_of_programs = 0;
         bool data_changed = false;
 
-        int button_type = 0;
-        int button_offset = 0;
-
         const int HWBUTTON_MAX = 10;
 
+        int activeButtonNumber = -1;
+
+        bool keyCapture = false;
+
+        const uint KeyMaskCtrl = 0x0001;
+        const uint KeyMaskShift = 0x0002;
+        const uint KeyMaskAlt = 0x0004;
+        const uint KeyMaskGui = 0x0008;
+        const uint KeyMaskLeftCtrl = 0x0010;
+        const uint KeyMaskLeftShift = 0x0020;
+        const uint KeyMaskLeftAlt = 0x0040;
+        const uint KeyMaskLeftGui = 0x0080;
+        const uint KeyMaskRightCtrl = 0x0100;
+        const uint KeyMaskRightShift = 0x0200;
+        const uint KeyMaskRightAlt = 0x0400;
+        const uint KeyMaskRightGui = 0x0800;
+
+        const uint KeyLeftCtrlShift = KeyMaskLeftCtrl | KeyMaskLeftShift;
+        const uint KeyLeftAltShift = KeyMaskLeftAlt | KeyMaskLeftShift;
+        const uint KeyLeftGuiShift = KeyMaskLeftGui | KeyMaskLeftShift;
+        const uint KeyLeftCtrlGui = KeyMaskLeftCtrl | KeyMaskLeftGui;
+        const uint KeyLeftAltGui = KeyMaskLeftAlt | KeyMaskLeftGui;
+        const uint KeyLeftCtrlAlt = KeyMaskLeftCtrl | KeyMaskLeftAlt;
+        const uint KeyLeftCtrlAltGui = KeyMaskLeftCtrl | KeyMaskLeftAlt | KeyMaskLeftGui;
+        const uint KeyRightCtrlShift = KeyMaskRightCtrl | KeyMaskRightShift;
+        const uint KeyRightAltShift = KeyMaskRightAlt | KeyMaskRightShift;
+        const uint KeyRightGuiShift = KeyMaskRightGui | KeyMaskRightShift;
+        const uint KeyRightCtrlGui = KeyMaskRightCtrl | KeyMaskRightGui;
+        const uint KeyRightAltGui = KeyMaskRightAlt | KeyMaskRightGui;
+        const uint KeyRightCtrlAlt = KeyMaskRightCtrl | KeyMaskRightAlt;
+        const uint KeyRightCtrlAltGui = KeyMaskRightCtrl | KeyMaskRightAlt | KeyMaskRightGui;
+
+        enum KeyTypes
+        {
+            KeyTypeNone = 0,
+            KeyTypeNumber,
+            KeyTypeLetter,
+            KeyTypeFn,
+            KeyTypeNumpad,
+            KeyTypeOem,
+            KeyTypeMediaApp,
+            KeyTypeMisc
+        }
+        
         public CADProgramConfigUserControl()
         {
             InitializeComponent();
@@ -41,6 +86,8 @@ namespace CADProgramConfigUserControl
 
             string json_string = File.ReadAllText(project_folder + file_name);
             json_structure = JsonSerializer.Deserialize<CJSONCADParams>(json_string);
+            json_document_node = JsonNode.Parse(json_string);
+            json_document_object = json_document_node.AsObject();
 
             data_changed = false;
 
@@ -94,41 +141,19 @@ namespace CADProgramConfigUserControl
                         lcdbtn.valuearray = new string[3] { "0", "0", "0" }; ;
 
                         lcdbtns[j] = lcdbtn;
-
+                        
                     }
                     json_structure.programs[i].lcdknob_buttons = lcdbtns;
                 }
             }
+            activeButtonNumber = 1;
+            string buttonName = "btnButton" + activeButtonNumber.ToString("00");
+            System.Windows.Forms.Button pButton = (System.Windows.Forms.Button)this.Controls.Find(buttonName, true).FirstOrDefault();
+            pButton.BackColor = SystemColors.Highlight;
+            SetButtonParameters(current_program, activeButtonNumber);
 
-            rbHW_0to3.Checked = true;
-            SetLabels(0);
-
-            InitializeText();
-            InitializeActions();
-            InitializeValues();
             InitializeMiscControls();
 
-        }
-        public void InitializeText()
-        {
-
-                if ((button_offset + 0) <= HWBUTTON_MAX)
-                {
-                    tbButton0Text.Text = json_structure.programs[current_program].buttons[button_offset + 0].description;
-                }
-                if ((button_offset + 1) <= HWBUTTON_MAX)
-                {
-                    tbButton1Text.Text = json_structure.programs[current_program].buttons[button_offset + 1].description;
-                }
-                if ((button_offset + 2) <= HWBUTTON_MAX)
-                {
-                    tbButton2Text.Text = json_structure.programs[current_program].buttons[button_offset + 2].description;
-                }
-                if ((button_offset + 3) <= HWBUTTON_MAX)
-                {
-                    tbButton3Text.Text = json_structure.programs[current_program].buttons[button_offset + 3].description;
-                }
-   
         }
 
         private void InitializeMiscControls()
@@ -153,70 +178,6 @@ namespace CADProgramConfigUserControl
             cbStartupProgram.SelectedIndex = current_program;
         }
 
-        public void InitializeActions()
-        {
-                if ((button_offset + 0) <= HWBUTTON_MAX)
-                {
-                    InitializeAction(cbButton0Action0, json_structure.programs[current_program].buttons[0 + button_offset].actionarray[0]);
-                    InitializeAction(cbButton0Action1, json_structure.programs[current_program].buttons[0 + button_offset].actionarray[1]);
-                    InitializeAction(cbButton0Action2, json_structure.programs[current_program].buttons[0 + button_offset].actionarray[2]);
-                }
-
-                if ((button_offset + 1) <= HWBUTTON_MAX)
-                {
-                    InitializeAction(cbButton1Action0, json_structure.programs[current_program].buttons[1 + button_offset].actionarray[0]);
-                    InitializeAction(cbButton1Action1, json_structure.programs[current_program].buttons[1 + button_offset].actionarray[1]);
-                    InitializeAction(cbButton1Action2, json_structure.programs[current_program].buttons[1 + button_offset].actionarray[2]);
-                }
-
-                if ((button_offset + 2) <= HWBUTTON_MAX)
-                {
-                    InitializeAction(cbButton2Action0, json_structure.programs[current_program].buttons[2 + button_offset].actionarray[0]);
-                    InitializeAction(cbButton2Action1, json_structure.programs[current_program].buttons[2 + button_offset].actionarray[1]);
-                    InitializeAction(cbButton2Action2, json_structure.programs[current_program].buttons[2 + button_offset].actionarray[2]);
-                }
-
-                if ((button_offset + 3) <= HWBUTTON_MAX)
-                {
-                    InitializeAction(cbButton3Action0, json_structure.programs[current_program].buttons[3 + button_offset].actionarray[0]);
-                    InitializeAction(cbButton3Action1, json_structure.programs[current_program].buttons[3 + button_offset].actionarray[1]);
-                    InitializeAction(cbButton3Action2, json_structure.programs[current_program].buttons[3 + button_offset].actionarray[2]);
-                }
-           
-        }
-            
-        public void InitializeValues()
-        {
-
-                if ((button_offset + 0) <= HWBUTTON_MAX)
-                {
-                    InitializeValue(cbButton0Action0, cbButton0Value0, json_structure.programs[current_program].buttons[button_offset + 0].valuearray[0]);
-                    InitializeValue(cbButton0Action1, cbButton0Value1, json_structure.programs[current_program].buttons[button_offset + 0].valuearray[1]);
-                    InitializeValue(cbButton0Action2, cbButton0Value2, json_structure.programs[current_program].buttons[button_offset + 0].valuearray[2]);
-                }
-
-                if ((button_offset + 1) <= HWBUTTON_MAX)
-                {
-                    InitializeValue(cbButton1Action0, cbButton1Value0, json_structure.programs[current_program].buttons[button_offset + 1].valuearray[0]);
-                    InitializeValue(cbButton1Action1, cbButton1Value1, json_structure.programs[current_program].buttons[button_offset + 1].valuearray[1]);
-                    InitializeValue(cbButton1Action2, cbButton1Value2, json_structure.programs[current_program].buttons[button_offset + 1].valuearray[2]);
-                }
-
-                if ((button_offset + 2) <= HWBUTTON_MAX)
-                {
-                    InitializeValue(cbButton2Action0, cbButton2Value0, json_structure.programs[current_program].buttons[button_offset + 2].valuearray[0]);
-                    InitializeValue(cbButton2Action1, cbButton2Value1, json_structure.programs[current_program].buttons[button_offset + 2].valuearray[1]);
-                    InitializeValue(cbButton2Action2, cbButton2Value2, json_structure.programs[current_program].buttons[button_offset + 2].valuearray[2]);
-                }
-
-                if ((button_offset + 3) <= HWBUTTON_MAX)
-                {
-                    InitializeValue(cbButton3Action0, cbButton3Value0, json_structure.programs[current_program].buttons[button_offset + 3].valuearray[0]);
-                    InitializeValue(cbButton3Action1, cbButton3Value1, json_structure.programs[current_program].buttons[button_offset + 3].valuearray[1]);
-                    InitializeValue(cbButton3Action2, cbButton3Value2, json_structure.programs[current_program].buttons[button_offset + 3].valuearray[2]);
-                }
-         
-        }
         public void InitializeAction(System.Windows.Forms.ComboBox cbActionCombo, string action)
         {
             cbActionCombo.Items.Clear();
@@ -247,7 +208,7 @@ namespace CADProgramConfigUserControl
             }
             cbValueCombo.SelectedIndex = Convert.ToInt32(value_index);
         }
-        private void bLocalSave_Click(object sender, EventArgs e)
+        private void bSave_Click(object sender, EventArgs e)
         {
             var options = new JsonSerializerOptions { WriteIndented = true };
             string json_structure_string = JsonSerializer.Serialize(json_structure, options);
@@ -293,9 +254,8 @@ namespace CADProgramConfigUserControl
         private void cbCADProgram_SelectedIndexChanged(object sender, EventArgs e)
         {
             current_program = cbCADProgram.SelectedIndex;
-            InitializeText();
-            InitializeActions();
-            InitializeValues();
+            int newButtonNumber = 1;
+            SetButtonParameters(current_program, newButtonNumber);
         }
 
         private void AdjustWidthComboBox_DropDown(object sender, EventArgs e)
@@ -323,280 +283,7 @@ namespace CADProgramConfigUserControl
             senderComboBox.DropDownWidth = width;
         }
 
-        private string GetAction(int buttonNumber, int actionIndex)
-        {
-
-            string value = "";
-
-                value = json_structure.programs[current_program].buttons[buttonNumber].actionarray[actionIndex];
-
-
-            return value;
-
-        }
-
-        private void SetAction(int buttonNumber, int actionIndex, string value)
-        {
-
-
-                json_structure.programs[current_program].buttons[buttonNumber].actionarray[actionIndex] = value;
-                data_changed = true;
-
-
-        }
-
-        private void SetValue(int buttonNumber, int valueIndex, string value)
-        {
-
-
-                json_structure.programs[current_program].buttons[buttonNumber].valuearray[valueIndex] = value;
-                data_changed = true;
-
-
-        }
-
-        private void cbButton0Action0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            string value = GetAction(button_offset + 0, 0);
-
-            if (value != cbButton0Action0.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 0, 0, cbButton0Action0.SelectedIndex.ToString());
-                InitializeValue(cbButton0Action0, cbButton0Value0, "0");
-            }
-        }
-        private void cbButton0Action1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 0, 1);
-
-            if (value != cbButton0Action1.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 0, 1, cbButton0Action1.SelectedIndex.ToString());
-                InitializeValue(cbButton0Action1, cbButton0Value1, "0");
-            }
-        }
-        private void cbButton0Action2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 0, 2);
-
-            if (value != cbButton0Action2.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 0, 2, cbButton0Action2.SelectedIndex.ToString());
-                InitializeValue(cbButton0Action2, cbButton0Value2, "0");
-            }
-        }
-        private void cbButton1Action0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 1, 0);
-
-            if (value != cbButton1Action0.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 1, 0, cbButton1Action0.SelectedIndex.ToString());
-                InitializeValue(cbButton1Action0, cbButton1Value0, "0");
-            }
-        }
-        private void cbButton1Action1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 1, 1);
-
-            if (value != cbButton1Action1.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 1, 1, cbButton1Action1.SelectedIndex.ToString());
-                InitializeValue(cbButton1Action1, cbButton1Value1, "0");
-            }
-        }
-
-        private void cbButton1Action2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 1, 2);
-
-            if (value != cbButton1Action2.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 1, 2, cbButton1Action2.SelectedIndex.ToString());
-                InitializeValue(cbButton1Action2, cbButton1Value2, "0");
-            }
-        }
-
-        private void cbButton2Action0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 2, 0);
-
-            if (value != cbButton2Action0.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 2, 0, cbButton2Action0.SelectedIndex.ToString());
-                InitializeValue(cbButton2Action0, cbButton2Value0, "0");
-            }
-        }
-
-        private void cbButton2Action1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 2, 1);
-
-            if (value != cbButton2Action1.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 2, 1, cbButton2Action1.SelectedIndex.ToString());
-                InitializeValue(cbButton2Action1, cbButton2Value1, "0");
-            }
-        }
-
-        private void cbButton2Action2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 2, 2);
-
-            if (value != cbButton2Action2.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 2, 2, cbButton2Action2.SelectedIndex.ToString());
-                InitializeValue(cbButton2Action2, cbButton2Value2, "0");
-            }
-        }
-
-        private void cbButton3Action0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 3, 0);
-
-            if (value != cbButton3Action0.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 3, 0, cbButton3Action0.SelectedIndex.ToString());
-                InitializeValue(cbButton3Action0, cbButton3Value0, "0");
-            }
-        }
-
-        private void cbButton3Action1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 3, 1);
-
-            if (value != cbButton3Action1.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 3, 1, cbButton3Action1.SelectedIndex.ToString());
-                InitializeValue(cbButton3Action1, cbButton3Value1, "0");
-            }
-        }
-
-        private void cbButton3Action2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 3, 2);
-
-            if (value != cbButton3Action2.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 3, 2, cbButton3Action2.SelectedIndex.ToString());
-                InitializeValue(cbButton3Action2, cbButton3Value2, "0");
-            }
-        }
-
-        private void cbButton0Value0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 0, 0, ActionHelpers.GetValue(cbButton0Action0.SelectedIndex, cbButton0Value0.SelectedIndex, 1));
-        }
-
-        private void cbButton0Value1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 0, 1, ActionHelpers.GetValue(cbButton0Action1.SelectedIndex, cbButton0Value1.SelectedIndex, 1));
-        }
-
-        private void cbButton0Value2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 0, 2, ActionHelpers.GetValue(cbButton0Action2.SelectedIndex, cbButton0Value2.SelectedIndex, 1));
-        }
-        private void cbButton1Value0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 1, 0, ActionHelpers.GetValue(cbButton1Action0.SelectedIndex, cbButton1Value0.SelectedIndex, 1));
-        }
-
-        private void cbButton1Value1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 1, 1, ActionHelpers.GetValue(cbButton1Action1.SelectedIndex, cbButton1Value1.SelectedIndex, 1));
-        }
-
-        private void cbButton1Value2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 1, 2, ActionHelpers.GetValue(cbButton1Action2.SelectedIndex, cbButton1Value2.SelectedIndex, 1));
-        }
-
-        private void cbButton2Value0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 2, 0, ActionHelpers.GetValue(cbButton2Action0.SelectedIndex, cbButton2Value0.SelectedIndex, 1));
-        }
-
-        private void cbButton2Value1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 2, 1, ActionHelpers.GetValue(cbButton2Action1.SelectedIndex, cbButton2Value1.SelectedIndex, 1));
-        }
-
-        private void cbButton2Value2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 2, 2, ActionHelpers.GetValue(cbButton2Action2.SelectedIndex, cbButton2Value2.SelectedIndex, 1));
-        }
-
-        private void cbButton3Value0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 3, 0, ActionHelpers.GetValue(cbButton3Action0.SelectedIndex, cbButton3Value0.SelectedIndex, 1));
-        }
-
-        private void cbButton3Value1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 3, 1, ActionHelpers.GetValue(cbButton3Action1.SelectedIndex, cbButton3Value1.SelectedIndex, 1));
-        }
-
-        private void cbButton3Value2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 3, 2, ActionHelpers.GetValue(cbButton3Action2.SelectedIndex, cbButton3Value2.SelectedIndex, 1));
-        }
-
-        private void SetLabels(int offset)
-        {
-
-                gbButton0.Text = "HW Button " + offset;
-                gbButton1.Text = "HW Button " + (offset + 1);
-                gbButton2.Text = "HW Button " + (offset + 2);
-
-                if (offset + 3 <= 10)
-                {
-                    gbButton3.Visible = true;
-                    gbButton3.Text = "HW Button " + (offset + 3);
-                }
-                else
-                {
-                    gbButton3.Visible = false;
-                }
-
-        }
-
-        private void rbButtonSelect_CheckedChanged(object sender, EventArgs e)
-        {
-            RadioButton rb = sender as RadioButton;
-
-            if (rb == null)
-            {
-                MessageBox.Show("Sender is not a RadioButton");
-                return;
-            }
-
-
-            if (rbHW_0to3.Checked)
-            {
-
-                button_offset = 0;
-                SetLabels( button_offset);
-            }
-            else if (rbHW_4to7.Checked)
-            {
-
-                button_offset = 4;
-                SetLabels( button_offset);
-            }
-            else if (rbHW_8to10.Checked)
-            {
-
-                button_offset = 8;
-                SetLabels(button_offset);
-            }
-
-            InitializeText();
-            InitializeActions();
-            InitializeValues();
-        }
-
+ 
         private void tbScaleX_Leave(object sender, EventArgs e)
         {
             json_structure.joy_scale_x = (float)Convert.ToDouble(tbScaleX.Text);
@@ -686,43 +373,789 @@ namespace CADProgramConfigUserControl
             data_changed = true;
 
         }
-
-        private void tbButton0Text_Leave(object sender, EventArgs e)
+        private void SetButtonParameters(int program, int button)
         {
+            SetButtonHighlight(button);
+            activeButtonNumber = button;
+            
+            tbButtonName.Text = json_document_node["programs"][program]["buttons"][activeButtonNumber]["name"].ToString();
 
-                json_structure.programs[current_program].buttons[button_offset + 0].description = tbButton0Text.Text;
-                data_changed = true;
+            InitializeAction(cbButtonAction0, json_document_node["programs"][program]["buttons"][button]["actionarray"][0].ToString());
+            InitializeAction(cbButtonAction1, json_document_node["programs"][program]["buttons"][button]["actionarray"][1].ToString());
+            InitializeAction(cbButtonAction2, json_document_node["programs"][program]["buttons"][button]["actionarray"][2].ToString());
 
+            InitializeValue(cbButtonAction0, cbButtonValue0, json_document_node["programs"][program]["buttons"][button]["valuearray"][0].ToString());
+            InitializeValue(cbButtonAction1, cbButtonValue1, json_document_node["programs"][program]["buttons"][button]["valuearray"][1].ToString());
+            InitializeValue(cbButtonAction2, cbButtonValue2, json_document_node["programs"][program]["buttons"][button]["valuearray"][2].ToString());
 
         }
 
-        private void tbButton1Text_TextChanged(object sender, EventArgs e)
+        private void SetButtonHighlight(int button)
         {
+            if (activeButtonNumber != -1)
+            {
+                string buttonName = "btnButton" + activeButtonNumber.ToString("00");
+                System.Windows.Forms.Button btnButton = (System.Windows.Forms.Button)this.Controls.Find(buttonName, true).FirstOrDefault();
+                btnButton.BackColor = SystemColors.Control;
+            }
+            string newButtonName = "btnButton" + button.ToString("00");
+            System.Windows.Forms.Button btnNewButton = (System.Windows.Forms.Button)this.Controls.Find(newButtonName, true).FirstOrDefault();
+            btnNewButton.BackColor = SystemColors.Highlight;
+        }
+        private void btnButtonNN_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button pButton = sender as System.Windows.Forms.Button;
 
-                json_structure.programs[current_program].buttons[button_offset + 1].description = tbButton1Text.Text;
-                data_changed = true;
-
+            int newActiveButton = Int32.Parse(pButton.Name.Substring(9, 2));
+            SetButtonParameters(current_program, newActiveButton);
         }
 
-        private void tbButton2Text_TextChanged(object sender, EventArgs e)
+        private void tbButtonName_Leave(object sender, EventArgs e)
         {
-
-                json_structure.programs[current_program].buttons[button_offset + 2].description = tbButton2Text.Text;
-                data_changed = true;
-
+            json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["description"] = tbButtonName.Text;
+            data_changed = true;
         }
 
-        private void tbButton3Text_TextChanged(object sender, EventArgs e)
+        private void cbButtonAction0_SelectedIndexChanged(object sender, EventArgs e)
         {
+            System.Windows.Forms.ComboBox cBox = sender as System.Windows.Forms.ComboBox;
 
-                json_structure.programs[current_program].buttons[button_offset + 3].description = tbButton3Text.Text;
+            if (json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["actionarray"][0].ToString() != cBox.SelectedIndex.ToString())
+            {
+                json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["actionarray"][0] = cBox.SelectedIndex.ToString();
                 data_changed = true;
-
+                InitializeValue(cBox, cbButtonValue0, "0");
+            }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void cbButtonValue0_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["valuearray"][0] = ActionHelpers.GetValue(cbButtonAction0.SelectedIndex, cbButtonValue0.SelectedIndex, 1);
+            data_changed = true;
+        }
+
+        private void cbButtonAction1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ComboBox cBox = sender as System.Windows.Forms.ComboBox;
+
+            if (json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["actionarray"][1].ToString() != cBox.SelectedIndex.ToString())
+            {
+                json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["actionarray"][1] = cBox.SelectedIndex.ToString();
+                data_changed = true;
+                InitializeValue(cBox, cbButtonValue1, "0");
+            }
+        }
+
+        private void cbButtonValue1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["valuearray"][1] = ActionHelpers.GetValue(cbButtonAction1.SelectedIndex, cbButtonValue1.SelectedIndex, 1);
+            data_changed = true;
+        }
+
+        private void cbButtonAction2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ComboBox cBox = sender as System.Windows.Forms.ComboBox;
+
+            if (json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["actionarray"][2].ToString() != cBox.SelectedIndex.ToString())
+            {
+                json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["actionarray"][2] = cBox.SelectedIndex.ToString();
+                data_changed = true;
+                InitializeValue(cBox, cbButtonValue2, "0");
+            }
+        }
+
+        private void cbButtonValue2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["valuearray"][2] = ActionHelpers.GetValue(cbButtonAction2.SelectedIndex, cbButtonValue2.SelectedIndex, 1);
+            data_changed = true;
+        }
+
+        private void pbCaptureKeystroke_Click(object sender, EventArgs e)
+        {
+            keyCapture = !keyCapture;
+
+            if (keyCapture)
+            {
+                pbCaptureKeystroke.BackColor = SystemColors.Highlight;
+            }
+            else
+            {
+                pbCaptureKeystroke.BackColor = SystemColors.Control;
+            }
+        }
+
+        private void pbCaptureKeystroke_KeyDown(object sender, KeyEventArgs e)
         {
 
+            uint keyMask = 0;
+
+            if (keyCapture)
+            {
+                KeyTypes keyType = KeyTypes.KeyTypeNone;
+                // Determine whether the keystroke is a number from the top of the keyboard.
+                // 0x30 - 0x39
+                if (e.KeyCode >= Keys.D0 && e.KeyCode <= Keys.D9)
+                {
+                    keyType = KeyTypes.KeyTypeNumber;
+                }
+                // Determine whether the keystroke is a letter key.
+                // 0x41 - 0x5A
+                else if (e.KeyCode >= Keys.A && e.KeyCode <= Keys.Z)
+                {
+                    keyType = KeyTypes.KeyTypeLetter;
+                }
+                // Determine whether the keystroke is a Fn key.
+                // 0x70 - 0x87
+                else if (e.KeyCode >= Keys.F1 && e.KeyCode <= Keys.F24)
+                {
+                    keyType = KeyTypes.KeyTypeFn;
+                }
+                // Determine whether the keystroke is a numpad key.
+                // 0x60 - 0x6f
+                else if (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.Divide)
+                {
+                    keyType = KeyTypes.KeyTypeNumpad;
+                }
+                // Determine whether the keystroke is a miscellaneous key.
+                // 0x13 - 0x2f
+                else if (e.KeyCode >= Keys.Pause && e.KeyCode <= Keys.Help)
+                {
+                    keyType = KeyTypes.KeyTypeMisc;
+                }
+                // Determine whether the keystroke is a media or app key.
+                // 0xa6 - 0xb7
+                else if (e.KeyCode >= Keys.BrowserBack && e.KeyCode <= Keys.LaunchApplication2)
+                {
+                    keyType = KeyTypes.KeyTypeMediaApp;
+                }
+                // Determine whether the keystroke is a miscellaneous key.
+                // 0xba - 0xe2
+                else if (e.KeyCode >= Keys.OemSemicolon && e.KeyCode <= Keys.OemBackslash)
+                {
+                    keyType = KeyTypes.KeyTypeOem;
+                }
+
+                // Don't trigger if it was just a modifier (ctrl, alt, shift, gui) key. We need
+                // to wait for a letter, number, fn, etc.
+                if (keyType != KeyTypes.KeyTypeNone)
+                {
+                    pbCaptureKeystroke.BackColor = SystemColors.Control;
+                    keyCapture = false;
+
+                    // Check for each modifier key
+                    if ((Control.ModifierKeys & Keys.Shift) == Keys.Shift)
+                    {
+                        keyMask = keyMask | KeyMaskShift;
+                    }
+                    if ((Control.ModifierKeys & Keys.LShiftKey) == Keys.LShiftKey)
+                    {
+                        keyMask = keyMask | KeyMaskLeftShift;
+                    }
+                    if ((Control.ModifierKeys & Keys.RShiftKey) == Keys.RShiftKey)
+                    {
+                        keyMask = keyMask | KeyMaskRightShift;
+                    }
+                    if ((Control.ModifierKeys & Keys.Control) == Keys.Control)
+                    {
+                        keyMask = keyMask | KeyMaskCtrl;
+                    }
+                    if ((Control.ModifierKeys & Keys.LControlKey) == Keys.LControlKey)
+                    {
+                        keyMask = keyMask | KeyMaskLeftCtrl;
+                    }
+                    if ((Control.ModifierKeys & Keys.RControlKey) == Keys.RControlKey)
+                    {
+                        keyMask = keyMask | KeyMaskRightCtrl;
+                    }
+                    if ((Control.ModifierKeys & Keys.Alt) == Keys.Alt)
+                    {
+                        keyMask = keyMask | KeyMaskAlt;
+                    }
+                    if ((Control.ModifierKeys & Keys.LMenu) == Keys.LMenu)
+                    {
+                        keyMask = keyMask | KeyMaskLeftAlt;
+                    }
+                    if ((Control.ModifierKeys & Keys.RMenu) == Keys.RMenu)
+                    {
+                        keyMask = keyMask | KeyMaskRightAlt;
+                    }
+                    if ((Control.ModifierKeys & Keys.LWin) == Keys.LWin)
+                    {
+                        keyMask = keyMask | KeyMaskLeftGui;
+                    }
+
+                    if ((Control.ModifierKeys & Keys.RWin) == Keys.RWin)
+                    {
+                        keyMask = keyMask | KeyMaskRightGui;
+                    }
+
+                    //        static string[,] action_option = {
+                    //{ "Do Nothing", "0" }, { "Delay", "1"}, { "Arrows and Tab", "2"}, { "Mediakey", "3" },
+                    //{ "Letters", "4" }, { "Option Keys", "5" }, { "Function Keys", "6" }, { "Numbers", "7" },
+                    //{ "Special Chars", "8" }, { "Combo", "9" }, { "Helper", "10" }, { "FTD Functions", "11" },
+                    //{ "Numpad", "12" }, { "User Actions", "13" }, { "Goto Page", "14" }, { "CAD Functions", "15" },
+                    //{ "CAD Programs", "16" }, { "Mouse Buttons", "17" }, { "Previous Page", "18" },
+                    //{ "Default Joystick Mode", "19" }, { "Spacemouse Buttons", "20" }};
+
+
+                    // Identify which action and valueHelper corresponds to one, or a combination of,
+                    // modifier keys.
+                    int actionHelper = 0;
+                    int valueHelper = 0;
+                    switch (keyMask)
+                    {
+                        //        static string[,] option_key_values_5 ={
+                        //{ "Left CTRL", "1" },{ "Left Shift", "2" },{ "Left ALT", "3" },{ "Left GUI", "4" },
+                        //{ "Right CTRL", "5" },{ "Right Shift", "6" },{ "Right ALT", "7" },{ "Right GUI", "8" },
+                        //{ "Release All", "9" }};
+
+                        case KeyMaskCtrl:
+                            actionHelper = 5;
+                            valueHelper = 0;
+                            break;
+                        case KeyMaskLeftCtrl:
+                            actionHelper = 5;
+                            valueHelper = 0;
+                            break;
+                        case KeyMaskShift:
+                            actionHelper = 5;
+                            valueHelper = 1;
+                            break;
+                        case KeyMaskLeftShift:
+                            actionHelper = 5;
+                            valueHelper = 1;
+                            break;
+                        case KeyMaskAlt:
+                            actionHelper = 5;
+                            valueHelper = 2;
+                            break;
+                        case KeyMaskLeftAlt:
+                            actionHelper = 5;
+                            valueHelper = 2;
+                            break;
+                        case KeyMaskLeftGui:
+                            actionHelper = 5;
+                            valueHelper = 3;
+                            break;
+                        case KeyMaskRightCtrl:
+                            actionHelper = 5;
+                            valueHelper = 4;
+                            break;
+                        case KeyMaskRightShift:
+                            actionHelper = 5;
+                            valueHelper = 5;
+                            break;
+                        case KeyMaskRightAlt:
+                            actionHelper = 5;
+                            valueHelper = 6;
+                            break;
+                        case KeyMaskRightGui:
+                            actionHelper = 5;
+                            valueHelper = 7;
+                            break;
+                        //        static string[,] combo_values_9 ={
+                        //{ "LEFT CTRL+SHIFT", "1" },{ "LEFT ALT+SHIFT", "2" },{ "LEFT GUI+SHIFT", "3" },{ "LEFT CTRL+GUI", "4" },
+                        //{ "LEFT ALT+GUI", "5" },{ "LEFT CTRL+ALT", "6" },{ "LEFT CTRL+ALT+GUI", "7" },{ "RIGHT CTRL+SHIFT", "8" },
+                        //{ "RIGHT ALT+SHIFT", "9" },{ "RIGHT GUI+SHIFT", "10" },{ "RIGHT CTRL+GUI", "11" },{ "RIGHT ALT+GUI", "12" },
+                        //{ "RIGHT CTRL+ALT", "13" },{ "RIGHT CTRL+ALT+GUI", "14" }};
+                        case KeyMaskCtrl | KeyMaskShift:
+                            actionHelper = 9;
+                            valueHelper = 0;
+                            break;
+                        case KeyMaskLeftCtrl | KeyMaskLeftShift:
+                            actionHelper = 9;
+                            valueHelper = 0;
+                            break;
+                        case KeyMaskAlt | KeyMaskShift:
+                            actionHelper = 9;
+                            valueHelper = 1;
+                            break;
+                        case KeyMaskLeftAlt | KeyMaskLeftShift:
+                            actionHelper = 9;
+                            valueHelper = 1;
+                            break;
+                        case KeyMaskLeftGui | KeyMaskLeftShift:
+                            actionHelper = 9;
+                            valueHelper = 2;
+                            break;
+                        case KeyMaskLeftGui | KeyMaskShift:
+                            actionHelper = 9;
+                            valueHelper = 2;
+                            break;
+                        case KeyMaskCtrl | KeyMaskLeftGui:
+                            actionHelper = 9;
+                            valueHelper = 3;
+                            break;
+                        case KeyMaskLeftCtrl | KeyMaskLeftGui:
+                            actionHelper = 9;
+                            valueHelper = 3;
+                            break;
+                        case KeyMaskAlt | KeyMaskLeftGui:
+                            actionHelper = 9;
+                            valueHelper = 4;
+                            break;
+                        case KeyMaskLeftAlt | KeyMaskLeftGui:
+                            actionHelper = 9;
+                            valueHelper = 4;
+                            break;
+                        case KeyMaskLeftCtrl | KeyMaskLeftAlt:
+                            actionHelper = 9;
+                            valueHelper = 5;
+                            break;
+                        case KeyMaskCtrl | KeyMaskAlt:
+                            actionHelper = 9;
+                            valueHelper = 5;
+                            break;
+                        case KeyMaskCtrl | KeyMaskAlt | KeyMaskLeftGui:
+                            actionHelper = 9;
+                            valueHelper = 6;
+                            break;
+                        case KeyMaskLeftCtrl | KeyMaskLeftAlt | KeyMaskLeftGui:
+                            actionHelper = 9;
+                            valueHelper = 6;
+                            break;
+                        case KeyMaskRightCtrl | KeyMaskRightShift:
+                            actionHelper = 9;
+                            valueHelper = 7;
+                            break;
+                        case KeyMaskRightAlt | KeyMaskRightShift:
+                            actionHelper = 9;
+                            valueHelper = 8;
+                            break;
+                        case KeyMaskRightGui | KeyMaskShift:
+                            actionHelper = 9;
+                            valueHelper = 9;
+                            break;
+                        case KeyMaskRightGui | KeyMaskRightShift:
+                            actionHelper = 9;
+                            valueHelper = 9;
+                            break;
+                        case KeyMaskCtrl | KeyMaskRightGui:
+                            actionHelper = 9;
+                            valueHelper = 10;
+                            break;
+                        case KeyMaskRightCtrl | KeyMaskRightGui:
+                            actionHelper = 9;
+                            valueHelper = 10;
+                            break;
+                        case KeyMaskAlt | KeyMaskRightGui:
+                            actionHelper = 9;
+                            valueHelper = 11;
+                            break;
+                        case KeyMaskRightAlt | KeyMaskRightGui:
+                            actionHelper = 9;
+                            valueHelper = 11;
+                            break;
+                        case KeyMaskRightCtrl | KeyMaskRightAlt:
+                            actionHelper = 9;
+                            valueHelper = 12;
+                            break;
+                        case KeyMaskCtrl | KeyMaskAlt | KeyMaskRightGui:
+                            actionHelper = 9;
+                            valueHelper = 13;
+                            break;
+                        case KeyMaskRightCtrl | KeyMaskRightAlt | KeyMaskRightGui:
+                            actionHelper = 9;
+                            valueHelper = 13;
+                            break;
+
+                        default:
+
+                            break;
+                    }
+
+                    int valueKey = 0;
+                    int actionKey = 0;
+                    switch (keyType)
+                    {
+                        case KeyTypes.KeyTypeNumber:
+                            actionKey = 7;
+                            // Mapped to 0-9
+                            valueKey = e.KeyCode - Keys.D0;
+                            break;
+
+                        case KeyTypes.KeyTypeLetter:
+                            actionKey = 4;
+                            // mapped to a list that starts with a space character then a-z
+                            valueKey = e.KeyCode - Keys.A + 1;
+                            break;
+
+                        case KeyTypes.KeyTypeFn:
+                            actionKey = 6;
+                            // Mapped to F1-F24
+                            valueKey = e.KeyCode - Keys.F1;
+                            break;
+
+                        case KeyTypes.KeyTypeNumpad:
+                            //  { "Numpad 0", "0" }, { "Numpad 1", "1" }, { "Numpad 2", "2" }, { "Numpad 3", "3" },
+                            //  { "Numpad 4", "4" }, { "Numpad 5", "5" }, { "Numpad 6", "6" }, { "Numpad 7", "7" },
+                            //  { "Numpad 8", "8" }, { "Numpad 9", "9" }, { "Numpad /", "10" }, { "Numpad *", "11" },
+                            //  { "Numpad -", "12" }, { "Numpad +", "13" }, { "Numpad RETURN", "14" }, { "Numpad .", "15" }   
+                            actionKey = 12;
+
+                            if (e.KeyCode >= Keys.NumPad0 && e.KeyCode <= Keys.NumPad9)
+                            {
+                                valueKey = e.KeyCode - Keys.NumPad0;
+                            }
+                            else if (e.KeyCode == Keys.Divide)
+                            {
+                                valueKey = 10;
+                            }
+                            else if (e.KeyCode == Keys.Multiply)
+                            {
+                                valueKey = 11;
+                            }
+                            else if (e.KeyCode == Keys.Subtract)
+                            {
+                                valueKey = 12;
+                            }
+                            else if (e.KeyCode == Keys.Add)
+                            {
+                                valueKey = 13;
+                            }
+                            else if (e.KeyCode == Keys.Separator)  // Not sure what this one is.
+                            {
+                                valueKey = 0;
+                            }
+                            else if (e.KeyCode == Keys.Decimal)
+                            {
+                                valueKey = 15;
+                            }
+                            break;
+
+                        case KeyTypes.KeyTypeOem:
+                            //static string[,] special_char_valueKeys_8 ={
+                            //{ ".", "." },{ ", ", ", " },{ "!", "!" },{ "?", "?" },{ "/", "/" },{ "+", "+" },{ "-", "-" },{ "&", "&" },
+                            //{ "^", "^" },{ "%", "%" },{ "*", "*" },{ "#", "#" },{ "$", "$" },{ "[", "[" },{ "]", "]" }};
+                            actionKey = 8;
+                            switch (e.KeyCode)
+                            {
+                                case Keys.OemPeriod:
+                                    valueKey = 0;
+                                    break;
+
+                                case Keys.Oemcomma:
+                                    valueKey = 1;
+                                    break;
+
+                                //case Keys.Oem???  
+                                // Exclamation mark can only be a "Shift 1"?
+                                //    valueKey = 2
+                                //    break;
+
+                                case Keys.OemQuestion:
+                                    valueKey = 3;
+                                    break;
+
+                                //case Keys.Oem????
+                                // Slash character
+                                //    valueKey = 4;
+                                //    break;
+
+                                case Keys.Oemplus:
+                                    valueKey = 5;
+                                    break;
+
+                                case Keys.OemMinus:
+                                    valueKey = 6;
+                                    break;
+
+                                //case Keys.Oem????
+                                // "&" only as shift 7?
+                                //    valueKey = 7;
+                                //    break;
+
+                                //case Keys.OemQuestion?????
+                                // "^" only as shift 6?
+                                //    valueKey = 8;
+                                //    break;
+
+                                //case Keys.Oem????:
+                                // "%" only as shift 5?
+                                //    valueKey = 9;
+                                //    break;
+
+                                //case Keys.Oem????:
+                                // "*" only as shift 8?
+                                //    valueKey = 10;
+                                //    break;
+
+                                //case Keys.Oem????:
+                                // "#" only as shift 7?
+                                //    valueKey = 11;
+                                //    break;
+
+                                //case Keys.Oem????:
+                                // "$" only as shift 4?
+                                //    valueKey = 12;
+                                //    break;
+
+                                case Keys.OemOpenBrackets:
+                                    valueKey = 13;
+                                    break;
+
+                                case Keys.OemCloseBrackets:
+                                    valueKey = 14;
+                                    break;
+
+
+                                default:
+                                    break;
+                            }
+                            break;
+
+                        case KeyTypes.KeyTypeMediaApp:
+                            // static string[,] mediakey_valueKeys_3 ={
+                            //{ "Mute", "1" },{ "Volume Down", "2" },{ "Volume Up", "3" },{ "Play/Pause", "4" },{ "Stop", "5" },
+                            //{ "Next", "6" },{ "Previous", "7" },{ "WWW Home", "8" },{ "File Browser", "9" },{ "Calculator", "10" },
+                            //{ "WWW Bookmarks", "11" },{ "WWW Search", "12" },{ "WWW Stop", "13" },{ "WWW Back", "14" },
+                            //{ "Cons Control", "15" },{ "Email App", "16" }};
+                            actionKey = 3;
+                            switch (e.KeyCode)
+                            {
+                                case Keys.VolumeMute:
+                                    valueKey = 0;
+                                    break;
+
+                                case Keys.VolumeDown:
+                                    valueKey = 1;
+                                    break;
+
+                                case Keys.VolumeUp:
+                                    valueKey = 2;
+                                    break;
+
+                                case Keys.MediaPlayPause:
+                                    valueKey = 3;
+                                    break;
+
+                                case Keys.MediaStop:
+                                    valueKey = 4;
+                                    break;
+
+                                case Keys.MediaNextTrack:
+                                    valueKey = 5;
+                                    break;
+
+                                case Keys.MediaPreviousTrack:
+                                    valueKey = 6;
+                                    break;
+
+                                case Keys.BrowserHome:
+                                    valueKey = 7;
+                                    break;
+
+                                //case Keys.Filebrower???:
+                                //    valueKey = 8;
+                                //    break;
+
+                                //case Keys.Calculator???:
+                                //    valueKey = 9;
+                                //    break;
+
+                                case Keys.BrowserFavorites:
+                                    valueKey = 10;
+                                    break;
+
+                                case Keys.BrowserSearch:
+                                    valueKey = 11;
+                                    break;
+
+                                case Keys.BrowserStop:
+                                    valueKey = 12;
+                                    break;
+
+                                case Keys.BrowserBack:
+                                    valueKey = 13;
+                                    break;
+
+                                case Keys.LaunchApplication1:
+                                    valueKey = 14;
+                                    break;
+
+                                case Keys.LaunchMail:
+                                    valueKey = 15;
+                                    break;
+
+                                default:
+                                    break;
+                            }
+                            break;
+
+
+
+                        case KeyTypes.KeyTypeMisc:
+                            //static string[,] arrows_and_tab_valueKeys_2 = {
+                            //{ "--", "0" },{ "UP Arrow", "1" },{ "DOWN Arrow", "2" },{ "LEFT Arrow", "3" },{ "RIGHT Arrow", "4" },
+                            //{ "Backspace", "5" },{ "TAB", "6" },{ "Return", "7" },{ "Page Up", "8" },{ "Page Down", "9" },
+                            //{ "Delete", "10" },{ "PrintScreen", "11" },{ "ESC", "12" },{ "HOME", "13" },{ "END", "14" }};
+                            actionKey = 2;
+                            switch (e.KeyCode)
+                            {
+                                case Keys.Up:
+                                    valueKey = 1;
+                                    break;
+
+                                case Keys.Down:
+                                    valueKey = 2;
+                                    break;
+
+                                case Keys.Left:
+                                    valueKey = 3;
+                                    break;
+
+                                case Keys.Right:
+                                    valueKey = 4;
+                                    break;
+
+                                case Keys.Back:
+                                    valueKey = 5;
+                                    break;
+
+                                case Keys.Tab:
+                                    valueKey = 6;
+                                    break;
+
+                                case Keys.Return:
+                                    valueKey = 7;
+                                    break;
+
+                                case Keys.PageUp:
+                                    valueKey = 8;
+                                    break;
+
+                                case Keys.PageDown:
+                                    valueKey = 9;
+                                    break;
+
+                                case Keys.Delete:
+                                    valueKey = 10;
+                                    break;
+
+                                case Keys.PrintScreen:
+                                    valueKey = 11;
+                                    break;
+
+                                case Keys.Escape:
+                                    valueKey = 12;
+                                    break;
+
+                                case Keys.Home:
+                                    valueKey = 13;
+                                    break;
+
+                                case Keys.End:
+                                    valueKey = 14;
+                                    break;
+
+                                default:
+                                    valueKey = 0;
+                                    break;
+                            }
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    // Handle special shift cases
+                    //static string[,] special_char_valueKeys_8 ={
+                    //{ ".", "." },{ ", ", ", " },{ "!", "!" },{ "?", "?" },{ "/", "/" },{ "+", "+" },{ "-", "-" },{ "&", "&" },
+                    //{ "^", "^" },{ "%", "%" },{ "*", "*" },{ "#", "#" },{ "$", "$" },{ "[", "[" },{ "]", "]" }};
+                    if ((actionHelper == 5) && (valueHelper == 1))
+                    {
+
+                        switch (e.KeyCode)
+                        {
+
+                            // "!" = Shift-1
+                            case Keys.D1:
+                                actionKey = 8;
+                                valueKey = 2;
+                                actionHelper = 0;
+                                break;
+
+                            // "/" = Shift-?
+                            case Keys.OemQuestion:
+                                actionKey = 8;
+                                valueKey = 4;
+                                actionHelper = 0;
+                                break;
+
+                            // "&" = Shift-7
+                            case Keys.D7:
+                                actionKey = 8;
+                                valueKey = 7;
+                                actionHelper = 0;
+                                break;
+
+                            // "^" = Shift-6
+                            case Keys.D6:
+                                actionKey = 8;
+                                valueKey = 8;
+                                actionHelper = 0;
+                                break;
+
+                            // "%" = Shift-5
+                            case Keys.D5:
+                                actionKey = 8;
+                                valueKey = 9;
+                                actionHelper = 0;
+                                break;
+
+                            // "*" = Shift-8
+                            case Keys.D8:
+                                actionKey = 8;
+                                valueKey = 10;
+                                actionHelper = 0;
+                                break;
+
+                            // "#" = Shift-3
+                            case Keys.D3:
+                                actionKey = 8;
+                                valueKey = 11;
+                                actionHelper = 0;
+                                break;
+
+                            // "$" = Shift-4
+                            case Keys.D4:
+                                actionKey = 8;
+                                valueKey = 12;
+                                actionHelper = 0;
+                                break;
+
+                            default:
+                                break;
+
+                        }
+                    }
+
+
+                    if (actionHelper == 0)
+                    {
+                        cbButtonAction0.SelectedIndex = actionKey;
+                        cbButtonValue0.SelectedIndex = valueKey;
+                        json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["actionarray"][0] = cbButtonAction0.SelectedIndex.ToString();
+                        json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["valuearray"][0] = ActionHelpers.GetValue(cbButtonAction0.SelectedIndex, cbButtonValue0.SelectedIndex, 1);
+
+                        data_changed = true;
+                    }
+                    else
+                    {
+                        cbButtonAction0.SelectedIndex = actionHelper;
+                        cbButtonValue0.SelectedIndex = valueHelper;
+                        json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["actionarray"][0] = cbButtonAction0.SelectedIndex.ToString();
+                        json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["valuearray"][0] = ActionHelpers.GetValue(cbButtonAction0.SelectedIndex, cbButtonValue0.SelectedIndex, 1);
+
+                        cbButtonAction1.SelectedIndex = actionKey;
+                        cbButtonValue1.SelectedIndex = valueKey;
+                        json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["actionarray"][1] = cbButtonAction1.SelectedIndex.ToString();
+                        json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["valuearray"][1] = ActionHelpers.GetValue(cbButtonAction1.SelectedIndex, cbButtonValue1.SelectedIndex, 1);
+
+                        data_changed = true;
+                    }
+                }
+            }
         }
     }
 }

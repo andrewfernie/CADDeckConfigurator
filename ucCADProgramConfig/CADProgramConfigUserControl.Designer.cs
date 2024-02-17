@@ -1,4 +1,6 @@
-﻿namespace CADProgramConfigUserControl
+﻿using System.Windows.Forms;
+
+namespace CADProgramConfigUserControl
 {
     partial class CADProgramConfigUserControl
     {
@@ -31,62 +33,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CADProgramConfigUserControl));
             this.cbCADProgram = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.lButton0Text = new System.Windows.Forms.Label();
-            this.tbButton0Text = new System.Windows.Forms.TextBox();
-            this.cbButton0Action0 = new System.Windows.Forms.ComboBox();
-            this.cbButton0Value0 = new System.Windows.Forms.ComboBox();
-            this.cbButton0Action1 = new System.Windows.Forms.ComboBox();
-            this.cbButton0Value1 = new System.Windows.Forms.ComboBox();
-            this.cbButton0Action2 = new System.Windows.Forms.ComboBox();
-            this.cbButton0Value2 = new System.Windows.Forms.ComboBox();
-            this.gbButton0 = new System.Windows.Forms.GroupBox();
-            this.lButton0_2 = new System.Windows.Forms.Label();
-            this.lButton0_1 = new System.Windows.Forms.Label();
-            this.lButton0_0 = new System.Windows.Forms.Label();
-            this.lButton0Value = new System.Windows.Forms.Label();
-            this.lButton0Action = new System.Windows.Forms.Label();
-            this.lButton1Text = new System.Windows.Forms.Label();
-            this.tbButton1Text = new System.Windows.Forms.TextBox();
-            this.cbButton1Action0 = new System.Windows.Forms.ComboBox();
-            this.cbButton1Value0 = new System.Windows.Forms.ComboBox();
-            this.cbButton1Action1 = new System.Windows.Forms.ComboBox();
-            this.cbButton1Value1 = new System.Windows.Forms.ComboBox();
-            this.cbButton1Action2 = new System.Windows.Forms.ComboBox();
-            this.cbButton1Value2 = new System.Windows.Forms.ComboBox();
-            this.gbButton1 = new System.Windows.Forms.GroupBox();
-            this.lButton1_2 = new System.Windows.Forms.Label();
-            this.lButton1_1 = new System.Windows.Forms.Label();
-            this.lButton1_0 = new System.Windows.Forms.Label();
-            this.lButton1Value = new System.Windows.Forms.Label();
-            this.lButton1Action = new System.Windows.Forms.Label();
-            this.lButton2Text = new System.Windows.Forms.Label();
-            this.tbButton2Text = new System.Windows.Forms.TextBox();
-            this.cbButton2Action0 = new System.Windows.Forms.ComboBox();
-            this.cbButton2Value0 = new System.Windows.Forms.ComboBox();
-            this.cbButton2Action1 = new System.Windows.Forms.ComboBox();
-            this.cbButton2Value1 = new System.Windows.Forms.ComboBox();
-            this.cbButton2Action2 = new System.Windows.Forms.ComboBox();
-            this.cbButton2Value2 = new System.Windows.Forms.ComboBox();
-            this.gbButton2 = new System.Windows.Forms.GroupBox();
-            this.lButton2_2 = new System.Windows.Forms.Label();
-            this.lButton2_1 = new System.Windows.Forms.Label();
-            this.lButton2_0 = new System.Windows.Forms.Label();
-            this.lButton2Value = new System.Windows.Forms.Label();
-            this.lButton2Action = new System.Windows.Forms.Label();
-            this.lButton3Text = new System.Windows.Forms.Label();
-            this.tbButton3Text = new System.Windows.Forms.TextBox();
-            this.cbButton3Action0 = new System.Windows.Forms.ComboBox();
-            this.cbButton3Value0 = new System.Windows.Forms.ComboBox();
-            this.cbButton3Action1 = new System.Windows.Forms.ComboBox();
-            this.cbButton3Value1 = new System.Windows.Forms.ComboBox();
-            this.cbButton3Action2 = new System.Windows.Forms.ComboBox();
-            this.cbButton3Value2 = new System.Windows.Forms.ComboBox();
-            this.gbButton3 = new System.Windows.Forms.GroupBox();
-            this.lButton3_2 = new System.Windows.Forms.Label();
-            this.lButton3_1 = new System.Windows.Forms.Label();
-            this.lButton3_0 = new System.Windows.Forms.Label();
-            this.lButton3Value = new System.Windows.Forms.Label();
-            this.lButton3Action = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tbScaleX = new System.Windows.Forms.TextBox();
@@ -112,20 +58,38 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.cbSpacemouseEnable = new System.Windows.Forms.CheckBox();
-            this.gbButtonSelection = new System.Windows.Forms.GroupBox();
-            this.rbHW_8to10 = new System.Windows.Forms.RadioButton();
-            this.rbHW_4to7 = new System.Windows.Forms.RadioButton();
-            this.rbHW_0to3 = new System.Windows.Forms.RadioButton();
             this.bCancel = new System.Windows.Forms.Button();
-            this.bLocalSave = new System.Windows.Forms.Button();
+            this.bSave = new System.Windows.Forms.Button();
             this.cbStartupProgram = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.gbButton0.SuspendLayout();
-            this.gbButton1.SuspendLayout();
-            this.gbButton2.SuspendLayout();
-            this.gbButton3.SuspendLayout();
+            this.btnButton01 = new System.Windows.Forms.Button();
+            this.btnButton02 = new System.Windows.Forms.Button();
+            this.btnButton03 = new System.Windows.Forms.Button();
+            this.btnButton04 = new System.Windows.Forms.Button();
+            this.btnButton05 = new System.Windows.Forms.Button();
+            this.btnButton10 = new System.Windows.Forms.Button();
+            this.btnButton09 = new System.Windows.Forms.Button();
+            this.btnButton08 = new System.Windows.Forms.Button();
+            this.btnButton07 = new System.Windows.Forms.Button();
+            this.btnButton06 = new System.Windows.Forms.Button();
+            this.btnButton00 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tbButtonName = new System.Windows.Forms.TextBox();
+            this.pbCaptureKeystroke = new System.Windows.Forms.Button();
+            this.lButton_2 = new System.Windows.Forms.Label();
+            this.lButton_1 = new System.Windows.Forms.Label();
+            this.lButton_0 = new System.Windows.Forms.Label();
+            this.lButtonValue = new System.Windows.Forms.Label();
+            this.lButtonAction = new System.Windows.Forms.Label();
+            this.cbButtonValue0 = new System.Windows.Forms.ComboBox();
+            this.cbButtonAction0 = new System.Windows.Forms.ComboBox();
+            this.cbButtonValue1 = new System.Windows.Forms.ComboBox();
+            this.cbButtonAction1 = new System.Windows.Forms.ComboBox();
+            this.cbButtonValue2 = new System.Windows.Forms.ComboBox();
+            this.cbButtonAction2 = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.tbButtonDescription = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.gbButtonSelection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,592 +111,15 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "CAD Program";
             // 
-            // lButton0Text
-            // 
-            this.lButton0Text.AutoSize = true;
-            this.lButton0Text.Location = new System.Drawing.Point(6, 22);
-            this.lButton0Text.Name = "lButton0Text";
-            this.lButton0Text.Size = new System.Drawing.Size(28, 13);
-            this.lButton0Text.TabIndex = 11;
-            this.lButton0Text.Text = "Text";
-            // 
-            // tbButton0Text
-            // 
-            this.tbButton0Text.Location = new System.Drawing.Point(79, 19);
-            this.tbButton0Text.Name = "tbButton0Text";
-            this.tbButton0Text.Size = new System.Drawing.Size(100, 20);
-            this.tbButton0Text.TabIndex = 12;
-            this.tbButton0Text.Leave += new System.EventHandler(this.tbButton0Text_Leave);
-            // 
-            // cbButton0Action0
-            // 
-            this.cbButton0Action0.FormattingEnabled = true;
-            this.cbButton0Action0.Location = new System.Drawing.Point(23, 65);
-            this.cbButton0Action0.Name = "cbButton0Action0";
-            this.cbButton0Action0.Size = new System.Drawing.Size(75, 21);
-            this.cbButton0Action0.TabIndex = 13;
-            this.cbButton0Action0.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton0Action0.SelectedIndexChanged += new System.EventHandler(this.cbButton0Action0_SelectedIndexChanged);
-            // 
-            // cbButton0Value0
-            // 
-            this.cbButton0Value0.FormattingEnabled = true;
-            this.cbButton0Value0.Location = new System.Drawing.Point(108, 65);
-            this.cbButton0Value0.Name = "cbButton0Value0";
-            this.cbButton0Value0.Size = new System.Drawing.Size(75, 21);
-            this.cbButton0Value0.TabIndex = 14;
-            this.cbButton0Value0.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton0Value0.SelectedIndexChanged += new System.EventHandler(this.cbButton0Value0_SelectedIndexChanged);
-            // 
-            // cbButton0Action1
-            // 
-            this.cbButton0Action1.FormattingEnabled = true;
-            this.cbButton0Action1.Location = new System.Drawing.Point(23, 92);
-            this.cbButton0Action1.Name = "cbButton0Action1";
-            this.cbButton0Action1.Size = new System.Drawing.Size(75, 21);
-            this.cbButton0Action1.TabIndex = 13;
-            this.cbButton0Action1.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton0Action1.SelectedIndexChanged += new System.EventHandler(this.cbButton0Action1_SelectedIndexChanged);
-            // 
-            // cbButton0Value1
-            // 
-            this.cbButton0Value1.FormattingEnabled = true;
-            this.cbButton0Value1.Location = new System.Drawing.Point(108, 92);
-            this.cbButton0Value1.Name = "cbButton0Value1";
-            this.cbButton0Value1.Size = new System.Drawing.Size(75, 21);
-            this.cbButton0Value1.TabIndex = 14;
-            this.cbButton0Value1.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton0Value1.SelectedIndexChanged += new System.EventHandler(this.cbButton0Value1_SelectedIndexChanged);
-            // 
-            // cbButton0Action2
-            // 
-            this.cbButton0Action2.FormattingEnabled = true;
-            this.cbButton0Action2.Location = new System.Drawing.Point(23, 119);
-            this.cbButton0Action2.Name = "cbButton0Action2";
-            this.cbButton0Action2.Size = new System.Drawing.Size(75, 21);
-            this.cbButton0Action2.TabIndex = 13;
-            this.cbButton0Action2.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton0Action2.SelectedIndexChanged += new System.EventHandler(this.cbButton0Action2_SelectedIndexChanged);
-            // 
-            // cbButton0Value2
-            // 
-            this.cbButton0Value2.FormattingEnabled = true;
-            this.cbButton0Value2.Location = new System.Drawing.Point(108, 119);
-            this.cbButton0Value2.Name = "cbButton0Value2";
-            this.cbButton0Value2.Size = new System.Drawing.Size(75, 21);
-            this.cbButton0Value2.TabIndex = 14;
-            this.cbButton0Value2.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton0Value2.SelectedIndexChanged += new System.EventHandler(this.cbButton0Value2_SelectedIndexChanged);
-            // 
-            // gbButton0
-            // 
-            this.gbButton0.Controls.Add(this.lButton0_2);
-            this.gbButton0.Controls.Add(this.lButton0_1);
-            this.gbButton0.Controls.Add(this.lButton0_0);
-            this.gbButton0.Controls.Add(this.lButton0Value);
-            this.gbButton0.Controls.Add(this.lButton0Action);
-            this.gbButton0.Controls.Add(this.cbButton0Value0);
-            this.gbButton0.Controls.Add(this.cbButton0Action0);
-            this.gbButton0.Controls.Add(this.cbButton0Value1);
-            this.gbButton0.Controls.Add(this.cbButton0Action1);
-            this.gbButton0.Controls.Add(this.cbButton0Value2);
-            this.gbButton0.Controls.Add(this.cbButton0Action2);
-            this.gbButton0.Controls.Add(this.lButton0Text);
-            this.gbButton0.Controls.Add(this.tbButton0Text);
-            this.gbButton0.Location = new System.Drawing.Point(217, 158);
-            this.gbButton0.Name = "gbButton0";
-            this.gbButton0.Size = new System.Drawing.Size(185, 151);
-            this.gbButton0.TabIndex = 15;
-            this.gbButton0.TabStop = false;
-            this.gbButton0.Text = "Button0";
-            // 
-            // lButton0_2
-            // 
-            this.lButton0_2.AutoSize = true;
-            this.lButton0_2.Location = new System.Drawing.Point(6, 125);
-            this.lButton0_2.Name = "lButton0_2";
-            this.lButton0_2.Size = new System.Drawing.Size(13, 13);
-            this.lButton0_2.TabIndex = 18;
-            this.lButton0_2.Text = "2";
-            // 
-            // lButton0_1
-            // 
-            this.lButton0_1.AutoSize = true;
-            this.lButton0_1.Location = new System.Drawing.Point(6, 98);
-            this.lButton0_1.Name = "lButton0_1";
-            this.lButton0_1.Size = new System.Drawing.Size(13, 13);
-            this.lButton0_1.TabIndex = 18;
-            this.lButton0_1.Text = "1";
-            // 
-            // lButton0_0
-            // 
-            this.lButton0_0.AutoSize = true;
-            this.lButton0_0.Location = new System.Drawing.Point(6, 68);
-            this.lButton0_0.Name = "lButton0_0";
-            this.lButton0_0.Size = new System.Drawing.Size(13, 13);
-            this.lButton0_0.TabIndex = 17;
-            this.lButton0_0.Text = "0";
-            // 
-            // lButton0Value
-            // 
-            this.lButton0Value.AutoSize = true;
-            this.lButton0Value.Location = new System.Drawing.Point(122, 49);
-            this.lButton0Value.Name = "lButton0Value";
-            this.lButton0Value.Size = new System.Drawing.Size(34, 13);
-            this.lButton0Value.TabIndex = 16;
-            this.lButton0Value.Text = "Value";
-            // 
-            // lButton0Action
-            // 
-            this.lButton0Action.AutoSize = true;
-            this.lButton0Action.Location = new System.Drawing.Point(37, 49);
-            this.lButton0Action.Name = "lButton0Action";
-            this.lButton0Action.Size = new System.Drawing.Size(37, 13);
-            this.lButton0Action.TabIndex = 15;
-            this.lButton0Action.Text = "Action";
-            // 
-            // lButton1Text
-            // 
-            this.lButton1Text.AutoSize = true;
-            this.lButton1Text.Location = new System.Drawing.Point(6, 22);
-            this.lButton1Text.Name = "lButton1Text";
-            this.lButton1Text.Size = new System.Drawing.Size(28, 13);
-            this.lButton1Text.TabIndex = 11;
-            this.lButton1Text.Text = "Text";
-            // 
-            // tbButton1Text
-            // 
-            this.tbButton1Text.Location = new System.Drawing.Point(79, 19);
-            this.tbButton1Text.Name = "tbButton1Text";
-            this.tbButton1Text.Size = new System.Drawing.Size(100, 20);
-            this.tbButton1Text.TabIndex = 12;
-            this.tbButton1Text.TextChanged += new System.EventHandler(this.tbButton1Text_TextChanged);
-            // 
-            // cbButton1Action0
-            // 
-            this.cbButton1Action0.FormattingEnabled = true;
-            this.cbButton1Action0.Location = new System.Drawing.Point(23, 65);
-            this.cbButton1Action0.Name = "cbButton1Action0";
-            this.cbButton1Action0.Size = new System.Drawing.Size(75, 21);
-            this.cbButton1Action0.TabIndex = 13;
-            this.cbButton1Action0.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton1Action0.SelectedIndexChanged += new System.EventHandler(this.cbButton1Action0_SelectedIndexChanged);
-            // 
-            // cbButton1Value0
-            // 
-            this.cbButton1Value0.FormattingEnabled = true;
-            this.cbButton1Value0.Location = new System.Drawing.Point(108, 65);
-            this.cbButton1Value0.Name = "cbButton1Value0";
-            this.cbButton1Value0.Size = new System.Drawing.Size(75, 21);
-            this.cbButton1Value0.TabIndex = 14;
-            this.cbButton1Value0.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton1Value0.SelectedIndexChanged += new System.EventHandler(this.cbButton1Value0_SelectedIndexChanged);
-            // 
-            // cbButton1Action1
-            // 
-            this.cbButton1Action1.FormattingEnabled = true;
-            this.cbButton1Action1.Location = new System.Drawing.Point(23, 92);
-            this.cbButton1Action1.Name = "cbButton1Action1";
-            this.cbButton1Action1.Size = new System.Drawing.Size(75, 21);
-            this.cbButton1Action1.TabIndex = 13;
-            this.cbButton1Action1.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton1Action1.SelectedIndexChanged += new System.EventHandler(this.cbButton1Action1_SelectedIndexChanged);
-            // 
-            // cbButton1Value1
-            // 
-            this.cbButton1Value1.FormattingEnabled = true;
-            this.cbButton1Value1.Location = new System.Drawing.Point(108, 92);
-            this.cbButton1Value1.Name = "cbButton1Value1";
-            this.cbButton1Value1.Size = new System.Drawing.Size(75, 21);
-            this.cbButton1Value1.TabIndex = 14;
-            this.cbButton1Value1.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton1Value1.SelectedIndexChanged += new System.EventHandler(this.cbButton1Value1_SelectedIndexChanged);
-            // 
-            // cbButton1Action2
-            // 
-            this.cbButton1Action2.FormattingEnabled = true;
-            this.cbButton1Action2.Location = new System.Drawing.Point(23, 119);
-            this.cbButton1Action2.Name = "cbButton1Action2";
-            this.cbButton1Action2.Size = new System.Drawing.Size(75, 21);
-            this.cbButton1Action2.TabIndex = 13;
-            this.cbButton1Action2.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton1Action2.SelectedIndexChanged += new System.EventHandler(this.cbButton1Action2_SelectedIndexChanged);
-            // 
-            // cbButton1Value2
-            // 
-            this.cbButton1Value2.FormattingEnabled = true;
-            this.cbButton1Value2.Location = new System.Drawing.Point(108, 119);
-            this.cbButton1Value2.Name = "cbButton1Value2";
-            this.cbButton1Value2.Size = new System.Drawing.Size(75, 21);
-            this.cbButton1Value2.TabIndex = 14;
-            this.cbButton1Value2.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton1Value2.SelectedIndexChanged += new System.EventHandler(this.cbButton1Value2_SelectedIndexChanged);
-            // 
-            // gbButton1
-            // 
-            this.gbButton1.Controls.Add(this.lButton1_2);
-            this.gbButton1.Controls.Add(this.lButton1_1);
-            this.gbButton1.Controls.Add(this.lButton1_0);
-            this.gbButton1.Controls.Add(this.lButton1Value);
-            this.gbButton1.Controls.Add(this.lButton1Action);
-            this.gbButton1.Controls.Add(this.cbButton1Value0);
-            this.gbButton1.Controls.Add(this.cbButton1Action0);
-            this.gbButton1.Controls.Add(this.cbButton1Value1);
-            this.gbButton1.Controls.Add(this.cbButton1Action1);
-            this.gbButton1.Controls.Add(this.cbButton1Value2);
-            this.gbButton1.Controls.Add(this.cbButton1Action2);
-            this.gbButton1.Controls.Add(this.lButton1Text);
-            this.gbButton1.Controls.Add(this.tbButton1Text);
-            this.gbButton1.Location = new System.Drawing.Point(408, 158);
-            this.gbButton1.Name = "gbButton1";
-            this.gbButton1.Size = new System.Drawing.Size(185, 151);
-            this.gbButton1.TabIndex = 15;
-            this.gbButton1.TabStop = false;
-            this.gbButton1.Text = "Button1";
-            // 
-            // lButton1_2
-            // 
-            this.lButton1_2.AutoSize = true;
-            this.lButton1_2.Location = new System.Drawing.Point(6, 125);
-            this.lButton1_2.Name = "lButton1_2";
-            this.lButton1_2.Size = new System.Drawing.Size(13, 13);
-            this.lButton1_2.TabIndex = 18;
-            this.lButton1_2.Text = "2";
-            // 
-            // lButton1_1
-            // 
-            this.lButton1_1.AutoSize = true;
-            this.lButton1_1.Location = new System.Drawing.Point(6, 98);
-            this.lButton1_1.Name = "lButton1_1";
-            this.lButton1_1.Size = new System.Drawing.Size(13, 13);
-            this.lButton1_1.TabIndex = 18;
-            this.lButton1_1.Text = "1";
-            // 
-            // lButton1_0
-            // 
-            this.lButton1_0.AutoSize = true;
-            this.lButton1_0.Location = new System.Drawing.Point(6, 68);
-            this.lButton1_0.Name = "lButton1_0";
-            this.lButton1_0.Size = new System.Drawing.Size(13, 13);
-            this.lButton1_0.TabIndex = 17;
-            this.lButton1_0.Text = "0";
-            // 
-            // lButton1Value
-            // 
-            this.lButton1Value.AutoSize = true;
-            this.lButton1Value.Location = new System.Drawing.Point(122, 49);
-            this.lButton1Value.Name = "lButton1Value";
-            this.lButton1Value.Size = new System.Drawing.Size(34, 13);
-            this.lButton1Value.TabIndex = 16;
-            this.lButton1Value.Text = "Value";
-            // 
-            // lButton1Action
-            // 
-            this.lButton1Action.AutoSize = true;
-            this.lButton1Action.Location = new System.Drawing.Point(37, 49);
-            this.lButton1Action.Name = "lButton1Action";
-            this.lButton1Action.Size = new System.Drawing.Size(37, 13);
-            this.lButton1Action.TabIndex = 15;
-            this.lButton1Action.Text = "Action";
-            // 
-            // lButton2Text
-            // 
-            this.lButton2Text.AutoSize = true;
-            this.lButton2Text.Location = new System.Drawing.Point(4, 22);
-            this.lButton2Text.Name = "lButton2Text";
-            this.lButton2Text.Size = new System.Drawing.Size(28, 13);
-            this.lButton2Text.TabIndex = 11;
-            this.lButton2Text.Text = "Text";
-            // 
-            // tbButton2Text
-            // 
-            this.tbButton2Text.Location = new System.Drawing.Point(77, 19);
-            this.tbButton2Text.Name = "tbButton2Text";
-            this.tbButton2Text.Size = new System.Drawing.Size(100, 20);
-            this.tbButton2Text.TabIndex = 12;
-            this.tbButton2Text.TextChanged += new System.EventHandler(this.tbButton2Text_TextChanged);
-            // 
-            // cbButton2Action0
-            // 
-            this.cbButton2Action0.FormattingEnabled = true;
-            this.cbButton2Action0.Location = new System.Drawing.Point(21, 65);
-            this.cbButton2Action0.Name = "cbButton2Action0";
-            this.cbButton2Action0.Size = new System.Drawing.Size(75, 21);
-            this.cbButton2Action0.TabIndex = 13;
-            this.cbButton2Action0.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton2Action0.SelectedIndexChanged += new System.EventHandler(this.cbButton2Action0_SelectedIndexChanged);
-            // 
-            // cbButton2Value0
-            // 
-            this.cbButton2Value0.FormattingEnabled = true;
-            this.cbButton2Value0.Location = new System.Drawing.Point(106, 65);
-            this.cbButton2Value0.Name = "cbButton2Value0";
-            this.cbButton2Value0.Size = new System.Drawing.Size(75, 21);
-            this.cbButton2Value0.TabIndex = 14;
-            this.cbButton2Value0.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton2Value0.SelectedIndexChanged += new System.EventHandler(this.cbButton2Value0_SelectedIndexChanged);
-            // 
-            // cbButton2Action1
-            // 
-            this.cbButton2Action1.FormattingEnabled = true;
-            this.cbButton2Action1.Location = new System.Drawing.Point(21, 92);
-            this.cbButton2Action1.Name = "cbButton2Action1";
-            this.cbButton2Action1.Size = new System.Drawing.Size(75, 21);
-            this.cbButton2Action1.TabIndex = 13;
-            this.cbButton2Action1.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton2Action1.SelectedIndexChanged += new System.EventHandler(this.cbButton2Action1_SelectedIndexChanged);
-            // 
-            // cbButton2Value1
-            // 
-            this.cbButton2Value1.FormattingEnabled = true;
-            this.cbButton2Value1.Location = new System.Drawing.Point(106, 92);
-            this.cbButton2Value1.Name = "cbButton2Value1";
-            this.cbButton2Value1.Size = new System.Drawing.Size(75, 21);
-            this.cbButton2Value1.TabIndex = 14;
-            this.cbButton2Value1.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton2Value1.SelectedIndexChanged += new System.EventHandler(this.cbButton2Value1_SelectedIndexChanged);
-            // 
-            // cbButton2Action2
-            // 
-            this.cbButton2Action2.FormattingEnabled = true;
-            this.cbButton2Action2.Location = new System.Drawing.Point(21, 119);
-            this.cbButton2Action2.Name = "cbButton2Action2";
-            this.cbButton2Action2.Size = new System.Drawing.Size(75, 21);
-            this.cbButton2Action2.TabIndex = 13;
-            this.cbButton2Action2.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton2Action2.SelectedIndexChanged += new System.EventHandler(this.cbButton2Action2_SelectedIndexChanged);
-            // 
-            // cbButton2Value2
-            // 
-            this.cbButton2Value2.FormattingEnabled = true;
-            this.cbButton2Value2.Location = new System.Drawing.Point(106, 119);
-            this.cbButton2Value2.Name = "cbButton2Value2";
-            this.cbButton2Value2.Size = new System.Drawing.Size(75, 21);
-            this.cbButton2Value2.TabIndex = 14;
-            this.cbButton2Value2.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton2Value2.SelectedIndexChanged += new System.EventHandler(this.cbButton2Value2_SelectedIndexChanged);
-            // 
-            // gbButton2
-            // 
-            this.gbButton2.Controls.Add(this.lButton2_2);
-            this.gbButton2.Controls.Add(this.lButton2_1);
-            this.gbButton2.Controls.Add(this.lButton2_0);
-            this.gbButton2.Controls.Add(this.lButton2Value);
-            this.gbButton2.Controls.Add(this.lButton2Action);
-            this.gbButton2.Controls.Add(this.cbButton2Value0);
-            this.gbButton2.Controls.Add(this.cbButton2Action0);
-            this.gbButton2.Controls.Add(this.cbButton2Value1);
-            this.gbButton2.Controls.Add(this.cbButton2Action1);
-            this.gbButton2.Controls.Add(this.cbButton2Value2);
-            this.gbButton2.Controls.Add(this.cbButton2Action2);
-            this.gbButton2.Controls.Add(this.lButton2Text);
-            this.gbButton2.Controls.Add(this.tbButton2Text);
-            this.gbButton2.Location = new System.Drawing.Point(217, 324);
-            this.gbButton2.Name = "gbButton2";
-            this.gbButton2.Size = new System.Drawing.Size(185, 151);
-            this.gbButton2.TabIndex = 15;
-            this.gbButton2.TabStop = false;
-            this.gbButton2.Text = "Button2";
-            // 
-            // lButton2_2
-            // 
-            this.lButton2_2.AutoSize = true;
-            this.lButton2_2.Location = new System.Drawing.Point(4, 125);
-            this.lButton2_2.Name = "lButton2_2";
-            this.lButton2_2.Size = new System.Drawing.Size(13, 13);
-            this.lButton2_2.TabIndex = 18;
-            this.lButton2_2.Text = "2";
-            // 
-            // lButton2_1
-            // 
-            this.lButton2_1.AutoSize = true;
-            this.lButton2_1.Location = new System.Drawing.Point(4, 98);
-            this.lButton2_1.Name = "lButton2_1";
-            this.lButton2_1.Size = new System.Drawing.Size(13, 13);
-            this.lButton2_1.TabIndex = 18;
-            this.lButton2_1.Text = "1";
-            // 
-            // lButton2_0
-            // 
-            this.lButton2_0.AutoSize = true;
-            this.lButton2_0.Location = new System.Drawing.Point(4, 68);
-            this.lButton2_0.Name = "lButton2_0";
-            this.lButton2_0.Size = new System.Drawing.Size(13, 13);
-            this.lButton2_0.TabIndex = 17;
-            this.lButton2_0.Text = "0";
-            // 
-            // lButton2Value
-            // 
-            this.lButton2Value.AutoSize = true;
-            this.lButton2Value.Location = new System.Drawing.Point(120, 49);
-            this.lButton2Value.Name = "lButton2Value";
-            this.lButton2Value.Size = new System.Drawing.Size(34, 13);
-            this.lButton2Value.TabIndex = 16;
-            this.lButton2Value.Text = "Value";
-            // 
-            // lButton2Action
-            // 
-            this.lButton2Action.AutoSize = true;
-            this.lButton2Action.Location = new System.Drawing.Point(35, 49);
-            this.lButton2Action.Name = "lButton2Action";
-            this.lButton2Action.Size = new System.Drawing.Size(37, 13);
-            this.lButton2Action.TabIndex = 15;
-            this.lButton2Action.Text = "Action";
-            // 
-            // lButton3Text
-            // 
-            this.lButton3Text.AutoSize = true;
-            this.lButton3Text.Location = new System.Drawing.Point(4, 25);
-            this.lButton3Text.Name = "lButton3Text";
-            this.lButton3Text.Size = new System.Drawing.Size(28, 13);
-            this.lButton3Text.TabIndex = 11;
-            this.lButton3Text.Text = "Text";
-            // 
-            // tbButton3Text
-            // 
-            this.tbButton3Text.Location = new System.Drawing.Point(77, 22);
-            this.tbButton3Text.Name = "tbButton3Text";
-            this.tbButton3Text.Size = new System.Drawing.Size(100, 20);
-            this.tbButton3Text.TabIndex = 12;
-            this.tbButton3Text.TextChanged += new System.EventHandler(this.tbButton3Text_TextChanged);
-            // 
-            // cbButton3Action0
-            // 
-            this.cbButton3Action0.FormattingEnabled = true;
-            this.cbButton3Action0.Location = new System.Drawing.Point(21, 68);
-            this.cbButton3Action0.Name = "cbButton3Action0";
-            this.cbButton3Action0.Size = new System.Drawing.Size(75, 21);
-            this.cbButton3Action0.TabIndex = 13;
-            this.cbButton3Action0.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton3Action0.SelectedIndexChanged += new System.EventHandler(this.cbButton3Action0_SelectedIndexChanged);
-            // 
-            // cbButton3Value0
-            // 
-            this.cbButton3Value0.FormattingEnabled = true;
-            this.cbButton3Value0.Location = new System.Drawing.Point(106, 68);
-            this.cbButton3Value0.Name = "cbButton3Value0";
-            this.cbButton3Value0.Size = new System.Drawing.Size(75, 21);
-            this.cbButton3Value0.TabIndex = 14;
-            this.cbButton3Value0.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton3Value0.SelectedIndexChanged += new System.EventHandler(this.cbButton3Value0_SelectedIndexChanged);
-            // 
-            // cbButton3Action1
-            // 
-            this.cbButton3Action1.FormattingEnabled = true;
-            this.cbButton3Action1.Location = new System.Drawing.Point(21, 95);
-            this.cbButton3Action1.Name = "cbButton3Action1";
-            this.cbButton3Action1.Size = new System.Drawing.Size(75, 21);
-            this.cbButton3Action1.TabIndex = 13;
-            this.cbButton3Action1.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton3Action1.SelectedIndexChanged += new System.EventHandler(this.cbButton3Action1_SelectedIndexChanged);
-            // 
-            // cbButton3Value1
-            // 
-            this.cbButton3Value1.FormattingEnabled = true;
-            this.cbButton3Value1.Location = new System.Drawing.Point(106, 95);
-            this.cbButton3Value1.Name = "cbButton3Value1";
-            this.cbButton3Value1.Size = new System.Drawing.Size(75, 21);
-            this.cbButton3Value1.TabIndex = 14;
-            this.cbButton3Value1.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton3Value1.SelectedIndexChanged += new System.EventHandler(this.cbButton3Value1_SelectedIndexChanged);
-            // 
-            // cbButton3Action2
-            // 
-            this.cbButton3Action2.FormattingEnabled = true;
-            this.cbButton3Action2.Location = new System.Drawing.Point(21, 122);
-            this.cbButton3Action2.Name = "cbButton3Action2";
-            this.cbButton3Action2.Size = new System.Drawing.Size(75, 21);
-            this.cbButton3Action2.TabIndex = 13;
-            this.cbButton3Action2.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton3Action2.SelectedIndexChanged += new System.EventHandler(this.cbButton3Action2_SelectedIndexChanged);
-            // 
-            // cbButton3Value2
-            // 
-            this.cbButton3Value2.FormattingEnabled = true;
-            this.cbButton3Value2.Location = new System.Drawing.Point(106, 122);
-            this.cbButton3Value2.Name = "cbButton3Value2";
-            this.cbButton3Value2.Size = new System.Drawing.Size(75, 21);
-            this.cbButton3Value2.TabIndex = 14;
-            this.cbButton3Value2.DropDown += new System.EventHandler(this.AdjustWidthComboBox_DropDown);
-            this.cbButton3Value2.SelectedIndexChanged += new System.EventHandler(this.cbButton3Value2_SelectedIndexChanged);
-            // 
-            // gbButton3
-            // 
-            this.gbButton3.Controls.Add(this.lButton3_2);
-            this.gbButton3.Controls.Add(this.lButton3_1);
-            this.gbButton3.Controls.Add(this.lButton3_0);
-            this.gbButton3.Controls.Add(this.lButton3Value);
-            this.gbButton3.Controls.Add(this.lButton3Action);
-            this.gbButton3.Controls.Add(this.cbButton3Value0);
-            this.gbButton3.Controls.Add(this.cbButton3Action0);
-            this.gbButton3.Controls.Add(this.cbButton3Value1);
-            this.gbButton3.Controls.Add(this.cbButton3Action1);
-            this.gbButton3.Controls.Add(this.cbButton3Value2);
-            this.gbButton3.Controls.Add(this.cbButton3Action2);
-            this.gbButton3.Controls.Add(this.lButton3Text);
-            this.gbButton3.Controls.Add(this.tbButton3Text);
-            this.gbButton3.Location = new System.Drawing.Point(408, 324);
-            this.gbButton3.Name = "gbButton3";
-            this.gbButton3.Size = new System.Drawing.Size(185, 151);
-            this.gbButton3.TabIndex = 15;
-            this.gbButton3.TabStop = false;
-            this.gbButton3.Text = "Button3";
-            // 
-            // lButton3_2
-            // 
-            this.lButton3_2.AutoSize = true;
-            this.lButton3_2.Location = new System.Drawing.Point(2, 125);
-            this.lButton3_2.Name = "lButton3_2";
-            this.lButton3_2.Size = new System.Drawing.Size(13, 13);
-            this.lButton3_2.TabIndex = 18;
-            this.lButton3_2.Text = "2";
-            // 
-            // lButton3_1
-            // 
-            this.lButton3_1.AutoSize = true;
-            this.lButton3_1.Location = new System.Drawing.Point(2, 98);
-            this.lButton3_1.Name = "lButton3_1";
-            this.lButton3_1.Size = new System.Drawing.Size(13, 13);
-            this.lButton3_1.TabIndex = 18;
-            this.lButton3_1.Text = "1";
-            // 
-            // lButton3_0
-            // 
-            this.lButton3_0.AutoSize = true;
-            this.lButton3_0.Location = new System.Drawing.Point(2, 68);
-            this.lButton3_0.Name = "lButton3_0";
-            this.lButton3_0.Size = new System.Drawing.Size(13, 13);
-            this.lButton3_0.TabIndex = 17;
-            this.lButton3_0.Text = "0";
-            // 
-            // lButton3Value
-            // 
-            this.lButton3Value.AutoSize = true;
-            this.lButton3Value.Location = new System.Drawing.Point(120, 52);
-            this.lButton3Value.Name = "lButton3Value";
-            this.lButton3Value.Size = new System.Drawing.Size(34, 13);
-            this.lButton3Value.TabIndex = 16;
-            this.lButton3Value.Text = "Value";
-            // 
-            // lButton3Action
-            // 
-            this.lButton3Action.AutoSize = true;
-            this.lButton3Action.Location = new System.Drawing.Point(35, 52);
-            this.lButton3Action.Name = "lButton3Action";
-            this.lButton3Action.Size = new System.Drawing.Size(37, 13);
-            this.lButton3Action.TabIndex = 15;
-            this.lButton3Action.Text = "Action";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::CADProgramConfigUserControl.Properties.Resources.ButtonLayout10;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(625, 71);
+            this.pictureBox1.Location = new System.Drawing.Point(254, 79);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(320, 243);
             this.pictureBox1.TabIndex = 16;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -941,57 +328,9 @@
             this.cbSpacemouseEnable.UseVisualStyleBackColor = true;
             this.cbSpacemouseEnable.CheckedChanged += new System.EventHandler(this.cbSpacemouseEnable_CheckedChanged);
             // 
-            // gbButtonSelection
-            // 
-            this.gbButtonSelection.Controls.Add(this.rbHW_8to10);
-            this.gbButtonSelection.Controls.Add(this.rbHW_4to7);
-            this.gbButtonSelection.Controls.Add(this.rbHW_0to3);
-            this.gbButtonSelection.Location = new System.Drawing.Point(254, 14);
-            this.gbButtonSelection.Name = "gbButtonSelection";
-            this.gbButtonSelection.Size = new System.Drawing.Size(307, 48);
-            this.gbButtonSelection.TabIndex = 42;
-            this.gbButtonSelection.TabStop = false;
-            this.gbButtonSelection.Text = "Button Selection";
-            // 
-            // rbHW_8to10
-            // 
-            this.rbHW_8to10.AutoSize = true;
-            this.rbHW_8to10.Location = new System.Drawing.Point(227, 14);
-            this.rbHW_8to10.Name = "rbHW_8to10";
-            this.rbHW_8to10.Size = new System.Drawing.Size(68, 17);
-            this.rbHW_8to10.TabIndex = 2;
-            this.rbHW_8to10.TabStop = true;
-            this.rbHW_8to10.Text = "HW 8-10";
-            this.rbHW_8to10.UseVisualStyleBackColor = true;
-            this.rbHW_8to10.CheckedChanged += new System.EventHandler(this.rbButtonSelect_CheckedChanged);
-            // 
-            // rbHW_4to7
-            // 
-            this.rbHW_4to7.AutoSize = true;
-            this.rbHW_4to7.Location = new System.Drawing.Point(128, 14);
-            this.rbHW_4to7.Name = "rbHW_4to7";
-            this.rbHW_4to7.Size = new System.Drawing.Size(62, 17);
-            this.rbHW_4to7.TabIndex = 1;
-            this.rbHW_4to7.TabStop = true;
-            this.rbHW_4to7.Text = "HW 4-7";
-            this.rbHW_4to7.UseVisualStyleBackColor = true;
-            this.rbHW_4to7.CheckedChanged += new System.EventHandler(this.rbButtonSelect_CheckedChanged);
-            // 
-            // rbHW_0to3
-            // 
-            this.rbHW_0to3.AutoSize = true;
-            this.rbHW_0to3.Location = new System.Drawing.Point(16, 14);
-            this.rbHW_0to3.Name = "rbHW_0to3";
-            this.rbHW_0to3.Size = new System.Drawing.Size(62, 17);
-            this.rbHW_0to3.TabIndex = 0;
-            this.rbHW_0to3.TabStop = true;
-            this.rbHW_0to3.Text = "HW 0-3";
-            this.rbHW_0to3.UseVisualStyleBackColor = true;
-            this.rbHW_0to3.CheckedChanged += new System.EventHandler(this.rbButtonSelect_CheckedChanged);
-            // 
             // bCancel
             // 
-            this.bCancel.Location = new System.Drawing.Point(711, 22);
+            this.bCancel.Location = new System.Drawing.Point(455, 23);
             this.bCancel.Name = "bCancel";
             this.bCancel.Size = new System.Drawing.Size(75, 23);
             this.bCancel.TabIndex = 44;
@@ -999,15 +338,15 @@
             this.bCancel.UseVisualStyleBackColor = true;
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
             // 
-            // bLocalSave
+            // bSave
             // 
-            this.bLocalSave.Location = new System.Drawing.Point(625, 22);
-            this.bLocalSave.Name = "bLocalSave";
-            this.bLocalSave.Size = new System.Drawing.Size(75, 23);
-            this.bLocalSave.TabIndex = 43;
-            this.bLocalSave.Text = "Local Save";
-            this.bLocalSave.UseVisualStyleBackColor = true;
-            this.bLocalSave.Click += new System.EventHandler(this.bLocalSave_Click);
+            this.bSave.Location = new System.Drawing.Point(369, 23);
+            this.bSave.Name = "bSave";
+            this.bSave.Size = new System.Drawing.Size(75, 23);
+            this.bSave.TabIndex = 43;
+            this.bSave.Text = "Save";
+            this.bSave.UseVisualStyleBackColor = true;
+            this.bSave.Click += new System.EventHandler(this.bSave_Click);
             // 
             // cbStartupProgram
             // 
@@ -1023,21 +362,302 @@
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.InitialImage = null;
-            this.pictureBox2.Location = new System.Drawing.Point(625, 324);
+            this.pictureBox2.Location = new System.Drawing.Point(254, 332);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(320, 173);
             this.pictureBox2.TabIndex = 46;
             this.pictureBox2.TabStop = false;
             // 
+            // btnButton01
+            // 
+            this.btnButton01.Location = new System.Drawing.Point(290, 141);
+            this.btnButton01.Name = "btnButton01";
+            this.btnButton01.Size = new System.Drawing.Size(26, 24);
+            this.btnButton01.TabIndex = 47;
+            this.btnButton01.Text = "1";
+            this.btnButton01.UseVisualStyleBackColor = true;
+            this.btnButton01.Click += new System.EventHandler(this.btnButtonNN_Click);
+            // 
+            // btnButton02
+            // 
+            this.btnButton02.Location = new System.Drawing.Point(322, 141);
+            this.btnButton02.Name = "btnButton02";
+            this.btnButton02.Size = new System.Drawing.Size(26, 24);
+            this.btnButton02.TabIndex = 48;
+            this.btnButton02.Text = "2";
+            this.btnButton02.UseVisualStyleBackColor = true;
+            this.btnButton02.Click += new System.EventHandler(this.btnButtonNN_Click);
+            // 
+            // btnButton03
+            // 
+            this.btnButton03.Location = new System.Drawing.Point(290, 176);
+            this.btnButton03.Name = "btnButton03";
+            this.btnButton03.Size = new System.Drawing.Size(26, 24);
+            this.btnButton03.TabIndex = 49;
+            this.btnButton03.Text = "3";
+            this.btnButton03.UseVisualStyleBackColor = true;
+            this.btnButton03.Click += new System.EventHandler(this.btnButtonNN_Click);
+            // 
+            // btnButton04
+            // 
+            this.btnButton04.Location = new System.Drawing.Point(322, 176);
+            this.btnButton04.Name = "btnButton04";
+            this.btnButton04.Size = new System.Drawing.Size(26, 24);
+            this.btnButton04.TabIndex = 50;
+            this.btnButton04.Text = "4";
+            this.btnButton04.UseVisualStyleBackColor = true;
+            this.btnButton04.Click += new System.EventHandler(this.btnButtonNN_Click);
+            // 
+            // btnButton05
+            // 
+            this.btnButton05.Location = new System.Drawing.Point(322, 209);
+            this.btnButton05.Name = "btnButton05";
+            this.btnButton05.Size = new System.Drawing.Size(26, 24);
+            this.btnButton05.TabIndex = 51;
+            this.btnButton05.Text = "5";
+            this.btnButton05.UseVisualStyleBackColor = true;
+            this.btnButton05.Click += new System.EventHandler(this.btnButtonNN_Click);
+            // 
+            // btnButton10
+            // 
+            this.btnButton10.Location = new System.Drawing.Point(474, 209);
+            this.btnButton10.Name = "btnButton10";
+            this.btnButton10.Size = new System.Drawing.Size(30, 24);
+            this.btnButton10.TabIndex = 56;
+            this.btnButton10.Text = "10";
+            this.btnButton10.UseVisualStyleBackColor = true;
+            this.btnButton10.Click += new System.EventHandler(this.btnButtonNN_Click);
+            // 
+            // btnButton09
+            // 
+            this.btnButton09.Location = new System.Drawing.Point(510, 176);
+            this.btnButton09.Name = "btnButton09";
+            this.btnButton09.Size = new System.Drawing.Size(26, 24);
+            this.btnButton09.TabIndex = 55;
+            this.btnButton09.Text = "9";
+            this.btnButton09.UseVisualStyleBackColor = true;
+            this.btnButton09.Click += new System.EventHandler(this.btnButtonNN_Click);
+            // 
+            // btnButton08
+            // 
+            this.btnButton08.Location = new System.Drawing.Point(478, 176);
+            this.btnButton08.Name = "btnButton08";
+            this.btnButton08.Size = new System.Drawing.Size(26, 24);
+            this.btnButton08.TabIndex = 54;
+            this.btnButton08.Text = "8";
+            this.btnButton08.UseVisualStyleBackColor = true;
+            this.btnButton08.Click += new System.EventHandler(this.btnButtonNN_Click);
+            // 
+            // btnButton07
+            // 
+            this.btnButton07.Location = new System.Drawing.Point(510, 141);
+            this.btnButton07.Name = "btnButton07";
+            this.btnButton07.Size = new System.Drawing.Size(26, 24);
+            this.btnButton07.TabIndex = 53;
+            this.btnButton07.Text = "7";
+            this.btnButton07.UseVisualStyleBackColor = true;
+            this.btnButton07.Click += new System.EventHandler(this.btnButtonNN_Click);
+            // 
+            // btnButton06
+            // 
+            this.btnButton06.Location = new System.Drawing.Point(478, 141);
+            this.btnButton06.Name = "btnButton06";
+            this.btnButton06.Size = new System.Drawing.Size(26, 24);
+            this.btnButton06.TabIndex = 52;
+            this.btnButton06.Text = "6";
+            this.btnButton06.UseVisualStyleBackColor = true;
+            this.btnButton06.Click += new System.EventHandler(this.btnButtonNN_Click);
+            // 
+            // btnButton00
+            // 
+            this.btnButton00.Location = new System.Drawing.Point(399, 177);
+            this.btnButton00.Name = "btnButton00";
+            this.btnButton00.Size = new System.Drawing.Size(26, 24);
+            this.btnButton00.TabIndex = 57;
+            this.btnButton00.Text = "0";
+            this.btnButton00.UseVisualStyleBackColor = true;
+            this.btnButton00.Click += new System.EventHandler(this.btnButtonNN_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(625, 125);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(35, 13);
+            this.label14.TabIndex = 80;
+            this.label14.Text = "Name";
+            // 
+            // tbButtonName
+            // 
+            this.tbButtonName.Location = new System.Drawing.Point(698, 120);
+            this.tbButtonName.Multiline = true;
+            this.tbButtonName.Name = "tbButtonName";
+            this.tbButtonName.Size = new System.Drawing.Size(97, 21);
+            this.tbButtonName.TabIndex = 79;
+            this.tbButtonName.Leave += new System.EventHandler(this.tbButtonName_Leave);
+            // 
+            // pbCaptureKeystroke
+            // 
+            this.pbCaptureKeystroke.Location = new System.Drawing.Point(630, 299);
+            this.pbCaptureKeystroke.Name = "pbCaptureKeystroke";
+            this.pbCaptureKeystroke.Size = new System.Drawing.Size(201, 41);
+            this.pbCaptureKeystroke.TabIndex = 78;
+            this.pbCaptureKeystroke.Text = "Capture Keystroke";
+            this.pbCaptureKeystroke.UseVisualStyleBackColor = true;
+            this.pbCaptureKeystroke.Click += new System.EventHandler(this.pbCaptureKeystroke_Click);
+            this.pbCaptureKeystroke.KeyDown += new System.Windows.Forms.KeyEventHandler(this.pbCaptureKeystroke_KeyDown);
+            // 
+            // lButton_2
+            // 
+            this.lButton_2.AutoSize = true;
+            this.lButton_2.Location = new System.Drawing.Point(611, 269);
+            this.lButton_2.Name = "lButton_2";
+            this.lButton_2.Size = new System.Drawing.Size(13, 13);
+            this.lButton_2.TabIndex = 72;
+            this.lButton_2.Text = "2";
+            // 
+            // lButton_1
+            // 
+            this.lButton_1.AutoSize = true;
+            this.lButton_1.Location = new System.Drawing.Point(611, 242);
+            this.lButton_1.Name = "lButton_1";
+            this.lButton_1.Size = new System.Drawing.Size(13, 13);
+            this.lButton_1.TabIndex = 73;
+            this.lButton_1.Text = "1";
+            // 
+            // lButton_0
+            // 
+            this.lButton_0.AutoSize = true;
+            this.lButton_0.Location = new System.Drawing.Point(611, 212);
+            this.lButton_0.Name = "lButton_0";
+            this.lButton_0.Size = new System.Drawing.Size(13, 13);
+            this.lButton_0.TabIndex = 71;
+            this.lButton_0.Text = "0";
+            // 
+            // lButtonValue
+            // 
+            this.lButtonValue.AutoSize = true;
+            this.lButtonValue.Location = new System.Drawing.Point(761, 196);
+            this.lButtonValue.Name = "lButtonValue";
+            this.lButtonValue.Size = new System.Drawing.Size(34, 13);
+            this.lButtonValue.TabIndex = 70;
+            this.lButtonValue.Text = "Value";
+            // 
+            // lButtonAction
+            // 
+            this.lButtonAction.AutoSize = true;
+            this.lButtonAction.Location = new System.Drawing.Point(653, 196);
+            this.lButtonAction.Name = "lButtonAction";
+            this.lButtonAction.Size = new System.Drawing.Size(37, 13);
+            this.lButtonAction.TabIndex = 69;
+            this.lButtonAction.Text = "Action";
+            // 
+            // cbButtonValue0
+            // 
+            this.cbButtonValue0.FormattingEnabled = true;
+            this.cbButtonValue0.Location = new System.Drawing.Point(738, 212);
+            this.cbButtonValue0.Name = "cbButtonValue0";
+            this.cbButtonValue0.Size = new System.Drawing.Size(93, 21);
+            this.cbButtonValue0.TabIndex = 66;
+            this.cbButtonValue0.SelectedIndexChanged += new System.EventHandler(this.cbButtonValue0_SelectedIndexChanged);
+            // 
+            // cbButtonAction0
+            // 
+            this.cbButtonAction0.FormattingEnabled = true;
+            this.cbButtonAction0.Location = new System.Drawing.Point(630, 212);
+            this.cbButtonAction0.Name = "cbButtonAction0";
+            this.cbButtonAction0.Size = new System.Drawing.Size(93, 21);
+            this.cbButtonAction0.TabIndex = 63;
+            this.cbButtonAction0.SelectedIndexChanged += new System.EventHandler(this.cbButtonAction0_SelectedIndexChanged);
+            // 
+            // cbButtonValue1
+            // 
+            this.cbButtonValue1.FormattingEnabled = true;
+            this.cbButtonValue1.Location = new System.Drawing.Point(738, 239);
+            this.cbButtonValue1.Name = "cbButtonValue1";
+            this.cbButtonValue1.Size = new System.Drawing.Size(93, 21);
+            this.cbButtonValue1.TabIndex = 67;
+            this.cbButtonValue1.SelectedIndexChanged += new System.EventHandler(this.cbButtonValue1_SelectedIndexChanged);
+            // 
+            // cbButtonAction1
+            // 
+            this.cbButtonAction1.FormattingEnabled = true;
+            this.cbButtonAction1.Location = new System.Drawing.Point(630, 239);
+            this.cbButtonAction1.Name = "cbButtonAction1";
+            this.cbButtonAction1.Size = new System.Drawing.Size(93, 21);
+            this.cbButtonAction1.TabIndex = 64;
+            this.cbButtonAction1.SelectedIndexChanged += new System.EventHandler(this.cbButtonAction1_SelectedIndexChanged);
+            // 
+            // cbButtonValue2
+            // 
+            this.cbButtonValue2.FormattingEnabled = true;
+            this.cbButtonValue2.Location = new System.Drawing.Point(738, 266);
+            this.cbButtonValue2.Name = "cbButtonValue2";
+            this.cbButtonValue2.Size = new System.Drawing.Size(93, 21);
+            this.cbButtonValue2.TabIndex = 68;
+            this.cbButtonValue2.SelectedIndexChanged += new System.EventHandler(this.cbButtonValue2_SelectedIndexChanged);
+            // 
+            // cbButtonAction2
+            // 
+            this.cbButtonAction2.FormattingEnabled = true;
+            this.cbButtonAction2.Location = new System.Drawing.Point(630, 266);
+            this.cbButtonAction2.Name = "cbButtonAction2";
+            this.cbButtonAction2.Size = new System.Drawing.Size(93, 21);
+            this.cbButtonAction2.TabIndex = 65;
+            this.cbButtonAction2.SelectedIndexChanged += new System.EventHandler(this.cbButtonAction2_SelectedIndexChanged);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(611, 165);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(60, 13);
+            this.label15.TabIndex = 82;
+            this.label15.Text = "Description";
+            // 
+            // tbButtonDescription
+            // 
+            this.tbButtonDescription.Location = new System.Drawing.Point(677, 162);
+            this.tbButtonDescription.Multiline = true;
+            this.tbButtonDescription.Name = "tbButtonDescription";
+            this.tbButtonDescription.Size = new System.Drawing.Size(154, 21);
+            this.tbButtonDescription.TabIndex = 81;
+            // 
             // CADProgramConfigUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.tbButtonDescription);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.tbButtonName);
+            this.Controls.Add(this.pbCaptureKeystroke);
+            this.Controls.Add(this.lButton_2);
+            this.Controls.Add(this.lButton_1);
+            this.Controls.Add(this.lButton_0);
+            this.Controls.Add(this.lButtonValue);
+            this.Controls.Add(this.lButtonAction);
+            this.Controls.Add(this.cbButtonValue0);
+            this.Controls.Add(this.cbButtonAction0);
+            this.Controls.Add(this.cbButtonValue1);
+            this.Controls.Add(this.cbButtonAction1);
+            this.Controls.Add(this.cbButtonValue2);
+            this.Controls.Add(this.cbButtonAction2);
+            this.Controls.Add(this.btnButton00);
+            this.Controls.Add(this.btnButton10);
+            this.Controls.Add(this.btnButton09);
+            this.Controls.Add(this.btnButton08);
+            this.Controls.Add(this.btnButton07);
+            this.Controls.Add(this.btnButton06);
+            this.Controls.Add(this.btnButton05);
+            this.Controls.Add(this.btnButton04);
+            this.Controls.Add(this.btnButton03);
+            this.Controls.Add(this.btnButton02);
+            this.Controls.Add(this.btnButton01);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.cbStartupProgram);
             this.Controls.Add(this.bCancel);
-            this.Controls.Add(this.bLocalSave);
-            this.Controls.Add(this.gbButtonSelection);
+            this.Controls.Add(this.bSave);
             this.Controls.Add(this.cbSpacemouseEnable);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.tbMouseSensitivity);
@@ -1065,24 +685,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbCADProgram);
-            this.Controls.Add(this.gbButton0);
-            this.Controls.Add(this.gbButton1);
-            this.Controls.Add(this.gbButton2);
-            this.Controls.Add(this.gbButton3);
             this.DoubleBuffered = true;
             this.Name = "CADProgramConfigUserControl";
-            this.Size = new System.Drawing.Size(990, 567);
-            this.gbButton0.ResumeLayout(false);
-            this.gbButton0.PerformLayout();
-            this.gbButton1.ResumeLayout(false);
-            this.gbButton1.PerformLayout();
-            this.gbButton2.ResumeLayout(false);
-            this.gbButton2.PerformLayout();
-            this.gbButton3.ResumeLayout(false);
-            this.gbButton3.PerformLayout();
+            this.Size = new System.Drawing.Size(860, 546);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.gbButtonSelection.ResumeLayout(false);
-            this.gbButtonSelection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1092,62 +698,6 @@
         #endregion
         private System.Windows.Forms.ComboBox cbCADProgram;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lButton0Text;
-        private System.Windows.Forms.TextBox tbButton0Text;
-        private System.Windows.Forms.ComboBox cbButton0Action0;
-        private System.Windows.Forms.ComboBox cbButton0Value0;
-        private System.Windows.Forms.ComboBox cbButton0Action1;
-        private System.Windows.Forms.ComboBox cbButton0Value1;
-        private System.Windows.Forms.ComboBox cbButton0Action2;
-        private System.Windows.Forms.ComboBox cbButton0Value2;
-        private System.Windows.Forms.GroupBox gbButton0;
-        private System.Windows.Forms.Label lButton0_2;
-        private System.Windows.Forms.Label lButton0_1;
-        private System.Windows.Forms.Label lButton0_0;
-        private System.Windows.Forms.Label lButton0Value;
-        private System.Windows.Forms.Label lButton0Action;
-        private System.Windows.Forms.Label lButton1Text;
-        private System.Windows.Forms.TextBox tbButton1Text;
-        private System.Windows.Forms.ComboBox cbButton1Action0;
-        private System.Windows.Forms.ComboBox cbButton1Value0;
-        private System.Windows.Forms.ComboBox cbButton1Action1;
-        private System.Windows.Forms.ComboBox cbButton1Value1;
-        private System.Windows.Forms.ComboBox cbButton1Action2;
-        private System.Windows.Forms.ComboBox cbButton1Value2;
-        private System.Windows.Forms.GroupBox gbButton1;
-        private System.Windows.Forms.Label lButton1_2;
-        private System.Windows.Forms.Label lButton1_1;
-        private System.Windows.Forms.Label lButton1_0;
-        private System.Windows.Forms.Label lButton1Value;
-        private System.Windows.Forms.Label lButton1Action;
-        private System.Windows.Forms.Label lButton2Text;
-        private System.Windows.Forms.TextBox tbButton2Text;
-        private System.Windows.Forms.ComboBox cbButton2Action0;
-        private System.Windows.Forms.ComboBox cbButton2Value0;
-        private System.Windows.Forms.ComboBox cbButton2Action1;
-        private System.Windows.Forms.ComboBox cbButton2Value1;
-        private System.Windows.Forms.ComboBox cbButton2Action2;
-        private System.Windows.Forms.ComboBox cbButton2Value2;
-        private System.Windows.Forms.GroupBox gbButton2;
-        private System.Windows.Forms.Label lButton2_2;
-        private System.Windows.Forms.Label lButton2_1;
-        private System.Windows.Forms.Label lButton2_0;
-        private System.Windows.Forms.Label lButton2Value;
-        private System.Windows.Forms.Label lButton2Action;
-        private System.Windows.Forms.Label lButton3Text;
-        private System.Windows.Forms.TextBox tbButton3Text;
-        private System.Windows.Forms.ComboBox cbButton3Action0;
-        private System.Windows.Forms.ComboBox cbButton3Value0;
-        private System.Windows.Forms.ComboBox cbButton3Action1;
-        private System.Windows.Forms.ComboBox cbButton3Value1;
-        private System.Windows.Forms.ComboBox cbButton3Action2;
-        private System.Windows.Forms.ComboBox cbButton3Value2;
-        private System.Windows.Forms.GroupBox gbButton3;
-        private System.Windows.Forms.Label lButton3_2;
-        private System.Windows.Forms.Label lButton3_1;
-        private System.Windows.Forms.Label lButton3_0;
-        private System.Windows.Forms.Label lButton3Value;
-        private System.Windows.Forms.Label lButton3Action;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbScaleX;
@@ -1173,13 +723,36 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.CheckBox cbSpacemouseEnable;
-        private System.Windows.Forms.GroupBox gbButtonSelection;
-        private System.Windows.Forms.RadioButton rbHW_8to10;
-        private System.Windows.Forms.RadioButton rbHW_4to7;
-        private System.Windows.Forms.RadioButton rbHW_0to3;
         private System.Windows.Forms.Button bCancel;
-        private System.Windows.Forms.Button bLocalSave;
+        private System.Windows.Forms.Button bSave;
         private System.Windows.Forms.ComboBox cbStartupProgram;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnButton01;
+        private System.Windows.Forms.Button btnButton02;
+        private System.Windows.Forms.Button btnButton03;
+        private System.Windows.Forms.Button btnButton04;
+        private System.Windows.Forms.Button btnButton05;
+        private System.Windows.Forms.Button btnButton10;
+        private System.Windows.Forms.Button btnButton09;
+        private System.Windows.Forms.Button btnButton08;
+        private System.Windows.Forms.Button btnButton07;
+        private System.Windows.Forms.Button btnButton06;
+        private System.Windows.Forms.Button btnButton00;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox tbButtonName;
+        private System.Windows.Forms.Button pbCaptureKeystroke;
+        private System.Windows.Forms.Label lButton_2;
+        private System.Windows.Forms.Label lButton_1;
+        private System.Windows.Forms.Label lButton_0;
+        private System.Windows.Forms.Label lButtonValue;
+        private System.Windows.Forms.Label lButtonAction;
+        private System.Windows.Forms.ComboBox cbButtonValue0;
+        private System.Windows.Forms.ComboBox cbButtonAction0;
+        private System.Windows.Forms.ComboBox cbButtonValue1;
+        private System.Windows.Forms.ComboBox cbButtonAction1;
+        private System.Windows.Forms.ComboBox cbButtonValue2;
+        private System.Windows.Forms.ComboBox cbButtonAction2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox tbButtonDescription;
     }
 }

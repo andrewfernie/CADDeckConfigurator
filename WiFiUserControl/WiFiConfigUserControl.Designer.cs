@@ -39,7 +39,7 @@
             this.tbAttempts = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbAttemptDelay = new System.Windows.Forms.TextBox();
-            this.bLocalSave = new System.Windows.Forms.Button();
+            this.bSave = new System.Windows.Forms.Button();
             this.bCancel = new System.Windows.Forms.Button();
             this.cbMode = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
@@ -140,15 +140,15 @@
             this.tbAttemptDelay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbAttemptDelay_KeyPress);
             this.tbAttemptDelay.Leave += new System.EventHandler(this.tbAttemptDelay_Leave);
             // 
-            // bLocalSave
+            // bSave
             // 
-            this.bLocalSave.Location = new System.Drawing.Point(65, 15);
-            this.bLocalSave.Name = "bLocalSave";
-            this.bLocalSave.Size = new System.Drawing.Size(75, 23);
-            this.bLocalSave.TabIndex = 12;
-            this.bLocalSave.Text = "Local Save";
-            this.bLocalSave.UseVisualStyleBackColor = true;
-            this.bLocalSave.Click += new System.EventHandler(this.bSave_Click);
+            this.bSave.Location = new System.Drawing.Point(65, 15);
+            this.bSave.Name = "bSave";
+            this.bSave.Size = new System.Drawing.Size(75, 23);
+            this.bSave.TabIndex = 12;
+            this.bSave.Text = "Save";
+            this.bSave.UseVisualStyleBackColor = true;
+            this.bSave.Click += new System.EventHandler(this.bSave_Click);
             // 
             // bCancel
             // 
@@ -178,7 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cbMode);
             this.Controls.Add(this.bCancel);
-            this.Controls.Add(this.bLocalSave);
+            this.Controls.Add(this.bSave);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbAttemptDelay);
             this.Controls.Add(this.label5);
@@ -210,7 +210,7 @@
         private System.Windows.Forms.TextBox tbAttempts;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbAttemptDelay;
-        private System.Windows.Forms.Button bLocalSave;
+        private System.Windows.Forms.Button bSave;
         private System.Windows.Forms.Button bCancel;
         private System.Windows.Forms.ComboBox cbMode;
     }
