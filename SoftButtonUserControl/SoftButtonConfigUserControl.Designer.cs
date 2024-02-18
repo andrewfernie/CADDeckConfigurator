@@ -67,6 +67,7 @@
             this.pbCaptureKeystroke = new System.Windows.Forms.Button();
             this.tbButtonName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbButton11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbButton12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbButton13)).BeginInit();
@@ -80,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbButton33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbButton34)).BeginInit();
             this.gbLogoType.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bCancel
@@ -310,7 +312,7 @@
             // lButton_2
             // 
             this.lButton_2.AutoSize = true;
-            this.lButton_2.Location = new System.Drawing.Point(464, 266);
+            this.lButton_2.Location = new System.Drawing.Point(30, 206);
             this.lButton_2.Name = "lButton_2";
             this.lButton_2.Size = new System.Drawing.Size(13, 13);
             this.lButton_2.TabIndex = 51;
@@ -319,7 +321,7 @@
             // lButton_1
             // 
             this.lButton_1.AutoSize = true;
-            this.lButton_1.Location = new System.Drawing.Point(464, 239);
+            this.lButton_1.Location = new System.Drawing.Point(30, 179);
             this.lButton_1.Name = "lButton_1";
             this.lButton_1.Size = new System.Drawing.Size(13, 13);
             this.lButton_1.TabIndex = 52;
@@ -328,7 +330,7 @@
             // lButton_0
             // 
             this.lButton_0.AutoSize = true;
-            this.lButton_0.Location = new System.Drawing.Point(464, 209);
+            this.lButton_0.Location = new System.Drawing.Point(30, 149);
             this.lButton_0.Name = "lButton_0";
             this.lButton_0.Size = new System.Drawing.Size(13, 13);
             this.lButton_0.TabIndex = 50;
@@ -337,7 +339,7 @@
             // lButtonValue
             // 
             this.lButtonValue.AutoSize = true;
-            this.lButtonValue.Location = new System.Drawing.Point(614, 193);
+            this.lButtonValue.Location = new System.Drawing.Point(180, 133);
             this.lButtonValue.Name = "lButtonValue";
             this.lButtonValue.Size = new System.Drawing.Size(34, 13);
             this.lButtonValue.TabIndex = 49;
@@ -346,7 +348,7 @@
             // lButtonAction
             // 
             this.lButtonAction.AutoSize = true;
-            this.lButtonAction.Location = new System.Drawing.Point(506, 193);
+            this.lButtonAction.Location = new System.Drawing.Point(72, 133);
             this.lButtonAction.Name = "lButtonAction";
             this.lButtonAction.Size = new System.Drawing.Size(37, 13);
             this.lButtonAction.TabIndex = 48;
@@ -355,7 +357,7 @@
             // cbButtonValue0
             // 
             this.cbButtonValue0.FormattingEnabled = true;
-            this.cbButtonValue0.Location = new System.Drawing.Point(591, 209);
+            this.cbButtonValue0.Location = new System.Drawing.Point(157, 149);
             this.cbButtonValue0.Name = "cbButtonValue0";
             this.cbButtonValue0.Size = new System.Drawing.Size(93, 21);
             this.cbButtonValue0.TabIndex = 45;
@@ -364,7 +366,7 @@
             // cbButtonAction0
             // 
             this.cbButtonAction0.FormattingEnabled = true;
-            this.cbButtonAction0.Location = new System.Drawing.Point(483, 209);
+            this.cbButtonAction0.Location = new System.Drawing.Point(49, 149);
             this.cbButtonAction0.Name = "cbButtonAction0";
             this.cbButtonAction0.Size = new System.Drawing.Size(93, 21);
             this.cbButtonAction0.TabIndex = 42;
@@ -373,7 +375,7 @@
             // cbButtonValue1
             // 
             this.cbButtonValue1.FormattingEnabled = true;
-            this.cbButtonValue1.Location = new System.Drawing.Point(591, 236);
+            this.cbButtonValue1.Location = new System.Drawing.Point(157, 176);
             this.cbButtonValue1.Name = "cbButtonValue1";
             this.cbButtonValue1.Size = new System.Drawing.Size(93, 21);
             this.cbButtonValue1.TabIndex = 46;
@@ -382,7 +384,7 @@
             // cbButtonAction1
             // 
             this.cbButtonAction1.FormattingEnabled = true;
-            this.cbButtonAction1.Location = new System.Drawing.Point(483, 236);
+            this.cbButtonAction1.Location = new System.Drawing.Point(49, 176);
             this.cbButtonAction1.Name = "cbButtonAction1";
             this.cbButtonAction1.Size = new System.Drawing.Size(93, 21);
             this.cbButtonAction1.TabIndex = 43;
@@ -391,7 +393,7 @@
             // cbButtonValue2
             // 
             this.cbButtonValue2.FormattingEnabled = true;
-            this.cbButtonValue2.Location = new System.Drawing.Point(591, 263);
+            this.cbButtonValue2.Location = new System.Drawing.Point(157, 203);
             this.cbButtonValue2.Name = "cbButtonValue2";
             this.cbButtonValue2.Size = new System.Drawing.Size(93, 21);
             this.cbButtonValue2.TabIndex = 47;
@@ -400,7 +402,7 @@
             // cbButtonAction2
             // 
             this.cbButtonAction2.FormattingEnabled = true;
-            this.cbButtonAction2.Location = new System.Drawing.Point(483, 263);
+            this.cbButtonAction2.Location = new System.Drawing.Point(49, 203);
             this.cbButtonAction2.Name = "cbButtonAction2";
             this.cbButtonAction2.Size = new System.Drawing.Size(93, 21);
             this.cbButtonAction2.TabIndex = 44;
@@ -408,16 +410,16 @@
             // 
             // tbButtonLogo
             // 
-            this.tbButtonLogo.Location = new System.Drawing.Point(543, 126);
+            this.tbButtonLogo.Location = new System.Drawing.Point(109, 66);
             this.tbButtonLogo.Name = "tbButtonLogo";
-            this.tbButtonLogo.Size = new System.Drawing.Size(100, 20);
+            this.tbButtonLogo.Size = new System.Drawing.Size(141, 20);
             this.tbButtonLogo.TabIndex = 0;
             this.tbButtonLogo.DoubleClick += new System.EventHandler(this.tbButtonLogo_DoubleClick);
             // 
             // lButtonLogo
             // 
             this.lButtonLogo.AutoSize = true;
-            this.lButtonLogo.Location = new System.Drawing.Point(470, 127);
+            this.lButtonLogo.Location = new System.Drawing.Point(36, 67);
             this.lButtonLogo.Name = "lButtonLogo";
             this.lButtonLogo.Size = new System.Drawing.Size(31, 13);
             this.lButtonLogo.TabIndex = 53;
@@ -426,7 +428,7 @@
             // cbButtonLatch
             // 
             this.cbButtonLatch.AutoSize = true;
-            this.cbButtonLatch.Location = new System.Drawing.Point(473, 143);
+            this.cbButtonLatch.Location = new System.Drawing.Point(39, 83);
             this.cbButtonLatch.Name = "cbButtonLatch";
             this.cbButtonLatch.Size = new System.Drawing.Size(53, 17);
             this.cbButtonLatch.TabIndex = 57;
@@ -437,7 +439,7 @@
             // lButtonLatchLogo
             // 
             this.lButtonLatchLogo.AutoSize = true;
-            this.lButtonLatchLogo.Location = new System.Drawing.Point(470, 164);
+            this.lButtonLatchLogo.Location = new System.Drawing.Point(36, 104);
             this.lButtonLatchLogo.Name = "lButtonLatchLogo";
             this.lButtonLatchLogo.Size = new System.Drawing.Size(61, 13);
             this.lButtonLatchLogo.TabIndex = 55;
@@ -445,15 +447,15 @@
             // 
             // tbButtonLatchLogo
             // 
-            this.tbButtonLatchLogo.Location = new System.Drawing.Point(543, 161);
+            this.tbButtonLatchLogo.Location = new System.Drawing.Point(109, 101);
             this.tbButtonLatchLogo.Name = "tbButtonLatchLogo";
-            this.tbButtonLatchLogo.Size = new System.Drawing.Size(100, 20);
+            this.tbButtonLatchLogo.Size = new System.Drawing.Size(141, 20);
             this.tbButtonLatchLogo.TabIndex = 56;
             this.tbButtonLatchLogo.DoubleClick += new System.EventHandler(this.tbButtonLatchLogo_DoubleClick);
             // 
             // pbCaptureKeystroke
             // 
-            this.pbCaptureKeystroke.Location = new System.Drawing.Point(483, 296);
+            this.pbCaptureKeystroke.Location = new System.Drawing.Point(49, 236);
             this.pbCaptureKeystroke.Name = "pbCaptureKeystroke";
             this.pbCaptureKeystroke.Size = new System.Drawing.Size(201, 41);
             this.pbCaptureKeystroke.TabIndex = 58;
@@ -464,26 +466,55 @@
             // 
             // tbButtonName
             // 
-            this.tbButtonName.Location = new System.Drawing.Point(543, 91);
+            this.tbButtonName.Location = new System.Drawing.Point(109, 31);
             this.tbButtonName.Multiline = true;
             this.tbButtonName.Name = "tbButtonName";
-            this.tbButtonName.Size = new System.Drawing.Size(97, 21);
+            this.tbButtonName.Size = new System.Drawing.Size(141, 21);
             this.tbButtonName.TabIndex = 59;
             this.tbButtonName.Leave += new System.EventHandler(this.tbButtonName_Leave);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(470, 96);
+            this.label3.Location = new System.Drawing.Point(36, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 61;
             this.label3.Text = "Name";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.tbButtonName);
+            this.groupBox1.Controls.Add(this.pbCaptureKeystroke);
+            this.groupBox1.Controls.Add(this.tbButtonLogo);
+            this.groupBox1.Controls.Add(this.lButtonLogo);
+            this.groupBox1.Controls.Add(this.cbButtonLatch);
+            this.groupBox1.Controls.Add(this.lButtonLatchLogo);
+            this.groupBox1.Controls.Add(this.tbButtonLatchLogo);
+            this.groupBox1.Controls.Add(this.lButton_2);
+            this.groupBox1.Controls.Add(this.lButton_1);
+            this.groupBox1.Controls.Add(this.lButton_0);
+            this.groupBox1.Controls.Add(this.lButtonValue);
+            this.groupBox1.Controls.Add(this.lButtonAction);
+            this.groupBox1.Controls.Add(this.cbButtonValue0);
+            this.groupBox1.Controls.Add(this.cbButtonAction0);
+            this.groupBox1.Controls.Add(this.cbButtonValue1);
+            this.groupBox1.Controls.Add(this.cbButtonAction1);
+            this.groupBox1.Controls.Add(this.cbButtonValue2);
+            this.groupBox1.Controls.Add(this.cbButtonAction2);
+            this.groupBox1.Location = new System.Drawing.Point(434, 60);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(268, 300);
+            this.groupBox1.TabIndex = 62;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Button Definition";
+            // 
             // SoftButtonUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pbButton11);
             this.Controls.Add(this.pbButton12);
             this.Controls.Add(this.pbButton13);
@@ -496,25 +527,6 @@
             this.Controls.Add(this.pbButton32);
             this.Controls.Add(this.pbButton33);
             this.Controls.Add(this.pbButton34);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.tbButtonName);
-            this.Controls.Add(this.pbCaptureKeystroke);
-            this.Controls.Add(this.tbButtonLogo);
-            this.Controls.Add(this.lButtonLogo);
-            this.Controls.Add(this.cbButtonLatch);
-            this.Controls.Add(this.lButtonLatchLogo);
-            this.Controls.Add(this.tbButtonLatchLogo);
-            this.Controls.Add(this.lButton_2);
-            this.Controls.Add(this.lButton_1);
-            this.Controls.Add(this.lButton_0);
-            this.Controls.Add(this.lButtonValue);
-            this.Controls.Add(this.lButtonAction);
-            this.Controls.Add(this.cbButtonValue0);
-            this.Controls.Add(this.cbButtonAction0);
-            this.Controls.Add(this.cbButtonValue1);
-            this.Controls.Add(this.cbButtonAction1);
-            this.Controls.Add(this.cbButtonValue2);
-            this.Controls.Add(this.cbButtonAction2);
             this.Controls.Add(this.gbLogoType);
             this.Controls.Add(this.bCancel);
             this.Controls.Add(this.bSave);
@@ -537,6 +549,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbButton34)).EndInit();
             this.gbLogoType.ResumeLayout(false);
             this.gbLogoType.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -585,5 +599,6 @@
         private System.Windows.Forms.Button pbCaptureKeystroke;
         private System.Windows.Forms.TextBox tbButtonName;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

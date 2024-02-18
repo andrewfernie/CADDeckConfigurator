@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Helpers;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace LCDKnobButtons
 {
@@ -17,28 +18,37 @@ namespace LCDKnobButtons
     {
         String project_folder;
         String file_name = "\\config\\cadparams.json";
+        
         CJSONCADParams json_structure;
+        JsonNode json_document_node;
+        JsonObject json_document_object;
+        
         int current_program = 0;
         int number_of_programs = 0;
         bool data_changed = false;
 
-        int button_offset = 0;
-
         const int HWBUTTON_MAX = 10;
         const int LCDKNOBBUTTON_MAX = 6;
+
+        int activeButtonNumber = -1;
+
+        bool keyCapture = false;
 
         public LCDKnobButtonsUserControl()
         {
             InitializeComponent();
 
         }
+        
         public void LoadJsonFile(string projectFolder, string fileName)
         {
             project_folder = projectFolder;
             file_name = fileName;
-
+            
             string json_string = File.ReadAllText(project_folder + file_name);
             json_structure = JsonSerializer.Deserialize<CJSONCADParams>(json_string);
+            json_document_node = JsonNode.Parse(json_string);
+            json_document_object = json_document_node.AsObject();
 
             data_changed = false;
 
@@ -96,100 +106,16 @@ namespace LCDKnobButtons
                     json_structure.programs[i].lcdknob_buttons = lcdbtns;
                 }
             }
-
-            rbLCDKnob_0to3.Checked = true;
-            SetLabels(0);
-
-            InitializeText();
-            InitializeActions();
-            InitializeValues();
-        }
-        public void InitializeText()
-        {
-
-            if ((button_offset + 0) <= LCDKNOBBUTTON_MAX)
-            {
-                tbButton0Text.Text = json_structure.programs[current_program].lcdknob_buttons[button_offset + 0].description;
-            }
-            if ((button_offset + 1) <= LCDKNOBBUTTON_MAX)
-            {
-                tbButton1Text.Text = json_structure.programs[current_program].lcdknob_buttons[button_offset + 1].description;
-            }
-            if ((button_offset + 2) <= LCDKNOBBUTTON_MAX)
-            {
-                tbButton2Text.Text = json_structure.programs[current_program].lcdknob_buttons[button_offset + 2].description;
-            }
-            if ((button_offset + 3) <= LCDKNOBBUTTON_MAX)
-            {
-                tbButton3Text.Text = json_structure.programs[current_program].lcdknob_buttons[button_offset + 3].description;
-            }
+            
+            activeButtonNumber = 1;
+            string buttonName = "btnButton" + activeButtonNumber.ToString("00");
+            System.Windows.Forms.Button pButton = (System.Windows.Forms.Button)this.Controls.Find(buttonName, true).FirstOrDefault();
+            pButton.BackColor = SystemColors.Highlight;
+            SetButtonParameters(current_program, activeButtonNumber);
 
         }
 
-        public void InitializeActions()
-        {
-
-            if ((button_offset + 0) <= LCDKNOBBUTTON_MAX)
-            {
-                InitializeAction(cbButton0Action0, json_structure.programs[current_program].lcdknob_buttons[0 + button_offset].actionarray[0]);
-                InitializeAction(cbButton0Action1, json_structure.programs[current_program].lcdknob_buttons[0 + button_offset].actionarray[1]);
-                InitializeAction(cbButton0Action2, json_structure.programs[current_program].lcdknob_buttons[0 + button_offset].actionarray[2]);
-            }
-
-            if ((button_offset + 1) <= LCDKNOBBUTTON_MAX)
-            {
-                InitializeAction(cbButton1Action0, json_structure.programs[current_program].lcdknob_buttons[1 + button_offset].actionarray[0]);
-                InitializeAction(cbButton1Action1, json_structure.programs[current_program].lcdknob_buttons[1 + button_offset].actionarray[1]);
-                InitializeAction(cbButton1Action2, json_structure.programs[current_program].lcdknob_buttons[1 + button_offset].actionarray[2]);
-            }
-
-            if ((button_offset + 2) <= LCDKNOBBUTTON_MAX)
-            {
-                InitializeAction(cbButton2Action0, json_structure.programs[current_program].lcdknob_buttons[2 + button_offset].actionarray[0]);
-                InitializeAction(cbButton2Action1, json_structure.programs[current_program].lcdknob_buttons[2 + button_offset].actionarray[1]);
-                InitializeAction(cbButton2Action2, json_structure.programs[current_program].lcdknob_buttons[2 + button_offset].actionarray[2]);
-            }
-
-            if ((button_offset + 3) <= LCDKNOBBUTTON_MAX)
-            {
-                InitializeAction(cbButton3Action0, json_structure.programs[current_program].lcdknob_buttons[3 + button_offset].actionarray[0]);
-                InitializeAction(cbButton3Action1, json_structure.programs[current_program].lcdknob_buttons[3 + button_offset].actionarray[1]);
-                InitializeAction(cbButton3Action2, json_structure.programs[current_program].lcdknob_buttons[3 + button_offset].actionarray[2]);
-            }
-
-        }
-        public void InitializeValues()
-        {
-
-            if ((button_offset + 0) <= LCDKNOBBUTTON_MAX)
-            {
-                InitializeValue(cbButton0Action0, cbButton0Value0, json_structure.programs[current_program].lcdknob_buttons[button_offset + 0].valuearray[0]);
-                InitializeValue(cbButton0Action1, cbButton0Value1, json_structure.programs[current_program].lcdknob_buttons[button_offset + 0].valuearray[1]);
-                InitializeValue(cbButton0Action2, cbButton0Value2, json_structure.programs[current_program].lcdknob_buttons[button_offset + 0].valuearray[2]);
-            }
-
-            if ((button_offset + 1) <= LCDKNOBBUTTON_MAX)
-            {
-                InitializeValue(cbButton1Action0, cbButton1Value0, json_structure.programs[current_program].lcdknob_buttons[button_offset + 1].valuearray[0]);
-                InitializeValue(cbButton1Action1, cbButton1Value1, json_structure.programs[current_program].lcdknob_buttons[button_offset + 1].valuearray[1]);
-                InitializeValue(cbButton1Action2, cbButton1Value2, json_structure.programs[current_program].lcdknob_buttons[button_offset + 1].valuearray[2]);
-            }
-
-            if ((button_offset + 2) <= LCDKNOBBUTTON_MAX)
-            {
-                InitializeValue(cbButton2Action0, cbButton2Value0, json_structure.programs[current_program].lcdknob_buttons[button_offset + 2].valuearray[0]);
-                InitializeValue(cbButton2Action1, cbButton2Value1, json_structure.programs[current_program].lcdknob_buttons[button_offset + 2].valuearray[1]);
-                InitializeValue(cbButton2Action2, cbButton2Value2, json_structure.programs[current_program].lcdknob_buttons[button_offset + 2].valuearray[2]);
-            }
-
-            if ((button_offset + 3) <= LCDKNOBBUTTON_MAX)
-            {
-                InitializeValue(cbButton3Action0, cbButton3Value0, json_structure.programs[current_program].lcdknob_buttons[button_offset + 3].valuearray[0]);
-                InitializeValue(cbButton3Action1, cbButton3Value1, json_structure.programs[current_program].lcdknob_buttons[button_offset + 3].valuearray[1]);
-                InitializeValue(cbButton3Action2, cbButton3Value2, json_structure.programs[current_program].lcdknob_buttons[button_offset + 3].valuearray[2]);
-            }
-
-        }
+ 
         public void InitializeAction(System.Windows.Forms.ComboBox cbActionCombo, string action)
         {
             cbActionCombo.Items.Clear();
@@ -266,9 +192,8 @@ namespace LCDKnobButtons
         private void cbCADProgram_SelectedIndexChanged(object sender, EventArgs e)
         {
             current_program = cbCADProgram.SelectedIndex;
-            InitializeText();
-            InitializeActions();
-            InitializeValues();
+            int newButtonNumber = 1;
+            SetButtonParameters(current_program, newButtonNumber);
         }
 
         private void AdjustWidthComboBox_DropDown(object sender, EventArgs e)
@@ -295,305 +220,151 @@ namespace LCDKnobButtons
 
             senderComboBox.DropDownWidth = width;
         }
-
-        private string GetAction(int buttonNumber, int actionIndex)
+        
+        private void SetButtonParameters(int program, int button)
         {
+            SetButtonHighlight(button);
+            activeButtonNumber = button;
 
-            string value = "";
+            tbButtonName.Text = json_document_node["programs"][program]["lcdknob_buttons"][activeButtonNumber]["name"].ToString();
+            tbButtonDescription.Text = json_document_node["programs"][program]["lcdknob_buttons"][activeButtonNumber]["description"].ToString();
 
-            value = json_structure.programs[current_program].lcdknob_buttons[buttonNumber].actionarray[actionIndex];
+            InitializeAction(cbButtonAction0, json_document_node["programs"][program]["lcdknob_buttons"][button]["actionarray"][0].ToString());
+            InitializeAction(cbButtonAction1, json_document_node["programs"][program]["lcdknob_buttons"][button]["actionarray"][1].ToString());
+            InitializeAction(cbButtonAction2, json_document_node["programs"][program]["lcdknob_buttons"][button]["actionarray"][2].ToString());
 
-            return value;
+            InitializeValue(cbButtonAction0, cbButtonValue0, json_document_node["programs"][program]["lcdknob_buttons"][button]["valuearray"][0].ToString());
+            InitializeValue(cbButtonAction1, cbButtonValue1, json_document_node["programs"][program]["lcdknob_buttons"][button]["valuearray"][1].ToString());
+            InitializeValue(cbButtonAction2, cbButtonValue2, json_document_node["programs"][program]["lcdknob_buttons"][button]["valuearray"][2].ToString());
 
         }
 
-        private void SetAction(int buttonNumber, int actionIndex, string value)
+        private void SetButtonHighlight(int button)
         {
+            if (activeButtonNumber != -1)
+            {
+                string buttonName = "btnButton" + activeButtonNumber.ToString("00");
+                System.Windows.Forms.Button btnButton = (System.Windows.Forms.Button)this.Controls.Find(buttonName, true).FirstOrDefault();
+                btnButton.BackColor = SystemColors.Control;
+            }
+            string newButtonName = "btnButton" + button.ToString("00");
+            System.Windows.Forms.Button btnNewButton = (System.Windows.Forms.Button)this.Controls.Find(newButtonName, true).FirstOrDefault();
+            btnNewButton.BackColor = SystemColors.Highlight;
+        }
+        private void btnButtonNN_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Button pButton = sender as System.Windows.Forms.Button;
 
-
-            json_structure.programs[current_program].lcdknob_buttons[buttonNumber].actionarray[actionIndex] = value;
+            int newActiveButton = Int32.Parse(pButton.Name.Substring(9, 2));
+            SetButtonParameters(current_program, newActiveButton);
+        }
+        
+        private void tbButtonName_Leave(object sender, EventArgs e)
+        {
+            json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["name"] = tbButtonName.Text;
             data_changed = true;
-
-
         }
-
-        private void SetValue(int buttonNumber, int valueIndex, string value)
+        private void tbButtonDescription_Leave(object sender, EventArgs e)
         {
-
-
-            json_structure.programs[current_program].lcdknob_buttons[buttonNumber].valuearray[valueIndex] = value;
+            json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["description"] = tbButtonDescription.Text;
             data_changed = true;
-
-
         }
-
-        private void cbButton0Action0_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void cbButtonAction0_SelectedIndexChanged(object sender, EventArgs e)
         {
+            System.Windows.Forms.ComboBox cBox = sender as System.Windows.Forms.ComboBox;
 
-            string value = GetAction(button_offset + 0, 0);
-
-            if (value != cbButton0Action0.SelectedIndex.ToString())
+            if (json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["actionarray"][0].ToString() != cBox.SelectedIndex.ToString())
             {
-                SetAction(button_offset + 0, 0, cbButton0Action0.SelectedIndex.ToString());
-                InitializeValue(cbButton0Action0, cbButton0Value0, "0");
-            }
-        }
-        private void cbButton0Action1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 0, 1);
-
-            if (value != cbButton0Action1.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 0, 1, cbButton0Action1.SelectedIndex.ToString());
-                InitializeValue(cbButton0Action1, cbButton0Value1, "0");
-            }
-        }
-        private void cbButton0Action2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 0, 2);
-
-            if (value != cbButton0Action2.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 0, 2, cbButton0Action2.SelectedIndex.ToString());
-                InitializeValue(cbButton0Action2, cbButton0Value2, "0");
-            }
-        }
-        private void cbButton1Action0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 1, 0);
-
-            if (value != cbButton1Action0.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 1, 0, cbButton1Action0.SelectedIndex.ToString());
-                InitializeValue(cbButton1Action0, cbButton1Value0, "0");
-            }
-        }
-        private void cbButton1Action1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 1, 1);
-
-            if (value != cbButton1Action1.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 1, 1, cbButton1Action1.SelectedIndex.ToString());
-                InitializeValue(cbButton1Action1, cbButton1Value1, "0");
+                json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["actionarray"][0] = cBox.SelectedIndex.ToString();
+                data_changed = true;
+                InitializeValue(cBox, cbButtonValue0, "0");
             }
         }
 
-        private void cbButton1Action2_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbButtonValue0_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string value = GetAction(button_offset + 1, 2);
+            json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["valuearray"][0] = ActionHelpers.GetValue(cbButtonAction0.SelectedIndex, cbButtonValue0.SelectedIndex, 1);
+            data_changed = true;
+        }
 
-            if (value != cbButton1Action2.SelectedIndex.ToString())
+        private void cbButtonAction1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ComboBox cBox = sender as System.Windows.Forms.ComboBox;
+
+            if (json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["actionarray"][1].ToString() != cBox.SelectedIndex.ToString())
             {
-                SetAction(button_offset + 1, 2, cbButton1Action2.SelectedIndex.ToString());
-                InitializeValue(cbButton1Action2, cbButton1Value2, "0");
+                json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["actionarray"][1] = cBox.SelectedIndex.ToString();
+                data_changed = true;
+                InitializeValue(cBox, cbButtonValue1, "0");
             }
         }
 
-        private void cbButton2Action0_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbButtonValue1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string value = GetAction(button_offset + 2, 0);
+            json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["valuearray"][1] = ActionHelpers.GetValue(cbButtonAction1.SelectedIndex, cbButtonValue1.SelectedIndex, 1);
+            data_changed = true;
+        }
 
-            if (value != cbButton2Action0.SelectedIndex.ToString())
+        private void cbButtonAction2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.ComboBox cBox = sender as System.Windows.Forms.ComboBox;
+
+            if (json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["actionarray"][2].ToString() != cBox.SelectedIndex.ToString())
             {
-                SetAction(button_offset + 2, 0, cbButton2Action0.SelectedIndex.ToString());
-                InitializeValue(cbButton2Action0, cbButton2Value0, "0");
+                json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["actionarray"][2] = cBox.SelectedIndex.ToString();
+                data_changed = true;
+                InitializeValue(cBox, cbButtonValue2, "0");
             }
         }
 
-        private void cbButton2Action1_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbButtonValue2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string value = GetAction(button_offset + 2, 1);
+            json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["valuearray"][2] = ActionHelpers.GetValue(cbButtonAction2.SelectedIndex, cbButtonValue2.SelectedIndex, 1);
+            data_changed = true;
+        }
 
-            if (value != cbButton2Action1.SelectedIndex.ToString())
+        private void pbCaptureKeystroke_Click(object sender, EventArgs e)
+        {
+            keyCapture = !keyCapture;
+
+            if (keyCapture)
             {
-                SetAction(button_offset + 2, 1, cbButton2Action1.SelectedIndex.ToString());
-                InitializeValue(cbButton2Action1, cbButton2Value1, "0");
-            }
-        }
-
-        private void cbButton2Action2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 2, 2);
-
-            if (value != cbButton2Action2.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 2, 2, cbButton2Action2.SelectedIndex.ToString());
-                InitializeValue(cbButton2Action2, cbButton2Value2, "0");
-            }
-        }
-
-        private void cbButton3Action0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 3, 0);
-
-            if (value != cbButton3Action0.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 3, 0, cbButton3Action0.SelectedIndex.ToString());
-                InitializeValue(cbButton3Action0, cbButton3Value0, "0");
-            }
-        }
-
-        private void cbButton3Action1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 3, 1);
-
-            if (value != cbButton3Action1.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 3, 1, cbButton3Action1.SelectedIndex.ToString());
-                InitializeValue(cbButton3Action1, cbButton3Value1, "0");
-            }
-        }
-
-        private void cbButton3Action2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string value = GetAction(button_offset + 3, 2);
-
-            if (value != cbButton3Action2.SelectedIndex.ToString())
-            {
-                SetAction(button_offset + 3, 2, cbButton3Action2.SelectedIndex.ToString());
-                InitializeValue(cbButton3Action2, cbButton3Value2, "0");
-            }
-        }
-
-        private void cbButton0Value0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 0, 0, ActionHelpers.GetValue(cbButton0Action0.SelectedIndex, cbButton0Value0.SelectedIndex, 1));
-        }
-
-        private void cbButton0Value1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 0, 1, ActionHelpers.GetValue(cbButton0Action1.SelectedIndex, cbButton0Value1.SelectedIndex, 1));
-        }
-
-        private void cbButton0Value2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 0, 2, ActionHelpers.GetValue(cbButton0Action2.SelectedIndex, cbButton0Value2.SelectedIndex, 1));
-        }
-        private void cbButton1Value0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 1, 0, ActionHelpers.GetValue(cbButton1Action0.SelectedIndex, cbButton1Value0.SelectedIndex, 1));
-        }
-
-        private void cbButton1Value1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 1, 1, ActionHelpers.GetValue(cbButton1Action1.SelectedIndex, cbButton1Value1.SelectedIndex, 1));
-        }
-
-        private void cbButton1Value2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 1, 2, ActionHelpers.GetValue(cbButton1Action2.SelectedIndex, cbButton1Value2.SelectedIndex, 1));
-        }
-
-        private void cbButton2Value0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 2, 0, ActionHelpers.GetValue(cbButton2Action0.SelectedIndex, cbButton2Value0.SelectedIndex, 1));
-        }
-
-        private void cbButton2Value1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 2, 1, ActionHelpers.GetValue(cbButton2Action1.SelectedIndex, cbButton2Value1.SelectedIndex, 1));
-        }
-
-        private void cbButton2Value2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 2, 2, ActionHelpers.GetValue(cbButton2Action2.SelectedIndex, cbButton2Value2.SelectedIndex, 1));
-        }
-
-        private void cbButton3Value0_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 3, 0, ActionHelpers.GetValue(cbButton3Action0.SelectedIndex, cbButton3Value0.SelectedIndex, 1));
-        }
-
-        private void cbButton3Value1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 3, 1, ActionHelpers.GetValue(cbButton3Action1.SelectedIndex, cbButton3Value1.SelectedIndex, 1));
-        }
-
-        private void cbButton3Value2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SetValue(button_offset + 3, 2, ActionHelpers.GetValue(cbButton3Action2.SelectedIndex, cbButton3Value2.SelectedIndex, 1));
-        }
-
-        private void SetLabels(int offset)
-        {
-
-            gbButton0.Text = "LCD Knob " + offset;
-            gbButton1.Text = "LCD Knob " + (offset + 1);
-            gbButton2.Text = "LCD Knob " + (offset + 2);
-            if (offset + 3 <= 6)
-            {
-                gbButton3.Visible = true;
-                gbButton3.Text = "LCD Knob " + (offset + 3);
+                pbCaptureKeystroke.BackColor = SystemColors.Highlight;
             }
             else
             {
-                gbButton3.Visible = false;
+                pbCaptureKeystroke.BackColor = SystemColors.Control;
             }
-
         }
 
-        private void rbButtonSelect_CheckedChanged(object sender, EventArgs e)
+        private void pbCaptureKeystroke_KeyDown(object sender, KeyEventArgs e)
         {
-            RadioButton rb = sender as RadioButton;
+            Keys thisKeyCode = e.KeyCode;
 
-            if (rb == null)
+            if (keyCapture)
             {
-                MessageBox.Show("Sender is not a RadioButton");
-                return;
+                ActionHelpers.ActionsAndValues actionsAndValues = ActionHelpers.GetActionsAndValues(thisKeyCode);
+
+                if (actionsAndValues.action0 != 0)
+                {
+
+                    cbButtonAction0.SelectedIndex = actionsAndValues.action0;
+                    cbButtonValue0.SelectedIndex = actionsAndValues.value0;
+                    json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["actionarray"][0] = cbButtonAction0.SelectedIndex.ToString();
+                    json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["valuearray"][0] = ActionHelpers.GetValue(cbButtonAction0.SelectedIndex, cbButtonValue0.SelectedIndex, 1);
+
+                    cbButtonAction1.SelectedIndex = actionsAndValues.action1;
+                    cbButtonValue1.SelectedIndex = actionsAndValues.value1;
+                    json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["actionarray"][1] = cbButtonAction1.SelectedIndex.ToString();
+                    json_document_node["programs"][current_program]["lcdknob_buttons"][activeButtonNumber]["valuearray"][1] = ActionHelpers.GetValue(cbButtonAction1.SelectedIndex, cbButtonValue1.SelectedIndex, 1);
+
+                    pbCaptureKeystroke.BackColor = SystemColors.Control;
+                    keyCapture = false;
+
+                    data_changed = true;
+                }
             }
-
-
-            if (rbLCDKnob_0to3.Checked)
-            {
-                button_offset = 0;
-                SetLabels(button_offset);
-            }
-            else if (rbLCDKnob_4to6.Checked)
-            {
-                button_offset = 4;
-                SetLabels(button_offset);
-            }
-            InitializeText();
-            InitializeActions();
-            InitializeValues();
         }
-
-
-
-        private void tbButton0Text_Leave(object sender, EventArgs e)
-        {
-
-            json_structure.programs[current_program].lcdknob_buttons[button_offset + 0].description = tbButton0Text.Text;
-            data_changed = true;
-
-
-        }
-
-        private void tbButton1Text_Leave(object sender, EventArgs e)
-        {
-
-            json_structure.programs[current_program].lcdknob_buttons[button_offset + 1].description = tbButton1Text.Text;
-            data_changed = true;
-
-        }
-
-        private void tbButton2Text_Leave(object sender, EventArgs e)
-        {
-
-            json_structure.programs[current_program].lcdknob_buttons[button_offset + 2].description = tbButton2Text.Text;
-            data_changed = true;
-
-        }
-
-        private void tbButton3Text_Leave(object sender, EventArgs e)
-        {
-
-            json_structure.programs[current_program].lcdknob_buttons[button_offset + 3].description = tbButton3Text.Text;
-            data_changed = true;
-
-
-        }
-
     }
 }

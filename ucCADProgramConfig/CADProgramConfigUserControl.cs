@@ -341,6 +341,7 @@ namespace CADProgramConfigUserControl
             activeButtonNumber = button;
 
             tbButtonName.Text = json_document_node["programs"][program]["buttons"][activeButtonNumber]["name"].ToString();
+            tbButtonDescription.Text = json_document_node["programs"][program]["buttons"][activeButtonNumber]["description"].ToString();
 
             InitializeAction(cbButtonAction0, json_document_node["programs"][program]["buttons"][button]["actionarray"][0].ToString());
             InitializeAction(cbButtonAction1, json_document_node["programs"][program]["buttons"][button]["actionarray"][1].ToString());
@@ -374,7 +375,13 @@ namespace CADProgramConfigUserControl
 
         private void tbButtonName_Leave(object sender, EventArgs e)
         {
-            json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["description"] = tbButtonName.Text;
+            json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["name"] = tbButtonName.Text;
+            data_changed = true;
+        }
+
+        private void tbButtonDescription_Leave(object sender, EventArgs e)
+        {
+            json_document_node["programs"][current_program]["buttons"][activeButtonNumber]["description"] = tbButtonDescription.Text;
             data_changed = true;
         }
 

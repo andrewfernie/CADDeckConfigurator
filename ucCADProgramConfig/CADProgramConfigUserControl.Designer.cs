@@ -89,14 +89,17 @@ namespace CADProgramConfigUserControl
             this.cbButtonAction2 = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.tbButtonDescription = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbCADProgram
             // 
             this.cbCADProgram.FormattingEnabled = true;
-            this.cbCADProgram.Location = new System.Drawing.Point(90, 30);
+            this.cbCADProgram.Location = new System.Drawing.Point(93, 25);
             this.cbCADProgram.Name = "cbCADProgram";
             this.cbCADProgram.Size = new System.Drawing.Size(121, 21);
             this.cbCADProgram.TabIndex = 5;
@@ -105,7 +108,7 @@ namespace CADProgramConfigUserControl
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 33);
+            this.label2.Location = new System.Drawing.Point(15, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 13);
             this.label2.TabIndex = 6;
@@ -481,7 +484,7 @@ namespace CADProgramConfigUserControl
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(625, 125);
+            this.label14.Location = new System.Drawing.Point(36, 40);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(35, 13);
             this.label14.TabIndex = 80;
@@ -489,16 +492,16 @@ namespace CADProgramConfigUserControl
             // 
             // tbButtonName
             // 
-            this.tbButtonName.Location = new System.Drawing.Point(698, 120);
+            this.tbButtonName.Location = new System.Drawing.Point(88, 35);
             this.tbButtonName.Multiline = true;
             this.tbButtonName.Name = "tbButtonName";
-            this.tbButtonName.Size = new System.Drawing.Size(97, 21);
+            this.tbButtonName.Size = new System.Drawing.Size(154, 21);
             this.tbButtonName.TabIndex = 79;
             this.tbButtonName.Leave += new System.EventHandler(this.tbButtonName_Leave);
             // 
             // pbCaptureKeystroke
             // 
-            this.pbCaptureKeystroke.Location = new System.Drawing.Point(630, 299);
+            this.pbCaptureKeystroke.Location = new System.Drawing.Point(41, 214);
             this.pbCaptureKeystroke.Name = "pbCaptureKeystroke";
             this.pbCaptureKeystroke.Size = new System.Drawing.Size(201, 41);
             this.pbCaptureKeystroke.TabIndex = 78;
@@ -510,7 +513,7 @@ namespace CADProgramConfigUserControl
             // lButton_2
             // 
             this.lButton_2.AutoSize = true;
-            this.lButton_2.Location = new System.Drawing.Point(611, 269);
+            this.lButton_2.Location = new System.Drawing.Point(22, 184);
             this.lButton_2.Name = "lButton_2";
             this.lButton_2.Size = new System.Drawing.Size(13, 13);
             this.lButton_2.TabIndex = 72;
@@ -519,7 +522,7 @@ namespace CADProgramConfigUserControl
             // lButton_1
             // 
             this.lButton_1.AutoSize = true;
-            this.lButton_1.Location = new System.Drawing.Point(611, 242);
+            this.lButton_1.Location = new System.Drawing.Point(22, 157);
             this.lButton_1.Name = "lButton_1";
             this.lButton_1.Size = new System.Drawing.Size(13, 13);
             this.lButton_1.TabIndex = 73;
@@ -528,7 +531,7 @@ namespace CADProgramConfigUserControl
             // lButton_0
             // 
             this.lButton_0.AutoSize = true;
-            this.lButton_0.Location = new System.Drawing.Point(611, 212);
+            this.lButton_0.Location = new System.Drawing.Point(22, 127);
             this.lButton_0.Name = "lButton_0";
             this.lButton_0.Size = new System.Drawing.Size(13, 13);
             this.lButton_0.TabIndex = 71;
@@ -537,7 +540,7 @@ namespace CADProgramConfigUserControl
             // lButtonValue
             // 
             this.lButtonValue.AutoSize = true;
-            this.lButtonValue.Location = new System.Drawing.Point(761, 196);
+            this.lButtonValue.Location = new System.Drawing.Point(172, 111);
             this.lButtonValue.Name = "lButtonValue";
             this.lButtonValue.Size = new System.Drawing.Size(34, 13);
             this.lButtonValue.TabIndex = 70;
@@ -546,7 +549,7 @@ namespace CADProgramConfigUserControl
             // lButtonAction
             // 
             this.lButtonAction.AutoSize = true;
-            this.lButtonAction.Location = new System.Drawing.Point(653, 196);
+            this.lButtonAction.Location = new System.Drawing.Point(64, 111);
             this.lButtonAction.Name = "lButtonAction";
             this.lButtonAction.Size = new System.Drawing.Size(37, 13);
             this.lButtonAction.TabIndex = 69;
@@ -555,7 +558,7 @@ namespace CADProgramConfigUserControl
             // cbButtonValue0
             // 
             this.cbButtonValue0.FormattingEnabled = true;
-            this.cbButtonValue0.Location = new System.Drawing.Point(738, 212);
+            this.cbButtonValue0.Location = new System.Drawing.Point(149, 127);
             this.cbButtonValue0.Name = "cbButtonValue0";
             this.cbButtonValue0.Size = new System.Drawing.Size(93, 21);
             this.cbButtonValue0.TabIndex = 66;
@@ -564,7 +567,7 @@ namespace CADProgramConfigUserControl
             // cbButtonAction0
             // 
             this.cbButtonAction0.FormattingEnabled = true;
-            this.cbButtonAction0.Location = new System.Drawing.Point(630, 212);
+            this.cbButtonAction0.Location = new System.Drawing.Point(41, 127);
             this.cbButtonAction0.Name = "cbButtonAction0";
             this.cbButtonAction0.Size = new System.Drawing.Size(93, 21);
             this.cbButtonAction0.TabIndex = 63;
@@ -573,7 +576,7 @@ namespace CADProgramConfigUserControl
             // cbButtonValue1
             // 
             this.cbButtonValue1.FormattingEnabled = true;
-            this.cbButtonValue1.Location = new System.Drawing.Point(738, 239);
+            this.cbButtonValue1.Location = new System.Drawing.Point(149, 154);
             this.cbButtonValue1.Name = "cbButtonValue1";
             this.cbButtonValue1.Size = new System.Drawing.Size(93, 21);
             this.cbButtonValue1.TabIndex = 67;
@@ -582,7 +585,7 @@ namespace CADProgramConfigUserControl
             // cbButtonAction1
             // 
             this.cbButtonAction1.FormattingEnabled = true;
-            this.cbButtonAction1.Location = new System.Drawing.Point(630, 239);
+            this.cbButtonAction1.Location = new System.Drawing.Point(41, 154);
             this.cbButtonAction1.Name = "cbButtonAction1";
             this.cbButtonAction1.Size = new System.Drawing.Size(93, 21);
             this.cbButtonAction1.TabIndex = 64;
@@ -591,7 +594,7 @@ namespace CADProgramConfigUserControl
             // cbButtonValue2
             // 
             this.cbButtonValue2.FormattingEnabled = true;
-            this.cbButtonValue2.Location = new System.Drawing.Point(738, 266);
+            this.cbButtonValue2.Location = new System.Drawing.Point(149, 181);
             this.cbButtonValue2.Name = "cbButtonValue2";
             this.cbButtonValue2.Size = new System.Drawing.Size(93, 21);
             this.cbButtonValue2.TabIndex = 68;
@@ -600,7 +603,7 @@ namespace CADProgramConfigUserControl
             // cbButtonAction2
             // 
             this.cbButtonAction2.FormattingEnabled = true;
-            this.cbButtonAction2.Location = new System.Drawing.Point(630, 266);
+            this.cbButtonAction2.Location = new System.Drawing.Point(41, 181);
             this.cbButtonAction2.Name = "cbButtonAction2";
             this.cbButtonAction2.Size = new System.Drawing.Size(93, 21);
             this.cbButtonAction2.TabIndex = 65;
@@ -609,7 +612,7 @@ namespace CADProgramConfigUserControl
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(611, 165);
+            this.label15.Location = new System.Drawing.Point(22, 80);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(60, 13);
             this.label15.TabIndex = 82;
@@ -617,32 +620,53 @@ namespace CADProgramConfigUserControl
             // 
             // tbButtonDescription
             // 
-            this.tbButtonDescription.Location = new System.Drawing.Point(677, 162);
+            this.tbButtonDescription.Location = new System.Drawing.Point(88, 77);
             this.tbButtonDescription.Multiline = true;
             this.tbButtonDescription.Name = "tbButtonDescription";
             this.tbButtonDescription.Size = new System.Drawing.Size(154, 21);
             this.tbButtonDescription.TabIndex = 81;
+            this.tbButtonDescription.Leave += new System.EventHandler(this.tbButtonDescription_Leave);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.tbButtonDescription);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.tbButtonName);
+            this.groupBox1.Controls.Add(this.pbCaptureKeystroke);
+            this.groupBox1.Controls.Add(this.lButton_2);
+            this.groupBox1.Controls.Add(this.lButton_1);
+            this.groupBox1.Controls.Add(this.lButton_0);
+            this.groupBox1.Controls.Add(this.lButtonValue);
+            this.groupBox1.Controls.Add(this.lButtonAction);
+            this.groupBox1.Controls.Add(this.cbButtonValue0);
+            this.groupBox1.Controls.Add(this.cbButtonAction0);
+            this.groupBox1.Controls.Add(this.cbButtonValue1);
+            this.groupBox1.Controls.Add(this.cbButtonAction1);
+            this.groupBox1.Controls.Add(this.cbButtonValue2);
+            this.groupBox1.Controls.Add(this.cbButtonAction2);
+            this.groupBox1.Location = new System.Drawing.Point(592, 120);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(275, 275);
+            this.groupBox1.TabIndex = 83;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Button Definition";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(636, 449);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(162, 13);
+            this.label16.TabIndex = 84;
+            this.label16.Text = "Button 0 not used with LCDKnob";
             // 
             // CADProgramConfigUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.tbButtonDescription);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.tbButtonName);
-            this.Controls.Add(this.pbCaptureKeystroke);
-            this.Controls.Add(this.lButton_2);
-            this.Controls.Add(this.lButton_1);
-            this.Controls.Add(this.lButton_0);
-            this.Controls.Add(this.lButtonValue);
-            this.Controls.Add(this.lButtonAction);
-            this.Controls.Add(this.cbButtonValue0);
-            this.Controls.Add(this.cbButtonAction0);
-            this.Controls.Add(this.cbButtonValue1);
-            this.Controls.Add(this.cbButtonAction1);
-            this.Controls.Add(this.cbButtonValue2);
-            this.Controls.Add(this.cbButtonAction2);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnButton00);
             this.Controls.Add(this.btnButton10);
             this.Controls.Add(this.btnButton09);
@@ -687,9 +711,11 @@ namespace CADProgramConfigUserControl
             this.Controls.Add(this.cbCADProgram);
             this.DoubleBuffered = true;
             this.Name = "CADProgramConfigUserControl";
-            this.Size = new System.Drawing.Size(860, 546);
+            this.Size = new System.Drawing.Size(880, 546);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -754,5 +780,7 @@ namespace CADProgramConfigUserControl
         private System.Windows.Forms.ComboBox cbButtonAction2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox tbButtonDescription;
+        private GroupBox groupBox1;
+        private Label label16;
     }
 }
